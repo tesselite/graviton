@@ -240,7 +240,7 @@
   </nav>
 
   <!-- HERO ENGLISH -->
-  <header class="hero" id="home" data-lang-content="en">
+  <header class="hero section-anchor" id="home-en" data-lang-content="en" data-section="home">
     <video class="hero-video" autoplay muted loop playsinline>
       <source src= "graviton3D(4k)-6_New.mp4" type="video/mp4">
     </video>
@@ -268,7 +268,7 @@
   </header>
 
   <!-- HERO FRENCH-->
-  <header class="hero" id="home" data-lang-content="fr" class="hidden">
+  <header class="hero section-anchor hidden" id="home-fr" data-lang-content="fr" data-section="home">
     <video class="hero-video" autoplay muted loop playsinline>
       <source src= "graviton3D(4k)-6_New.mp4" type="video/mp4">
     </video>
@@ -297,7 +297,7 @@
   </header>
 
   <!-- SOLUTION ENGLISH -->
-  <section id="solution" class="reveal" data-lang-content="en">
+  <section class="reveal section-anchor" id="solution-en" data-lang-content="en" data-section="solution">
     <div class="wrap">
       <h2 class="section-title">Our Solution: the Graviton</h2>
       <p class="section-sub">The Graviton is an unprecedented dynamic configuration — capable of maintaining continuous motion without external input by trapping and converting ambient energy into thrust. It opens a new era for propulsion and energy systems.</p>
@@ -317,7 +317,7 @@
   </section>
 
   <!-- SOLUTION FRENCH-->
-  <section id="solution" class="reveal hidden" data-lang-content="fr"> 
+  <section class="reveal section-anchor hidden" id="solution-fr" data-lang-content="fr" data-section="solution"> 
     <div class="wrap">
       <h2 class="section-title">Notre Solution : le Graviton</h2>
       <p class="section-sub">Le Graviton est une configuration dynamique inédite — capable de maintenir un mouvement continu sans apport externe en piégeant et convertissant l'énergie ambiante en poussée. Il ouvre une ère nouvelle pour la propulsion et les systèmes énergétiques.</p>
@@ -337,7 +337,7 @@
   </section>
 
   <!-- PROGRESS ENGLISH -->
-  <section id="progress" class="reveal" data-lang-content="en">
+  <section class="reveal section-anchor" id="progress-en" data-lang-content="en" data-section="progress">
     <div class="wrap">
       <h2 class="section-title">Progress &amp; Achievements</h2>
       <p class="section-sub">Our key milestones to date to de-risk the technology and accelerate the transition to application.</p>
@@ -364,7 +364,7 @@
   </section>
   
   <!-- PROGRESS FRENCH -->
-  <section id="progress" class="reveal hidden" data-lang-content="fr">
+  <section class="reveal section-anchor hidden" id="progress-fr" data-lang-content="fr" data-section="progress">
     <div class="wrap">
       <h2 class="section-title">Progrès &amp; Réalisations</h2>
       <p class="section-sub">Nos jalons clés à date pour dé-risquer la technologie et accélérer le passage à l'application.</p>
@@ -391,7 +391,7 @@
   </section>
 
   <!-- VIDEOS ENGLISH -->
-  <section id="videos" class="reveal" aria-label="Simulation videos" data-lang-content="en">
+  <section section class="reveal section-anchor" aria-label="Simulation videos" id="videos-en" data-lang-content="en" data-section="videos">
     <div class="wrap">
       <h2 class="section-title">Prototypes</h2>
       <p class="section-sub">A glimpse of our fractal renders, rotation dynamics and prototype demonstrations.</p>
@@ -445,7 +445,7 @@
   </section>
 
   <!-- VIDEOS FRENCH-->
-  <section id="videos" class="reveal hidden" aria-label="Vidéos de simulation" data-lang-content="fr">
+  <section class="reveal section-anchor hidden" aria-label="Vidéos de simulation" id="videos-fr" data-lang-content="fr" data-section="videos">
     <div class="wrap">
       <h2 class="section-title">Prototypes</h2>
       <p class="section-sub">Un aperçu de nos rendus fractals, dynamiques de rotation et démonstrations de prototype.</p>
@@ -499,7 +499,7 @@
   </section>
 
   <!-- TEAM ENGLISH -->
-  <section id="team" class="reveal" data-lang-content="en">
+  <section class="reveal section-anchor" id="team-en" data-lang-content="en" data-section="team">
     <div class="wrap">
       <h2 class="section-title">Our Leaders</h2>
       <div class="team-grid">
@@ -518,7 +518,7 @@
   </section>
 
   <!-- TEAM FRENCH -->
-  <section id="team" class="reveal hidden" data-lang-content="fr">
+  <section class="reveal section-anchor hidden" id="team-fr" data-lang-content="fr" data-section="team">
     <div class="wrap">
       <h2 class="section-title">Nos Leaders</h2>
       <div class="team-grid">
@@ -537,11 +537,10 @@
   </section>
 
   <!-- CONTACT ENGLISH -->
-  <footer id="contact" data-lang-content="en">
+  <footer class="section-anchor" id="contact-en" data-lang-content="en" data-section="contact">
     <section class="wrap reveal" style="padding:3rem 0">
       <h2 class="section-title">Get in touch</h2>
       <p class="section-sub">R&amp;D partnerships, scientific institutions, deep‑tech incubators and strategic investors.</p>
-      
       <div class="grid" style="grid-template-columns:1fr 1fr;gap:2rem">
         <!-- Contact information -->
         <div class="grid" style="gap:1rem">
@@ -597,7 +596,7 @@
   </footer>
 
   <!-- CONTACT FRENCH  -->
-  <footer id="contact" data-lang-content="fr" class="hidden">
+  <footer class="section-anchor hidden" id="contact-fr" data-lang-content="fr" data-section="contact">
     <section class="wrap reveal" style="padding:3rem 0">
       <h2 class="section-title">Entrer en contact</h2>
       <p class="section-sub">Partenariats de R&amp;D, institutions scientifiques, incubateurs deep‑tech et investisseurs stratégiques.</p>
@@ -626,7 +625,7 @@
         <!-- Formulaire de contact -->
         <div class="contact-form">
           <h3 style="margin-bottom:1.5rem">Envoyez-nous un message</h3>
-          <form id="contact-form">
+          <form id="contact-form-fr">
             <div class="form-group">
               <label for="name">Nom *</label>
               <input type="text" id="name" name="name" required />
@@ -780,15 +779,20 @@
     });
 
     // Smooth scroll amélioré pour les liens d'ancre
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+ document.addEventListener('click', function(e) {
+      if (e.target.matches('a[href^="#"]')) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetSection = e.target.getAttribute('href').substring(1);
+        // Trouver la section correspondante dans la langue active
+        const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.hidden)`);
         if (target) {
           // Fermer le menu mobile si ouvert
-          mobileMenu.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.textContent = '☰';
+          document.querySelectorAll('.menu-mobile').forEach(menu => {
+            menu.classList.remove('active');
+            const toggle = menu.closest('nav').querySelector('.menu-toggle');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = '☰';
+          });
           
           // Scroll fluide avec offset pour la nav fixe
           const navHeight = nav.offsetHeight;
@@ -1029,6 +1033,7 @@
   </script>
 </body>
 </html>
+
 
 
 
