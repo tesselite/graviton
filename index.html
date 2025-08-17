@@ -174,18 +174,60 @@
     }
 
      /* Amélioration de l'affichage de la section Contact sur mobile */
-    @media (max-width: 768px) {footer .grid {grid-template-columns: 1fr !important; /* Forcer une seule colonne */}
+    @media (max-width: 768px) {
+      footer .grid {
+        grid-template-columns: 1fr !important; /* Forcer une seule colonne */
+      }
+      footer .card, footer .contact-form {
+        width: 100%;
+      }
+      footer .contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Espacement uniforme entre les champs */
+      }
     }
 
-    /* Réduction du bouton EN/FR pour libérer de la place au menu */
-    @media (max-width: 768px) {.lang-btn {padding: 0.25rem 0.6rem; /* Boutons plus compacts */
+    /* Réduction et centrage du bouton EN/FR pour libérer de la place au menu */
+    @media (max-width: 768px) {
+      .lang-btn {
+        padding: 0.25rem 0.6rem; /* Boutons plus compacts */
         font-size: 0.75rem;
         border-radius: 12px;
       }
-      .lang-toggle-mobile {display: flex;
+      .lang-toggle-mobile {
+        display: flex;
+        justify-content: center; /* Centrer horizontalement */
         gap: 0.3rem; /* Espacement réduit */
+        flex-grow: 1; /* Permet de se placer entre logo et menu */
+      }
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .menu-toggle {
+        font-size: 1.6rem;
+        padding: 0.25rem 0.5rem;
       }
     }
+
+    /* Ergonomie du menu mobile */
+    .menu-mobile a {
+      text-align: center; /* Centrer les liens */
+      font-size: 1rem;
+      padding: 1rem 0;
+    }
+    .menu-mobile.active {
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
     /* DARK MODE SUPPORT */
     @media (prefers-color-scheme: light) {
       /* Variables pour thème clair si nécessaire */
@@ -1086,6 +1128,7 @@
   </script>
 </body>
 </html>
+
 
 
 
