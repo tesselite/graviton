@@ -159,7 +159,6 @@
       .nav-links{display:none}
       .menu-toggle{display:block}
       .video-card{grid-column:span 12}
-      footer.grid {grid-template-columns: 1fr !important;}
       .lang-btn {padding: 0.25rem 0.6rem;font-size: 0.75rem;}
       .lang-toggle{display:none} /* Cacher le toggle fixe en mobile */
       .lang-toggle-mobile{display:block} /* Afficher le toggle mobile */
@@ -175,6 +174,19 @@
       .lang-toggle-mobile{display:block;margin:0} /* Afficher le toggle mobile */
     }
 
+     /* Amélioration de l'affichage de la section Contact sur mobile */
+    @media (max-width: 768px) {footer .grid {grid-template-columns: 1fr !important; /* Forcer une seule colonne */}
+    }
+
+    /* Réduction du bouton EN/FR pour libérer de la place au menu */
+    @media (max-width: 768px) {.lang-btn {padding: 0.25rem 0.6rem; /* Boutons plus compacts */
+        font-size: 0.75rem;
+        border-radius: 12px;
+      }
+      .lang-toggle-mobile {display: flex;
+        gap: 0.3rem; /* Espacement réduit */
+      }
+    }
     /* DARK MODE SUPPORT */
     @media (prefers-color-scheme: light) {
       /* Variables pour thème clair si nécessaire */
@@ -1075,4 +1087,5 @@
   </script>
 </body>
 </html>
+
 
