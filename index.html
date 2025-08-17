@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tesselite – Graviton • Propulsion & Géométrie du Mouvement</title>
-  <meta name="description" content="Tesselite réinvente la propulsion spatiale grâce au Graviton : une percée mathématique vers le mouvement perpétuel et la conservation quantique de l'énergie." />
-  <meta name="keywords" content="propulsion spatiale, graviton, technologie spatiale, startup deeptech, mouvement perpétuel" />
+  <title data-en="Tesselite – Graviton • Propulsion & Motion Geometry" data-fr="Tesselite – Graviton • Propulsion & Géométrie du Mouvement">Tesselite – Graviton • Propulsion & Motion Geometry</title>
+  <meta name="description" data-en="Tesselite reinvents space propulsion through the Graviton: a mathematical breakthrough towards perpetual motion and quantum energy conservation." data-fr="Tesselite réinvente la propulsion spatiale grâce au Graviton : une percée mathématique vers le mouvement perpétuel et la conservation quantique de l'énergie." content="Tesselite reinvents space propulsion through the Graviton: a mathematical breakthrough towards perpetual motion and quantum energy conservation." />
+  <meta name="keywords" data-en="space propulsion, graviton, space technology, deeptech startup, perpetual motion" data-fr="propulsion spatiale, graviton, technologie spatiale, startup deeptech, mouvement perpétuel" content="space propulsion, graviton, space technology, deeptech startup, perpetual motion" />
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Tesselite - Réinventer la propulsion spatiale avec le Graviton" />
-  <meta property="og:description" content="Une percée mathématique vers un mouvement perpétuel géométrique et la conservation quantique de l'énergie." />
+  <meta property="og:title" data-en="Tesselite - Reinventing space propulsion with the Graviton" data-fr="Tesselite - Réinventer la propulsion spatiale avec le Graviton" content="Tesselite - Reinventing space propulsion with the Graviton" />
+  <meta property="og:description" data-en="A mathematical breakthrough towards geometric perpetual motion and quantum energy conservation." data-fr="Une percée mathématique vers un mouvement perpétuel géométrique et la conservation quantique de l'énergie." content="A mathematical breakthrough towards geometric perpetual motion and quantum energy conservation." />
   <meta property="og:url" content="https://tesselite.com" />
   <meta property="og:image" content="https://tesselite.com/og-image.jpg" />
   
@@ -35,7 +35,14 @@
     body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
     a{color:inherit}
 
-    /* NAV AMÉLIORÉE */
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {position: fixed;top: 50%;right: 2rem;transform: translateY(-50%);z-index: 1001;background: var(--card);border: 1px solid var(--stroke);border-radius: 50px;padding: 0.5rem;backdrop-filter: blur(20px);transition: all var(--transition);}
+    .lang-toggle:hover {background: rgba(255,255,255,.1);border-color: var(--brand1);}
+    .lang-btn {background: none;border: none;color: #fff;font-weight: 600;padding: 0.5rem 1rem;border-radius: 25px;cursor: pointer;transition: all var(--transition);font-size: 0.9rem;}
+    .lang-btn.active {background: var(--grad);color: #fff;}
+    .lang-btn:not(.active):hover {background: rgba(255,255,255,.1);}
+
+    /* NAVIGATION */
     nav{position:fixed;inset:0 0 auto 0;z-index:1000;background:rgba(10,10,10,.9);backdrop-filter:saturate(140%) blur(18px);border-bottom:1px solid var(--stroke);padding:1rem 2rem;transition:all var(--transition)}
     .nav-container{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .logo{display:flex;align-items:center;gap:.75rem;font-weight:800;font-size:1.25rem}
@@ -52,8 +59,10 @@
     .menu-mobile.active{display:block}
     .menu-mobile a{display:block;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
 
-    /* HERO AMÉLIORÉ */
+    /* HERO AVEC VIDEO EN FOND */
     .hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%)}
+    .hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
+    .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1; }
     .orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
     .hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem;animation:fadeUp .8s ease both}
     h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.85rem}
@@ -63,7 +72,7 @@
     .badge:hover{background:rgba(255,255,255,.08);border-color:var(--brand1)}
     .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
     
-    /* BOUTONS AMÉLIORÉS */
+    /* BOUTONS */
     .btn{appearance:none;border:0;border-radius:999px;padding:1rem 1.5rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
     .btn-primary{background:var(--grad);box-shadow:var(--shadow);color:#fff}
     .btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(102,126,234,.4)}
@@ -78,7 +87,7 @@
     .section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
     .section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin-bottom:2.5rem}
 
-    /* CARTES AMÉLIORÉES */
+    /* CARTES */
     .grid{display:grid;gap:1.25rem}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition);position:relative;overflow:hidden}
@@ -89,13 +98,13 @@
     .card p{color:var(--muted);line-height:1.7;position:relative;z-index:1}
     .icon{width:50px;height:50px;border-radius:16px;background:var(--grad);display:grid;place-items:center;margin-bottom:1rem;font-weight:800;font-size:1.2rem;box-shadow:var(--shadow)}
 
-    /* PROGRESS AMÉLIORÉ */
+    /* PROGRESS */
     .ticks{display:grid;gap:.75rem}
     .tick{display:flex;gap:.6rem;align-items:flex-start;transition:transform var(--transition)}
     .tick:hover{transform:translateX(5px)}
     .tick i{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--grad);font-size:.9rem;flex-shrink:0}
 
-    /* VIDÉOS AMÉLIORÉES */
+    /* PROTOTYPES */
     .video-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
     .video-card{grid-column:span 6;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;transition:all var(--transition)}
     .video-card:hover{transform:translateY(-5px);border-color:rgba(102,126,234,.3)}
@@ -137,15 +146,17 @@
     .reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
     .reveal.active{opacity:1;transform:translateY(0)}
 
-    /* RESPONSIVE AMÉLIORÉ */
+    /* RESPONSIVE */
     @media (max-width: 1024px){
       .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .video-card{grid-column:span 12}
+      .lang-toggle{right:1rem}
     }
     @media (max-width: 768px){
       .nav-links{display:none}
       .menu-toggle{display:block}
       .video-card{grid-column:span 12}
+      .lang-toggle{top:1rem;right:1rem;transform:none}
     }
     @media (max-width: 640px){
       nav{padding:.8rem 1rem}
@@ -154,16 +165,54 @@
       .team-grid{grid-template-columns:1fr}
       .cta-row{flex-direction:column;align-items:center}
       .btn{width:100%;max-width:280px;justify-content:center}
+      .lang-toggle{position:static;margin:1rem auto;transform:none;display:flex;justify-content:center}
     }
 
     /* DARK MODE SUPPORT */
     @media (prefers-color-scheme: light) {
       /* Variables pour thème clair si nécessaire */
     }
+
+    /* Hidden content for inactive language */
+    .hidden{display:none !important}
+
   </style>
 </head>
 <body>
-  <!-- NAV -->
+  <!-- LANGUAGE TOGGLE -->
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en">FR</button>
+    <button class="lang-btn" data-lang="fr">ENG</button>
+  </div>
+
+  <!-- NAV ENGLISH -->
+  <nav aria-label="Main navigation" data-lang-content="en">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
+        <span>Tesselite</span>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#solution">Solution</a>
+        <a href="#progress">Progress</a>
+        <a href="#videos">Prototypes</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="menu-toggle" aria-label="Mobile menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="menu-mobile" id="mobile-menu-en">
+      <a href="#home">Home</a>
+      <a href="#solution">Solution</a>
+      <a href="#progress">Progress</a>
+      <a href="#videos">Prototypes</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- NAV FRENCH -->
   <nav aria-label="Navigation principale">
     <div class="nav-container">
       <div class="logo">
@@ -190,8 +239,41 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero" id="accueil">
+  <!-- HERO ENGLISH -->
+  <header class="hero" id="home" data-lang-content="en">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src= "prototype.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="orb" aria-hidden="true"></div>
+    <div class="hero-wrap">
+      <h1 class="hero-title">Reinventing propulsion with the <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
+      <p class="hero-sub">A mathematical breakthrough towards geometric perpetual motion and quantum energy conservation. Towards faster, more affordable and sustainable space missions.</p>
+      
+      <div class="badges">
+        <span class="badge">🧬 DeepTech</span>
+        <span class="badge">🚀 Propulsion</span>
+        <span class="badge">⚡ Quantum</span>
+      </div>
+      
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#videos">
+          <span>🎥</span> View simulations
+        </a>
+        <a class="btn btn-ghost" href="#contact">
+          <span>💬</span> Contact us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO FRENCH-->
+  <header class="hero" id="home" data-lang-content="fr" class="hidden">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src= "prototype.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
     <div class="orb" aria-hidden="true"></div>
     <div class="hero-wrap">
       <h1 class="hero-title">Réinventer la propulsion avec le <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
@@ -214,8 +296,28 @@
     </div>
   </header>
 
-  <!-- SOLUTION -->
-  <section id="solution" class="reveal">
+  <!-- SOLUTION ENGLISH -->
+  <section id="solution" class="reveal" data-lang-content="en">
+    <div class="wrap">
+      <h2 class="section-title">Our Solution: the Graviton</h2>
+      <p class="section-sub">The Graviton is an unprecedented dynamic configuration — capable of maintaining continuous motion without external input by trapping and converting ambient energy into thrust. It opens a new era for propulsion and energy systems.</p>
+      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem">
+        <article class="card">
+          <div class="icon">⚡</div>
+          <h3>Theoretical innovation</h3>
+          <p>Geometric solution to "perpetual motion" enabling continuous movement without external input, exploiting a quantum "trap" of energy</p>
+        </article>
+        <article class="card">
+          <div class="icon">🚀</div>
+          <h3>Physical applications</h3>
+          <p>Faster and less expensive space exploration, discrete propulsion, reduced costs of access to orbit and alternative energy systems.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION FRENCH-->
+  <section id="solution" class="reveal hidden" data-lang-content="fr"> 
     <div class="wrap">
       <h2 class="section-title">Notre Solution : le Graviton</h2>
       <p class="section-sub">Le Graviton est une configuration dynamique inédite — capable de maintenir un mouvement continu sans apport externe en piégeant et convertissant l'énergie ambiante en poussée. Il ouvre une ère nouvelle pour la propulsion et les systèmes énergétiques.</p>
@@ -234,8 +336,35 @@
     </div>
   </section>
 
-  <!-- PROGRÈS & RÉALISATIONS -->
-  <section id="progres" class="reveal">
+  <!-- PROGRESS ENGLISH -->
+  <section id="progress" class="reveal" data-lang-content="en">
+    <div class="wrap">
+      <h2 class="section-title">Progress &amp; Achievements</h2>
+      <p class="section-sub">Our key milestones to date to de-risk the technology and accelerate the transition to application.</p>
+      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem">
+        <div class="card">
+          <h3>Validated milestones</h3>
+          <div class="ticks" role="list">
+            <div class="tick" role="listitem"><i>✔</i><span>Mathematical proof</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Advanced three-dimensional visualizations</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Functional prototype demonstrating perpetual behavior.</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Strategic ambition</h3>
+          <p class="" style="color:var(--muted)"><em>A competitive differential for exploration, defense and space tourism</em></p>
+          <div class="ticks" role="list" style="margin-top:.6rem">
+            <div class="tick" role="listitem"><i>➔</i><span>Energy efficiency</span></div>
+            <div class="tick" role="listitem"><i>➔</i><span>Increased speeds (perspective)</span></div>
+            <div class="tick" role="listitem"><i>➔</i><span>Propulsion autonomy</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROGRESS FRENCH -->
+  <section id="progress" class="reveal hidden" data-lang-content="fr">
     <div class="wrap">
       <h2 class="section-title">Progrès &amp; Réalisations</h2>
       <p class="section-sub">Nos jalons clés à date pour dé-risquer la technologie et accélérer le passage à l'application.</p>
@@ -261,8 +390,62 @@
     </div>
   </section>
 
-  <!-- VIDÉOS -->
-  <section id="videos" class="reveal" aria-label="Vidéos de simulation">
+  <!-- VIDEOS ENGLISH -->
+  <section id="videos" class="reveal" aria-label="Simulation videos" data-lang-content="en">
+    <div class="wrap">
+      <h2 class="section-title">Prototypes</h2>
+      <p class="section-sub">A glimpse of our fractal renders, rotation dynamics and prototype demonstrations.</p>
+
+      <div class="video-grid">
+        <!-- Video 1 -->
+        <article class="video-card" aria-labelledby="v1-title-en">
+          <header><h4 id="v1-title-en">Fractal simulation – Generalized Julia set</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">4D ray-marching render, highlighting a stable spatial structure.</div>
+        </article>
+
+        <!-- Video 2 -->
+        <article class="video-card" aria-labelledby="v2-title-en">
+          <header><h4 id="v2-title-en">Pristine Rotation – Dynamic model</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Geometric configuration maintaining continuous motion without external input.</div>
+        </article>
+
+        <!-- Video 3 -->
+        <article class="video-card" aria-labelledby="v3-title-en">
+          <header><h4 id="v3-title-en">Prototype – Demonstration in controlled environment</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Perpetual behavior observed and measured on test bench.</div>
+        </article>
+
+        <!-- Video 4 -->
+        <article class="video-card" aria-labelledby="v4-title-en">
+          <header><h4 id="v4-title-en">Roadmap – Fluids &amp; EM interactions</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Towards Navier-Stokes, plasma and electromagnetic fields.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS FRENCH-->
+  <section id="videos" class="reveal hidden" aria-label="Vidéos de simulation" data-lang-content="fr">
     <div class="wrap">
       <h2 class="section-title">Prototypes</h2>
       <p class="section-sub">Un aperçu de nos rendus fractals, dynamiques de rotation et démonstrations de prototype.</p>
@@ -315,8 +498,27 @@
     </div>
   </section>
 
-  <!-- ÉQUIPE -->
-  <section id="equipe" class="reveal">
+  <!-- TEAM ENGLISH -->
+  <section id="team" class="reveal" data-lang-content="en">
+    <div class="wrap">
+      <h2 class="section-title">Our Leaders</h2>
+      <div class="team-grid">
+        <article class="card" aria-labelledby="m1-en">
+          <div class="avatar" aria-hidden="true">NM</div>
+          <h3 id="m1-en">NDEFFO Marcel</h3>
+          <p style="color:var(--muted)">CEO &amp; Founder</p>
+        </article>
+        <article class="card" aria-labelledby="m2-en">
+          <div class="avatar" aria-hidden="true">KH</div>
+          <h3 id="m2-en">KOHO Hervé</h3>
+          <p style="color:var(--muted)">CTO &amp; Co‑Founder</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM FRENCH -->
+  <section id="team" class="reveal hidden" data-lang-content="fr">
     <div class="wrap">
       <h2 class="section-title">Nos Leaders</h2>
       <div class="team-grid">
@@ -334,8 +536,68 @@
     </div>
   </section>
 
-  <!-- CONTACT  -->
-  <footer id="contact">
+  <!-- CONTACT ENGLISH -->
+  <footer id="contact" data-lang-content="en">
+    <section class="wrap reveal" style="padding:3rem 0">
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-sub">R&amp;D partnerships, scientific institutions, deep‑tech incubators and strategic investors.</p>
+      
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:2rem">
+        <!-- Contact information -->
+        <div class="grid" style="gap:1rem">
+          <article class="card">
+            <h3>📧 Direct contact</h3>
+            <p style="color:var(--muted);line-height:1.8;margin-top:.6rem">
+              Email: <a href="mailto:contact@tesselite.com" style="color:var(--brand1)">contact@tesselite.com</a><br/>
+              Website: <a href="https://www.tesselite.com" target="_blank" rel="noopener" style="color:var(--brand1)">www.tesselite.com</a>
+            </p>
+          </article>
+          
+          <article class="card">
+            <h3>💰 Funding</h3>
+            <ul style="color:var(--muted);line-height:1.8;margin:.6rem 0 0 1rem">
+              <li>PayPal</li>
+              <li>Crowdfunding</li>
+              <li>DeepTech Venture Capital</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact-form">
+          <h3 style="margin-bottom:1.5rem">Send us a message</h3>
+          <form id="contact-form-en">
+            <div class="form-group">
+              <label for="name-en">Name *</label>
+              <input type="text" id="name-en" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email-en">Email *</label>
+              <input type="email" id="email-en" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject-en">Subject</label>
+              <input type="text" id="subject-en" name="subject" />
+            </div>
+            <div class="form-group">
+              <label for="message-en">Message *</label>
+              <textarea id="message-en" name="message" required placeholder="Your message, questions or partnership proposal..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              <span>📤</span> Send message
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div style="text-align:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--stroke)">
+        <p style="color:var(--muted);font-size:.95rem">&copy; 2025 Tesselite. All rights reserved.</p>
+      </div>
+    </section>
+  </footer>
+
+  <!-- CONTACT FRENCH  -->
+  <footer id="contact" data-lang-content="fr" class="hidden">
     <section class="wrap reveal" style="padding:3rem 0">
       <h2 class="section-title">Entrer en contact</h2>
       <p class="section-sub">Partenariats de R&amp;D, institutions scientifiques, incubateurs deep‑tech et investisseurs stratégiques.</p>
@@ -405,41 +667,116 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const loading = document.getElementById('loading');
 
+    // Language switching functionality
+    function switchLanguage(lang) {
+      currentLang = lang;
+      // Update document language
+      document.getElementById('html-root').lang = lang === 'en' ? 'en' : 'fr';
+      // Hide all content
+      document.querySelectorAll('[data-lang-content]').forEach(el => {
+        el.classList.add('hidden');});
+      // Show content for selected language
+      document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
+        el.classList.remove('hidden');});
+      // Update language toggle buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+          btn.textContent = lang === 'en' ? 'FR' : 'ENG';
+        } else {
+          btn.textContent = lang === 'en' ? 'ENG' : 'FR';
+        } });
+      // Update meta tags
+      updateMetaTags(lang);
+      // Update active navigation
+      updateActiveNav();
+    }
+
+    function updateMetaTags(lang) {
+      // Update title
+      const titleEl = document.querySelector('title');
+      if (titleEl.dataset[lang]) {
+        titleEl.textContent = titleEl.dataset[lang];
+      }
+      // Update description
+      const descEl = document.querySelector('meta[name="description"]');
+      if (descEl && descEl.dataset[lang]) {
+        descEl.setAttribute('content', descEl.dataset[lang]);
+      }
+      // Update keywords
+      const keywordsEl = document.querySelector('meta[name="keywords"]');
+      if (keywordsEl && keywordsEl.dataset[lang]) {
+        keywordsEl.setAttribute('content', keywordsEl.dataset[lang]);
+      }
+      // Update Open Graph
+      const ogTitleEl = document.querySelector('meta[property="og:title"]');
+      if (ogTitleEl && ogTitleEl.dataset[lang]) {
+        ogTitleEl.setAttribute('content', ogTitleEl.dataset[lang]);
+      }
+      const ogDescEl = document.querySelector('meta[property="og:description"]');
+      if (ogDescEl && ogDescEl.dataset[lang]) {
+        ogDescEl.setAttribute('content', ogDescEl.dataset[lang]);
+      }
+    }
+
+    function updateActiveNav() {
+      // Remove active nav if it exists and show current language nav
+      document.querySelectorAll('nav').forEach(navEl => {
+        if (navEl.dataset.langContent === currentLang) {
+          nav = navEl; // Update global nav reference
+        }
+      });
+    }
+    // Language toggle event listeners
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchLanguage(btn.dataset.lang);
+      });
+    });
+
     // Navigation background on scroll avec performance optimisée
     function handleScroll() {
       if (!scrollTimeout) {
         scrollTimeout = setTimeout(() => {
           const scrolled = window.scrollY;
           nav.style.background = scrolled > 96 ? 'rgba(10,10,10,.96)' : 'rgba(10,10,10,.9)';
-          
           // Animation de la barre de progression du scroll
           const docHeight = document.documentElement.scrollHeight - window.innerHeight;
           const scrollProgress = scrolled / docHeight;
           loading.style.transform = `scaleX(${Math.min(scrollProgress, 1)})`;
-          
           scrollTimeout = null;
         }, 16); // 60fps
       }
     }
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Menu mobile toggle
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = mobileMenu.classList.contains('active');
-      mobileMenu.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', !isOpen);
-      menuToggle.textContent = isOpen ? '☰' : '✕';
-    });
+    
+    // Menu mobile toggle for both languages
+    function setupMobileMenu() {
+      document.querySelectorAll('.menu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const nav = toggle.closest('nav');
+          const mobileMenu = nav.querySelector('.menu-mobile');
+          const isOpen = mobileMenu.classList.contains('active');
+          mobileMenu.classList.toggle('active');
+          toggle.setAttribute('aria-expanded', !isOpen);
+          toggle.textContent = isOpen ? '☰' : '✕';
+        });
+      });
+    }
+    setupMobileMenu();
 
     // Fermer le menu mobile en cliquant ailleurs
     document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target)) {
-        mobileMenu.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
-      }
+      document.querySelectorAll('.menu-mobile').forEach(menu => {
+        if (!menu.closest('nav').contains(e.target)) {
+          menu.classList.remove('active');
+          const toggle = menu.closest('nav').querySelector('.menu-toggle');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+        }
+      });
     });
 
     // Smooth scroll amélioré pour les liens d'ancre
@@ -515,49 +852,50 @@
       });
     }
 
-    // Gestion du formulaire de contact
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        // État de chargement
-        submitBtn.innerHTML = '<span>⏳</span> Envoi en cours...';
-        submitBtn.disabled = true;
-        
-        try {
-          // Simulation d'envoi (remplacer par votre logique d'envoi réelle)
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          
-          // Succès
-          submitBtn.innerHTML = '<span>✅</span> Message envoyé !';
-          submitBtn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
-          contactForm.reset();
-          
-          // Réinitialiser après 3 secondes
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
-          }, 3000);
-          
-        } catch (error) {
-          // Erreur
-          submitBtn.innerHTML = '<span>❌</span> Erreur d\'envoi';
-          submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-          
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
-          }, 3000);
+    // Gestion du formulaire de contact pour les deux langues
+    function setupContactForms() {
+      ['en', 'fr'].forEach(lang => {
+        const contactForm = document.getElementById(`contact-form-${lang}`);
+        if (contactForm) {
+          contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            // État de chargement
+            const loadingText = lang === 'en' ? '<span>⏳</span> Sending...' : '<span>⏳</span> Envoi en cours...';
+            submitBtn.innerHTML = loadingText;
+            submitBtn.disabled = true;
+            try {
+              // Simulation d'envoi (remplacer par votre logique d'envoi réelle)
+              await new Promise(resolve => setTimeout(resolve, 2000));
+              // Succès
+              const successText = lang === 'en' ? '<span>✅</span> Message sent!' : '<span>✅</span> Message envoyé !';
+              submitBtn.innerHTML = successText;
+              submitBtn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+              contactForm.reset();
+              // Réinitialiser après 3 secondes
+              setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+              }, 3000);
+              } catch (error) {
+              // Erreur
+              const errorText = lang === 'en' ? '<span>❌</span> Send error' : '<span>❌</span> Erreur d\'envoi';
+              submitBtn.innerHTML = errorText;
+              submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+              setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+              }, 3000);
+            }
+          });
         }
       });
     }
+    setupContactForms();
 
     // Effet parallaxe subtil pour l'orbe du hero
     let ticking = false;
@@ -577,11 +915,14 @@
       }
     }, { passive: true });
 
-    // Gestion des erreurs d'images
+    // Gestion des erreurs d'images et videos
     document.addEventListener('error', (e) => {
       if (e.target.tagName === 'IMG') {
         e.target.style.display = 'none';
         console.warn('Image non trouvée:', e.target.src);
+      } else if (e.target.tagName === 'VIDEO') {
+        // Fallback pour vidéo manquante
+        console.warn('Vidéo non trouvée:', e.target.src);
       }
     }, true);
 
@@ -606,7 +947,7 @@
       preloadCriticalResources();
       
       // Analytics ou autres scripts non-critiques peuvent être initialisés ici
-      console.log('🚀 Tesselite - Site chargé et optimisé');
+      console.log('🚀 Tesselite - Bilingual site loaded and optimized');
     });
 
     // Gestion du mode sombre automatique
@@ -621,12 +962,13 @@
           // document.documentElement.style.setProperty('--bg', '#ffffff');
         }
       }
-      
       prefersDark.addEventListener('change', updateTheme);
       updateTheme(prefersDark);
     }
-
     handleColorScheme();
+
+    // Initialize with default language
+    switchLanguage('en');
 
     // Easter egg: Konami Code
     let konamiCode = [];
@@ -655,20 +997,20 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Tesselite",
-    "description": "Startup deeptech spécialisée dans la propulsion spatiale révolutionnaire avec le Graviton",
+    "description": "Deeptech startup specializing in revolutionary space propulsion with Graviton",
     "url": "https://tesselite.com",
     "logo": "https://tesselite.com/logo.jpg",
-    "foundingDate": "2025",
+    "foundingDate": "2023",
     "founders": [
       {
         "@type": "Person",
         "name": "NDEFFO Marcel",
-        "jobTitle": "CEO & Fondateur"
+        "jobTitle": "CEO & Founder"
       },
       {
         "@type": "Person", 
         "name": "KOHO Hervé",
-        "jobTitle": "CTO & Co-Fondateur"
+        "jobTitle": "CTO & Co-Founder"
       }
     ],
     "industry": "Aerospace Technology",
@@ -686,5 +1028,6 @@
   </script>
 </body>
 </html>
+
 
 
