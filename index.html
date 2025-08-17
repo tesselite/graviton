@@ -189,7 +189,7 @@
   <nav aria-label="Main navigation" data-lang-content="en">
     <div class="nav-container">
       <div class="logo">
-        <img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
+        <div style="width:40px;height:40px;background:var(--grad);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;">T</div>
         <span>Tesselite</span>
       </div>
       <div class="nav-links">
@@ -213,37 +213,35 @@
   </nav>
 
   <!-- NAV FRENCH -->
-  <nav aria-label="Navigation principale" data-lang-content="fr" class="hidden">>
+  <nav aria-label="Navigation principale" data-lang-content="fr" class="hidden">
     <div class="nav-container">
       <div class="logo">
         <img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
         <span>Tesselite</span>
       </div>
       <div class="nav-links">
-        <a href="#accueil">Accueil</a>
+        <a href="#home">Accueil</a>
         <a href="#solution">Solution</a>
-        <a href="#progres">Progrès</a>
+        <a href="#progress">Progrès</a>
         <a href="#videos">Prototypes</a>
-        <a href="#equipe">Équipe</a>
+        <a href="#team">Équipe</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="menu-toggle" aria-label="Menu mobile" aria-expanded="false">☰</button>
     </div>
     <div class="menu-mobile" id="mobile-menu-fr">
-      <a href="#accueil">Accueil</a>
+      <a href="#home">Accueil</a>
       <a href="#solution">Solution</a>
-      <a href="#progres">Progrès</a>
+      <a href="#progress">Progrès</a>
       <a href="#videos">Prototypes</a>
-      <a href="#equipe">Équipe</a>
+      <a href="#team">Équipe</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <!-- HERO ENGLISH -->
   <header class="hero section-anchor" id="home-en" data-lang-content="en" data-section="home">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src= "graviton3D(4k)-6_New.mp4" type="video/mp4">
-    </video>
+    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
     <div class="hero-overlay"></div>
     <div class="orb" aria-hidden="true"></div>
     <div class="hero-wrap">
@@ -269,11 +267,8 @@
 
   <!-- HERO FRENCH-->
   <header class="hero section-anchor hidden" id="home-fr" data-lang-content="fr" data-section="home">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src= "graviton3D(4k)-6_New.mp4" type="video/mp4">
-    </video>
+    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
     <div class="hero-overlay"></div>
-
     <div class="orb" aria-hidden="true"></div>
     <div class="hero-wrap">
       <h1 class="hero-title">Réinventer la propulsion avec le <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
@@ -391,7 +386,7 @@
   </section>
 
   <!-- VIDEOS ENGLISH -->
-  <section section class="reveal section-anchor" aria-label="Simulation videos" id="videos-en" data-lang-content="en" data-section="videos">
+  <section class="reveal section-anchor" aria-label="Simulation videos" id="videos-en" data-lang-content="en" data-section="videos">
     <div class="wrap">
       <h2 class="section-title">Prototypes</h2>
       <p class="section-sub">A glimpse of our fractal renders, rotation dynamics and prototype demonstrations.</p>
@@ -452,8 +447,8 @@
 
       <div class="video-grid">
         <!-- Video 1 -->
-        <article class="video-card" aria-labelledby="v1-title">
-          <header><h4 id="v1-title">Simulation fractale – Ensemble de Julia généralisé</h4></header>
+        <article class="video-card" aria-labelledby="v1-title-fr">
+          <header><h4 id="v1-title-fr">Simulation fractale – Ensemble de Julia généralisé</h4></header>
           <div class="player">
             <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
               <div class="play-icon">▶</div>
@@ -463,8 +458,8 @@
         </article>
 
         <!-- Video 2 -->
-        <article class="video-card" aria-labelledby="v2-title">
-          <header><h4 id="v2-title">Pristine Rotation – Modèle dynamique</h4></header>
+        <article class="video-card" aria-labelledby="v2-title-fr">
+          <header><h4 id="v2-title-fr">Pristine Rotation – Modèle dynamique</h4></header>
           <div class="player">
             <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
               <div class="play-icon">▶</div>
@@ -474,8 +469,8 @@
         </article>
 
         <!-- Video 3 -->
-        <article class="video-card" aria-labelledby="v3-title">
-          <header><h4 id="v3-title">Prototype – Démonstration en environnement contrôlé</h4></header>
+        <article class="video-card" aria-labelledby="v3-title-fr">
+          <header><h4 id="v3-title-fr">Prototype – Démonstration en environnement contrôlé</h4></header>
           <div class="player">
             <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
               <div class="play-icon">▶</div>
@@ -485,8 +480,8 @@
         </article>
 
         <!-- Video 4 -->
-        <article class="video-card" aria-labelledby="v4-title">
-          <header><h4 id="v4-title">Feuille de route – Fluides &amp; interactions EM</h4></header>
+        <article class="video-card" aria-labelledby="v4-title-fr">
+          <header><h4 id="v4-title-fr">Feuille de route – Fluides &amp; interactions EM</h4></header>
           <div class="player">
             <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
               <div class="play-icon">▶</div>
@@ -522,14 +517,14 @@
     <div class="wrap">
       <h2 class="section-title">Nos Leaders</h2>
       <div class="team-grid">
-        <article class="card" aria-labelledby="m1">
+        <article class="card" aria-labelledby="m1-fr">
           <div class="avatar" aria-hidden="true">NM</div>
-          <h3 id="m1">NDEFFO Marcel</h3>
+          <h3 id="m1-fr">NDEFFO Marcel</h3>
           <p style="color:var(--muted)">CEO &amp; Fondateur</p>
         </article>
-        <article class="card" aria-labelledby="m2">
+        <article class="card" aria-labelledby="m2-fr">
           <div class="avatar" aria-hidden="true">KH</div>
-          <h3 id="m2">KOHO Hervé</h3>
+          <h3 id="m2-fr">KOHO Hervé</h3>
           <p style="color:var(--muted)">CTO &amp; Co‑Fondateur</p>
         </article>
       </div>
@@ -607,7 +602,7 @@
           <article class="card">
             <h3>📧 Contact direct</h3>
             <p style="color:var(--muted);line-height:1.8;margin-top:.6rem">
-              Email : <a href="mailto:graviton@tesselite.com" style="color:var(--brand1)">graviton@tesselite.com</a><br/>
+              Email : <a href="mailto:contact@tesselite.com" style="color:var(--brand1)">contact@tesselite.com</a><br/>
               Site : <a href="https://www.tesselite.com" target="_blank" rel="noopener" style="color:var(--brand1)">www.tesselite.com</a>
             </p>
           </article>
@@ -627,20 +622,20 @@
           <h3 style="margin-bottom:1.5rem">Envoyez-nous un message</h3>
           <form id="contact-form-fr">
             <div class="form-group">
-              <label for="name">Nom *</label>
-              <input type="text" id="name" name="name" required />
+              <label for="name-fr">Nom *</label>
+              <input type="text" id="name-fr" name="name" required />
             </div>
             <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
+              <label for="email-fr">Email *</label>
+              <input type="email" id="email-fr" name="email" required />
             </div>
             <div class="form-group">
-              <label for="subject">Sujet</label>
-              <input type="text" id="subject" name="subject" />
+              <label for="subject-fr">Sujet</label>
+              <input type="text" id="subject-fr" name="subject" />
             </div>
             <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" required placeholder="Votre message, questions ou proposition de partenariat..."></textarea>
+              <label for="message-fr">Message *</label>
+              <textarea id="message-fr" name="message" required placeholder="Votre message, questions ou proposition de partenariat..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%">
               <span>📤</span> Envoyer le message
@@ -660,10 +655,9 @@
 
   <script>
     // Variables globales
+    let currentLang = 'en'; // Variable manquante ajoutée
     let scrollTimeout;
-    const nav = document.querySelector('nav');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    let nav = document.querySelector('nav');
     const loading = document.getElementById('loading');
 
     // Language switching functionality
@@ -671,12 +665,17 @@
       currentLang = lang;
       // Update document language
       document.getElementById('html-root').lang = lang === 'en' ? 'en' : 'fr';
+      
       // Hide all content
       document.querySelectorAll('[data-lang-content]').forEach(el => {
-        el.classList.add('hidden');});
+        el.classList.add('hidden');
+      });
+      
       // Show content for selected language
       document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
-        el.classList.remove('hidden');});
+        el.classList.remove('hidden');
+      });
+      
       // Update language toggle buttons
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -685,10 +684,13 @@
           btn.textContent = lang === 'en' ? 'FR' : 'ENG';
         } else {
           btn.textContent = lang === 'en' ? 'ENG' : 'FR';
-        } });
+        }
+      });
+      
       // Update meta tags
       updateMetaTags(lang);
-      // Update active navigation
+      
+      // Update active navigation reference
       updateActiveNav();
     }
 
@@ -698,21 +700,25 @@
       if (titleEl.dataset[lang]) {
         titleEl.textContent = titleEl.dataset[lang];
       }
+      
       // Update description
       const descEl = document.querySelector('meta[name="description"]');
       if (descEl && descEl.dataset[lang]) {
         descEl.setAttribute('content', descEl.dataset[lang]);
       }
+      
       // Update keywords
       const keywordsEl = document.querySelector('meta[name="keywords"]');
       if (keywordsEl && keywordsEl.dataset[lang]) {
         keywordsEl.setAttribute('content', keywordsEl.dataset[lang]);
       }
+      
       // Update Open Graph
       const ogTitleEl = document.querySelector('meta[property="og:title"]');
       if (ogTitleEl && ogTitleEl.dataset[lang]) {
         ogTitleEl.setAttribute('content', ogTitleEl.dataset[lang]);
       }
+      
       const ogDescEl = document.querySelector('meta[property="og:description"]');
       if (ogDescEl && ogDescEl.dataset[lang]) {
         ogDescEl.setAttribute('content', ogDescEl.dataset[lang]);
@@ -720,13 +726,10 @@
     }
 
     function updateActiveNav() {
-      // Remove active nav if it exists and show current language nav
-      document.querySelectorAll('nav').forEach(navEl => {
-        if (navEl.dataset.langContent === currentLang) {
-          nav = navEl; // Update global nav reference
-        }
-      });
+      // Update global nav reference to current language nav
+      nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
     }
+
     // Language toggle event listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -739,7 +742,12 @@
       if (!scrollTimeout) {
         scrollTimeout = setTimeout(() => {
           const scrolled = window.scrollY;
-          nav.style.background = scrolled > 96 ? 'rgba(10,10,10,.96)' : 'rgba(10,10,10,.9)';
+          
+          // Update all navigation bars
+          document.querySelectorAll('nav').forEach(navEl => {
+            navEl.style.background = scrolled > 96 ? 'rgba(10,10,10,.96)' : 'rgba(10,10,10,.9)';
+          });
+          
           // Animation de la barre de progression du scroll
           const docHeight = document.documentElement.scrollHeight - window.innerHeight;
           const scrollProgress = scrolled / docHeight;
@@ -758,6 +766,17 @@
           const nav = toggle.closest('nav');
           const mobileMenu = nav.querySelector('.menu-mobile');
           const isOpen = mobileMenu.classList.contains('active');
+          
+          // Close all other mobile menus first
+          document.querySelectorAll('.menu-mobile').forEach(menu => {
+            if (menu !== mobileMenu) {
+              menu.classList.remove('active');
+              const otherToggle = menu.closest('nav').querySelector('.menu-toggle');
+              otherToggle.setAttribute('aria-expanded', 'false');
+              otherToggle.textContent = '☰';
+            }
+          });
+          
           mobileMenu.classList.toggle('active');
           toggle.setAttribute('aria-expanded', !isOpen);
           toggle.textContent = isOpen ? '☰' : '✕';
@@ -779,12 +798,14 @@
     });
 
     // Smooth scroll amélioré pour les liens d'ancre
- document.addEventListener('click', function(e) {
+    document.addEventListener('click', function(e) {
       if (e.target.matches('a[href^="#"]')) {
         e.preventDefault();
         const targetSection = e.target.getAttribute('href').substring(1);
+        
         // Trouver la section correspondante dans la langue active
         const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.hidden)`);
+        
         if (target) {
           // Fermer le menu mobile si ouvert
           document.querySelectorAll('.menu-mobile').forEach(menu => {
@@ -795,7 +816,8 @@
           });
           
           // Scroll fluide avec offset pour la nav fixe
-          const navHeight = nav.offsetHeight;
+          const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+          const navHeight = currentNav ? currentNav.offsetHeight : 80;
           const targetPosition = target.offsetTop - navHeight;
           
           window.scrollTo({
@@ -803,7 +825,7 @@
             behavior: 'smooth'
           });
         }
-      });
+      }
     });
 
     // Animations au scroll (Intersection Observer)
@@ -854,6 +876,11 @@
       video.addEventListener('canplay', () => {
         player.style.opacity = '1';
       });
+      
+      // Gestion des erreurs
+      video.addEventListener('error', () => {
+        player.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);">Vidéo non disponible</div>';
+      });
     }
 
     // Gestion du formulaire de contact pour les deux langues
@@ -866,29 +893,35 @@
             const formData = new FormData(contactForm);
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+            
             // État de chargement
             const loadingText = lang === 'en' ? '<span>⏳</span> Sending...' : '<span>⏳</span> Envoi en cours...';
             submitBtn.innerHTML = loadingText;
             submitBtn.disabled = true;
+            
             try {
               // Simulation d'envoi (remplacer par votre logique d'envoi réelle)
               await new Promise(resolve => setTimeout(resolve, 2000));
+              
               // Succès
               const successText = lang === 'en' ? '<span>✅</span> Message sent!' : '<span>✅</span> Message envoyé !';
               submitBtn.innerHTML = successText;
               submitBtn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
               contactForm.reset();
+              
               // Réinitialiser après 3 secondes
               setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 submitBtn.style.background = '';
               }, 3000);
-              } catch (error) {
+              
+            } catch (error) {
               // Erreur
               const errorText = lang === 'en' ? '<span>❌</span> Send error' : '<span>❌</span> Erreur d\'envoi';
               submitBtn.innerHTML = errorText;
               submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+              
               setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
@@ -905,10 +938,12 @@
     let ticking = false;
     function updateParallax() {
       const scrolled = window.pageYOffset;
-      const orb = document.querySelector('.orb');
-      if (orb && scrolled < window.innerHeight) {
-        orb.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.1}deg)`;
-      }
+      const orbs = document.querySelectorAll('.orb');
+      orbs.forEach(orb => {
+        if (scrolled < window.innerHeight) {
+          orb.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.1}deg)`;
+        }
+      });
       ticking = false;
     }
 
@@ -935,7 +970,6 @@
       const criticalResources = [
         'prototype.mp4',
         'graviton3D(4k)-6_New.mp4'
-        // Ajouter d'autres ressources critiques ici
       ];
       
       criticalResources.forEach(src => {
@@ -950,9 +984,7 @@
     // Performance: Initialisation différée
     window.addEventListener('load', () => {
       preloadCriticalResources();
-      
-      // Analytics ou autres scripts non-critiques peuvent être initialisés ici
-      console.log('🚀 Tesselite - Bilingual site loaded and optimized');
+      console.log('🚀 Tesselite - Site bilingue chargé et optimisé');
     });
 
     // Gestion du mode sombre automatique
@@ -962,11 +994,9 @@
       function updateTheme(e) {
         if (e.matches) {
           document.documentElement.style.setProperty('--bg', '#0a0a0a');
-        } else {
-          // Thème clair si nécessaire
-          // document.documentElement.style.setProperty('--bg', '#ffffff');
         }
       }
+      
       prefersDark.addEventListener('change', updateTheme);
       updateTheme(prefersDark);
     }
@@ -986,7 +1016,6 @@
       }
       
       if (konamiCode.join(',') === konami.join(',')) {
-        // Easter egg activé !
         document.body.style.animation = 'pulse 2s infinite';
         console.log('🎉 Easter egg activé ! Tesselite x Graviton');
         setTimeout(() => {
@@ -1021,9 +1050,8 @@
     "industry": "Aerospace Technology",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+33-X-XX-XX-XX-XX",
       "contactType": "Customer Support",
-      "email": "graviton@tesselite.com"
+      "email": "contact@tesselite.com"
     },
     "sameAs": [
       "https://linkedin.com/company/tesselite",
@@ -1033,10 +1061,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
