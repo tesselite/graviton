@@ -64,6 +64,8 @@
 
     /* HERO AVEC VIDEO EN FOND */
     .hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%)}
+     /* VIDÉO TEASER - NOUVELLE */
+    .hero-teaser-video {position: absolute;top: 15%;left: 50%;transform: translateX(-50%);width: 80%;max-width: 600px;height: auto;border-radius: var(--radius);z-index: 1;opacity: 0.9;box-shadow: 0 25px 50px rgba(102,126,234,.4);border: 2px solid var(--stroke);}
     .hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
     .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1; }
     .orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
@@ -188,28 +190,29 @@
       }
     }
 
-    /* Réduction et centrage du bouton EN/FR pour libérer de la place au menu */
+  /* CORRECTION MOBILE - Déplacer EN/FR à gauche, menu à droite */
     @media (max-width: 768px) {
-      .lang-btn {
-        padding: 0.25rem 0.6rem; /* Boutons plus compacts */
-        font-size: 0.75rem;
-        border-radius: 12px;
+      .nav-container {
+        display: grid;
+        grid-template-columns: 1fr auto auto; /* logo / lang / menu */
+        align-items: center;
+        gap: 0.5rem;
       }
       .lang-toggle-mobile {
         display: flex;
-        justify-content: center; /* Centrer horizontalement */
-        gap: 0.3rem; /* Espacement réduit */
-        flex-grow: 0.5; /* Permet de se placer entre logo et menu */
-      }
-      .nav-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.5rem;
+        justify-content: center;
+        gap: 0.2rem;
+        order: 2; /* Placer après le logo */
       }
       .menu-toggle {
         font-size: 1.6rem;
         padding: 0.25rem 0.5rem;
+        order: 3; /* Placer à la fin */
+      }
+      .lang-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        border-radius: 12px;
       }
     }
 
@@ -236,6 +239,20 @@
     /* Hidden content for inactive language */
     .hidden{display:none !important}
 
+     /* LOGO FALLBACK */
+    .logo-fallback {
+      width: 40px;
+      height: 40px;
+      background: var(--grad);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: white;
+    }
+    
   </style>
 </head>
 <body>
@@ -314,6 +331,12 @@
     <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
     <div class="hero-overlay"></div>
     <div class="orb" aria-hidden="true"></div>
+    <!-- VIDÉO TEASER EN BOUCLE -->
+    <video class="hero-teaser-video" autoplay muted loop playsinline>
+      <source src="prototype.mp4" type="video/mp4">
+      <!-- Fallback avec un placeholder animé -->
+      <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
+    </video>
     <div class="hero-wrap">
       <h1 class="hero-title">Reinventing propulsion with the <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
       <p class="hero-sub">A mathematical breakthrough towards geometric perpetual motion and quantum energy conservation. Towards faster, more affordable and sustainable space missions.</p>
@@ -340,6 +363,12 @@
     <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
     <div class="hero-overlay"></div>
     <div class="orb" aria-hidden="true"></div>
+    <!-- VIDÉO TEASER EN BOUCLE -->
+    <video class="hero-teaser-video" autoplay muted loop playsinline>
+      <source src="prototype.mp4" type="video/mp4">
+      <!-- Fallback avec un placeholder animé -->
+      <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
+    </video>
     <div class="hero-wrap">
       <h1 class="hero-title">Réinventer la propulsion avec le <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
       <p class="hero-sub">Une percée mathématique vers un mouvement perpétuel géométrique et la conservation quantique de l'énergie. Vers des missions spatiales plus rapides, plus abordables et durables.</p>
@@ -746,7 +775,7 @@
         el.classList.remove('hidden');
       });
       
-      // Update language toggle buttons - LOGIQUE INVERSÉE
+      // Update language toggle buttons 
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.lang === lang) {
@@ -967,27 +996,50 @@
             submitBtn.disabled = true;
             
             try {
-              // Simulation d'envoi (remplacer par votre logique d'envoi réelle)
-              await new Promise(resolve => setTimeout(resolve, 2000));
+              // Préparer les données pour l'email
+              const templateParams = {
+                from_name: formData.get('name'),
+                from_email: formData.get('email'),
+                subject: formData.get('subject') || (lang === 'en' ? 'Contact from website' : 'Contact depuis le site web'),
+                message: formData.get('message'),
+                to_email: 'graviton@tesselite.com'
+              };
               
-              // Succès
-              const successText = lang === 'en' ? '<span>✅</span> Message sent!' : '<span>✅</span> Message envoyé !';
-              submitBtn.innerHTML = successText;
-              submitBtn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
-              contactForm.reset();
+              await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
               
-              // Réinitialiser après 3 secondes
-              setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.background = '';
-              }, 3000);
+              if (response.ok) {
+                // Succès
+                const successText = lang === 'en' ? '<span>✅</span> Message sent!' : '<span>✅</span> Message envoyé !';
+                submitBtn.innerHTML = successText;
+                submitBtn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+                contactForm.reset();
+                
+                // Réinitialiser après 3 secondes
+                setTimeout(() => {
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.disabled = false;
+                  submitBtn.style.background = '';
+                }, 3000);
+                
+              } else {
+                throw new Error('Failed to send email');
+              }
               
             } catch (error) {
-              // Erreur
-              const errorText = lang === 'en' ? '<span>❌</span> Send error' : '<span>❌</span> Erreur d\'envoi';
-              submitBtn.innerHTML = errorText;
-              submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+              console.error('Error sending email:', error);
+              
+              // Fallback: mailto link
+              const mailtoLink = `mailto:graviton@tesselite.com?subject=${encodeURIComponent(templateParams.subject)}&body=${encodeURIComponent(
+                `From: ${templateParams.from_name} (${templateParams.from_email})\n\n${templateParams.message}`
+              )}`;
+              
+              // Ouvrir le client email par défaut
+              window.location.href = mailtoLink;
+              
+              // Message d'information
+              const fallbackText = lang === 'en' ? '<span>📧</span> Email client opened' : '<span>📧</span> Client email ouvert';
+              submitBtn.innerHTML = fallbackText;
+              submitBtn.style.background = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
               
               setTimeout(() => {
                 submitBtn.innerHTML = originalText;
@@ -1118,7 +1170,7 @@
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Support",
-      "email": "contact@tesselite.com"
+      "email": "graviton@tesselite.com"
     },
     "sameAs": [
       "https://linkedin.com/company/tesselite",
@@ -1128,6 +1180,7 @@
   </script>
 </body>
 </html>
+
 
 
 
