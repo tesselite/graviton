@@ -741,6 +741,16 @@
   <!-- Loading indicator -->
   <div id="loading" style="position:fixed;top:0;left:0;width:100%;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;z-index:9999"></div>
 
+  <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init({
+      publicKey: "PxE3bwQmi779WfPnh" 
+    });
+  })();
+</script>
+ 
   <script>
     // Variables globales
     let currentLang = 'en'; // Variable manquante ajoutée
@@ -1010,10 +1020,7 @@
                   submitBtn.style.background = '';
                 }, 3000);
                 
-              } else {
-                throw new Error('Failed to send email');
-              }
-              
+                            
             } catch (error) {
               console.error('Error sending email:', error);
               
@@ -1169,6 +1176,7 @@
   </script>
 </body>
 </html>
+
 
 
 
