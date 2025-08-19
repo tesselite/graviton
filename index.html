@@ -127,8 +127,9 @@
     .avatar{width:90px;height:90px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:800;margin-bottom:.8rem;font-size:1.5rem;box-shadow:var(--shadow)}
 
     /* CONTACT FORM */
-    .contact-form{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem}
-    .form-group{margin-bottom:1.5rem}
+    .contact-form{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;box-shadow: var(--shadow);display: flex;flex-direction: column;justify-content: center;width: 100%;}
+    .contact-form h3 {font-size:1.4rem; margin-bottom:1rem; text-align:center;}
+    .contact-form form {width:100%; max-width:500px; margin:0 auto;}
     .form-group label{display:block;margin-bottom:.5rem;font-weight:600}
     .form-group input,
     .form-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:12px;padding:.75rem 1rem;color:#fff;font-family:inherit;transition:all var(--transition)}
@@ -175,6 +176,7 @@
       .lang-toggle-mobile{display:block;margin:0} /* Afficher le toggle mobile */
     }
 
+    
      /* Affichage de la section Contact sur mobile */
     @media (max-width: 768px) {
        #contact-en .grid, #contact-fr .grid {
@@ -221,6 +223,57 @@
       animation: fadeIn 0.3s ease;
     }
 
+     /* Hero video mobile fix */
+    .hero-teaser-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero-fallback {
+      display: none;
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      #contact-en .grid, #contact-fr .grid {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+      }
+      .contact-form, .card {padding:1.2rem;}
+      .contact-form form {max-width:100%;}
+
+      .hero-teaser-video {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        z-index: 1;
+      }
+      .hero-overlay {background: rgba(0,0,0,0.4);} /* légère superposition pour lisibilité */
+      .hero-wrap {padding-top: 320px;} /* espace sous la vidéo */
+
+      /* Fallback image visible si vidéo désactivée */
+      .hero-teaser-video[poster], .hero-fallback {
+        display: block;
+      }
+    }
+
+    /* Feedback visuel */
+    .form-alert {margin-top: 1rem;padding: 0.75rem 1rem;border-radius: 12px;font-size: 0.9rem;}
+    .form-alert.success {background: rgba(34,197,94,.15); color:#4ade80;}
+    .form-alert.error {background: rgba(239,68,68,.15); color:#f87171;}
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -312,8 +365,7 @@
 
   <!-- HERO ENGLISH -->
   <header class="hero section-anchor" id="home-en" data-lang-content="en" data-section="home">
-    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
-    <div class="hero-overlay"></div>
+   <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
     <div class="orb" aria-hidden="true"></div>
     <!-- VIDÉO TEASER EN BOUCLE -->
     <video class="hero-teaser-video" autoplay muted loop playsinline>
@@ -321,6 +373,7 @@
       <!-- Fallback avec un placeholder animé -->
       <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
     </video>
+    <div class="hero-overlay"></div>
     <div class="hero-wrap">
       <h1 class="hero-title">Reinventing propulsion with the <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
       <p class="hero-sub">A mathematical breakthrough towards geometric perpetual motion and quantum energy conservation. Towards faster, more affordable and sustainable space missions.</p>
@@ -1139,6 +1192,7 @@
   </script>
 </body>
 </html>
+
 
 
 
