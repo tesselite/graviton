@@ -163,7 +163,11 @@
       .menu-toggle{display:block}
       .video-card{grid-column:span 12}
       .lang-toggle{display:none} /* Cacher le toggle fixe en mobile */
-      .lang-toggle-mobile{display:block} /* Afficher le toggle mobile */
+      /*.lang-toggle-mobile{display:block} /* Afficher le toggle mobile */
+      .lang-toggle-mobile {display: flex;justify-content: flex-start;margin-left: 0.25rem;gap: 0.2rem;}
+      .lang-btn::before {font-size: 0.4rem;margin-right: 0.10rem;}
+      .lang-btn[data-lang="en"]::before { content: "🇬🇧"; }
+      .lang-btn[data-lang="fr"]::before { content: "🇫🇷"; }
     }
     @media (max-width: 640px){
       nav{padding:.8rem 1rem}
@@ -173,11 +177,7 @@
       .cta-row{flex-direction:column;align-items:center}
       .btn{width:100%;max-width:280px;justify-content:center}
       .lang-toggle{display:none} /* Garder caché en mobile */
-      /*.lang-toggle-mobile{display:block;margin:0} /* Afficher le toggle mobile */
-      .lang-toggle-mobile {display: flex;justify-content: flex-start;margin-left: 0.5rem;gap: 0.4rem;}
-      .lang-btn::before {font-size: 0.8rem;margin-right: 0.25rem;}
-      .lang-btn[data-lang="en"]::before { content: "🇬🇧"; }
-      .lang-btn[data-lang="fr"]::before { content: "🇫🇷"; }
+      .lang-toggle-mobile{display:block;margin:0} /* Afficher le toggle mobile */
     }
 
     
@@ -1156,6 +1156,7 @@
   </script>
 </body>
 </html>
+
 
 
 
