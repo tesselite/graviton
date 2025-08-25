@@ -101,6 +101,34 @@
       .cta-buttons{flex-direction:column;align-items:center}
       .highlights-grid{grid-template-columns:1fr}
     }
+
+  /* Sauvegarde de la langue choisie dans localStorage */
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      localStorage.setItem("preferredLang", btn.dataset.lang);
+    });
+
+  /* Applique la langue préférée si dispo */
+  const preferredLang = localStorage.getItem("preferredLang") || "en";
+  document.body.classList.add("lang-" + preferredLang);
+
+  /* Gestion basique du contenu selon la langue */
+  function applyLang(lang) {
+    // sur la page investisseurs
+    if (document.title.includes("Investors")) {
+      if (lang === "fr") {
+        document.title = "Investisseurs - Levée de fonds Série A";
+        const heroTitle = document.querySelector(".investor-title");
+        if(heroTitle) heroTitle.textContent = "Opportunité d’investissement Série A";
+        const subtitle = document.querySelector(".investor-subtitle");
+        if(subtitle) subtitle.textContent = "Rejoignez-nous pour révolutionner la propulsion spatiale avec le moteur Graviton";
+      } else {
+        document.title = "Investors - Tesselite Series A Fundraising";
+      }
+    }
+  }
+  applyLang(preferredLang);
+    
   </style>
 </head>
 <body>
