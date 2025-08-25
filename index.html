@@ -225,6 +225,16 @@
       .problem-card, .solution-card{padding:1.5rem}
     }
 
+	 /* Sauvegarde de la langue choisie dans localStorage */
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      localStorage.setItem("preferredLang", btn.dataset.lang);
+    });
+
+  /* Applique la langue préférée si dispo */
+  const preferredLang = localStorage.getItem("preferredLang") || "en";
+  document.body.classList.add("lang-" + preferredLang);
+	  
     /* Hidden content for inactive language */
     .hidden{display:none !important}
   </style>
@@ -1453,3 +1463,4 @@
   </script>
 </body>
 </html>
+
