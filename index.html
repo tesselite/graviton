@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Investors - Tesselite Series A Fundraising</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-en="Tesselite — Graviton • Revolutionizing Space Propulsion" data-fr="Tesselite — Graviton • Révolutionner la Propulsion Spatiale">Tesselite — Graviton • Revolutionizing Space Propulsion</title>
+  <meta name="description" data-en="Tesselite develops the Graviton Engine, a revolutionary technology that frees space propulsion from current constraints to open the era of accessible space transport." data-fr="Tesselite développe le Moteur-Graviton, une technologie révolutionnaire qui libère la propulsion spatiale des contraintes actuelles pour ouvrir l'ère du transport spatial accessible." content="Tesselite develops the Graviton Engine, a revolutionary technology that frees space propulsion from current constraints to open the era of accessible space transport." />
+  <meta name="keywords" data-en="space propulsion, graviton, deep tech, space startup, innovation" data-fr="propulsion spatiale, graviton, deep tech, startup spatiale, innovation" content="space propulsion, graviton, deep tech, space startup, innovation" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" data-en="Tesselite - Revolutionizing space propulsion with the Graviton" data-fr="Tesselite - Révolutionner la propulsion spatiale avec le Graviton" content="Tesselite - Revolutionizing space propulsion with the Graviton" />
+  <meta property="og:description" data-en="A technological breakthrough towards 10x more efficient and 90% less expensive space transport." data-fr="Une percée technologique vers un transport spatial 10x plus efficace et 90% moins cher." content="A technological breakthrough towards 10x more efficient and 90% less expensive space transport." />
+  <meta property="og:url" content="https://tesselite.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  
   <style>
     :root{
       --bg:#0a0a0a;--muted:#a0a0a0;--card:rgba(255,255,255,.05);
@@ -16,433 +31,1425 @@
       --maxw:1200px;--transition:.25s ease;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;padding:2rem 1rem}
+    html{scroll-behavior:smooth}
+    html,body{height:100%}
+    body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+    a{color:inherit}
+
+    /* NAVIGATION */
+    nav{position:fixed;inset:0 0 auto 0;z-index:1000;background:rgba(10,10,10,.9);backdrop-filter:saturate(140%) blur(18px);border-bottom:1px solid var(--stroke);padding:1rem 2rem;transition:all var(--transition)}
+    .nav-container{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem}
     
-    .wrap{max-width:var(--maxw);margin:0 auto}
-    .hero-investor{text-align:center;margin-bottom:4rem;padding:3rem 0;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);border-radius:var(--radius)}
-    .investor-title{font-size:3rem;margin-bottom:1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .investor-subtitle{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 2rem}
-    .funding-amount{font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:0.5rem}
-    .funding-use{color:var(--muted);font-size:1rem}
+    .logo{display:flex;align-items:center;gap:.75rem;font-weight:800;font-size:1.25rem;justify-self:start;text-decoration:none}
+    .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
     
-    /* Investment Highlights */
-    .highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:4rem}
-    .highlight-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;text-align:center;transition:all var(--transition)}
-    .highlight-card:hover{transform:translateY(-5px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
-    .highlight-icon{font-size:2.5rem;margin-bottom:1rem}
-    .highlight-metric{font-size:2rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.5rem}
-    .highlight-label{color:var(--muted);font-size:0.9rem}
+    .lang-toggle-nav {justify-self:center;background:var(--card);border:1px solid var(--stroke);border-radius:50px;padding:0.4rem;backdrop-filter:blur(20px);transition:all var(--transition);display:flex;}
+    .lang-toggle-nav:hover {background:rgba(255,255,255,.1);border-color:var(--brand1);}
+    .lang-btn {background:none;border:none;color:#fff;font-weight:600;padding:0.4rem 0.8rem;border-radius:25px;cursor:pointer;transition:all var(--transition);font-size:0.85rem;}
+    .lang-btn.active {background:var(--grad);color:#fff;}
+    .lang-btn:not(.active):hover {background:rgba(255,255,255,.1);}
     
-    /* Business Model */
-    .business-section{margin-bottom:4rem}
-    .section-title{font-size:2.2rem;margin-bottom:1rem;text-align:center;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .section-description{color:var(--muted);max-width:800px;margin:0 auto 2rem;text-align:center;line-height:1.6}
+    .nav-right{display:flex;align-items:center;gap:1rem;justify-self:end}
+    .nav-links{display:flex;gap:1.25rem}
+    .nav-links a{position:relative;text-decoration:none;font-weight:600;transition:color var(--transition)}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:width var(--transition)}
+    .nav-links a:hover{color:var(--brand1)}
+    .nav-links a:hover::after{width:100%}
+
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
+    .menu-mobile{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--stroke);padding:1rem 2rem}
+    .menu-mobile.active{display:block}
+    .menu-mobile a{display:block;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;font-size:1rem}
+
+    /* HERO */
+    .hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);padding-top:80px}
+    .hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
+    .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1; }
+    .orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
+    .hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem;animation:fadeUp .8s ease both}
+    h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 auto 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.85rem}
+    .hero-sub{color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.7;margin:0 auto 1.5rem}
+    .badges{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.6rem}
+    .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.04);padding:.5rem .75rem;border-radius:999px;font-size:.9rem;transition:all var(--transition)}
+    .badge:hover{background:rgba(255,255,255,.08);border-color:var(--brand1)}
+    .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+
+    /* HERO STATS */
+    .hero-stats {display:flex;justify-content:center;gap:3rem;margin:2rem 0;flex-wrap:wrap}
+    .stat {text-align:center}
+    .stat-number {font-size:2.5rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .stat-label {font-size:0.9rem;opacity:0.8;margin-top:0.5rem}
     
-    .business-model-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-    .model-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem}
-    .model-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-    .model-icon{width:50px;height:50px;background:var(--grad-primary);border-radius:12px;display:grid;place-items:center;font-size:1.2rem}
-    .model-title{font-size:1.3rem;font-weight:700}
-    .model-revenue{color:var(--accent);font-size:1.1rem;font-weight:600;margin-bottom:1rem}
-    .model-description{color:var(--muted);line-height:1.6}
-    
-    /* Market Analysis */
-    .market-analysis{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2.5rem;margin-bottom:4rem}
-    .market-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
-    .market-stat{text-align:center}
-    .market-number{font-size:2.5rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .market-label{color:var(--muted);font-size:0.9rem;margin-top:0.5rem}
-    
-    /* Competitive Advantage */
-    .competitive-advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:4rem}
-    .advantage-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem}
-    .advantage-title{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent)}
-    .advantage-description{color:var(--muted);font-size:0.9rem;line-height:1.5}
-    
-    /* Financial Projections */
-    .financial-projections{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2.5rem;margin-bottom:4rem}
-    .projection-table{width:100%;margin-top:1.5rem;border-collapse:collapse}
-    .projection-table th,
-    .projection-table td{padding:1rem;text-align:center;border-bottom:1px solid var(--stroke)}
-    .projection-table th{background:rgba(102,126,234,.1);font-weight:600}
-    .projection-table .revenue{color:var(--accent);font-weight:600}
-    
-    /* Use of Funds */
-    .use-of-funds{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:4rem;align-items:center}
-    .funds-breakdown{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem}
-    .fund-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--stroke)}
-    .fund-item:last-child{border-bottom:none}
-    .fund-category{font-weight:600}
-    .fund-amount{color:var(--accent);font-weight:600}
-    .fund-percentage{color:var(--muted);font-size:0.9rem;margin-left:1rem}
-    
-    /* Investment CTA */
-    .investment-cta{background:linear-gradient(135deg,rgba(102,126,234,.1),rgba(118,75,162,.1));border:1px solid rgba(102,126,234,.3);border-radius:var(--radius);padding:3rem;text-align:center;margin-bottom:4rem}
-    .cta-title{font-size:2rem;margin-bottom:1rem}
-    .cta-description{color:var(--muted);max-width:600px;margin:0 auto 2rem;line-height:1.6}
-    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-    .btn{appearance:none;border:0;border-radius:999px;padding:1rem 2rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
+    /* BOUTONS */
+    .btn{appearance:none;border:0;border-radius:999px;padding:1rem 1.5rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
     .btn-primary{background:var(--grad-primary);box-shadow:var(--shadow);color:#fff}
     .btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(0,102,255,.4)}
-    .btn-secondary{background:transparent;border:1px solid var(--stroke);color:#fff}
-    .btn-secondary:hover{background:rgba(255,255,255,.05);border-color:var(--brand1);transform:translateY(-2px)}
-    
-    /* Documents Section */
-    .documents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
-    .document-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition);cursor:pointer}
-    .document-card:hover{transform:translateY(-3px);border-color:rgba(102,126,234,.4)}
-    .document-icon{font-size:2rem;margin-bottom:1rem}
-    .document-title{font-size:1.1rem;margin-bottom:0.5rem}
-    .document-description{color:var(--muted);font-size:0.9rem;line-height:1.5}
-    
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+    .btn-primary:hover::before{left:100%}
+    .btn-ghost{background:transparent;border:1px solid var(--stroke);color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--brand1);transform:translateY(-2px)}
+
+    /* SECTIONS */
+    section{padding:6.5rem 1.25rem}
+    .wrap{max-width:var(--maxw);margin-inline:auto}
+    .section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin-bottom:2.5rem}
+
+    /* CARTES */
+    .grid{display:grid;gap:1.25rem}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition);position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(102,126,234,.05),transparent 50%);opacity:0;transition:opacity var(--transition)}
+    .card:hover{transform:translateY(-8px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
+    .card:hover::before{opacity:1}
+    .card h3{font-size:1.2rem;margin-bottom:.5rem;position:relative;z-index:1}
+    .card p{color:var(--muted);line-height:1.7;position:relative;z-index:1}
+    .icon{width:50px;height:50px;border-radius:16px;background:var(--grad-primary);display:grid;place-items:center;margin-bottom:1rem;font-weight:800;font-size:1.2rem;box-shadow:var(--shadow)}
+
+    /* PROBLEM/SOLUTION SECTION */
+    .problem-solution {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .problem-card, .solution-card {padding:2.5rem;border-radius:var(--radius);position:relative}
+    .problem-card {background:linear-gradient(135deg, #ff6b6b20, #ff8e8e20);border:1px solid #ff6b6b30}
+    .solution-card {background:linear-gradient(135deg, var(--primary)20, var(--accent)20);border:1px solid var(--primary)30}
+    .card-icon {width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem}
+    .problem-card .card-icon {background:linear-gradient(135deg, #ff6b6b, #ff8e8e)}
+    .solution-card .card-icon {background:var(--grad-primary)}
+    .card-title {font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+    .card-description {color:var(--muted);margin-bottom:1.5rem}
+
+    /* BENEFITS LIST */
+    .benefits {list-style:none}
+    .benefits li {display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;color:var(--muted)}
+    .benefits li::before {content:'✓';background:var(--grad-primary);color:white;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:bold}
+
+    /* PROGRESS */
+    .ticks{display:grid;gap:.75rem}
+    .tick{display:flex;gap:.6rem;align-items:flex-start;transition:transform var(--transition)}
+    .tick:hover{transform:translateX(5px)}
+    .tick i{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--grad-primary);font-size:.9rem;flex-shrink:0}
+
+    /* APPLICATIONS */
+    .app-card {background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;text-align:center;transition:all var(--transition)}
+    .app-card:hover {transform:translateY(-8px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
+    .app-icon {font-size:3rem;margin-bottom:1rem}
+
+    /* VIDEOS */
+    .video-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .video-card{grid-column:span 6;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;transition:all var(--transition)}
+    .video-card:hover{transform:translateY(-5px);border-color:rgba(102,126,234,.3)}
+    .video-card header{padding:1rem 1.25rem;border-bottom:1px solid var(--stroke)}
+    .video-card h4{font-size:1.05rem}
+    .video-card .player{position:relative;aspect-ratio:16/9;background:#000}
+    video{display:block;width:100%;height:100%;object-fit:cover}
+    .video-placeholder{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,rgba(102,126,234,.1),rgba(118,75,162,.1));color:#fff;cursor:pointer;transition:all var(--transition)}
+    .video-placeholder:hover{background:linear-gradient(135deg,rgba(102,126,234,.2),rgba(118,75,162,.2))}
+    .play-icon{width:60px;height:60px;background:rgba(255,255,255,.1);border-radius:50%;display:grid;place-items:center;font-size:1.5rem;backdrop-filter:blur(10px)}
+    .video-meta{padding:.8rem 1.25rem;color:var(--muted);font-size:.95rem;border-top:1px solid var(--stroke)}
+
+    /* TEAM */
+    .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+    .avatar{width:100px;height:100px;border-radius:50%;background:var(--grad-primary);display:grid;place-items:center;font-weight:800;margin:0 auto 1rem;font-size:1.5rem;box-shadow:var(--shadow)}
+
+    /* CONTACT */
+    .contact-section {background:var(--bg);padding:6rem 1.25rem}
+    .contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .contact-info h3 {margin-bottom:1rem;font-size:1.5rem}
+    .contact-info p {margin-bottom:2rem;opacity:0.9}
+    .contact-methods {display:grid;gap:1rem}
+    .contact-method {display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);transition:all var(--transition)}
+    .contact-method:hover {background:rgba(255,255,255,.08);border-color:var(--brand1)}
+
+    /* CONTACT FORM */
+    .contact-form{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;box-shadow: var(--shadow)}
+    .contact-form h3 {font-size:1.4rem; margin-bottom:1.5rem}
+    .form-group {margin-bottom:1.5rem}
+    .form-group label{display:block;margin-bottom:.5rem;font-weight:600}
+    .form-group input,
+    .form-group textarea,
+    .form-group select{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:12px;padding:.75rem 1rem;color:#fff;font-family:inherit;transition:all var(--transition)}
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus{outline:none;border-color:var(--brand1);background:rgba(255,255,255,.08)}
+    .form-group textarea{resize:vertical;min-height:120px}
+    .form-group input::placeholder,
+    .form-group textarea::placeholder{color:rgba(255,255,255,.6)}
+    .form-group select option{background:var(--bg);color:#fff}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--stroke);background:rgba(0,0,0,.45);padding:2rem 1.25rem;text-align:center}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    /* SCROLL ANIMATIONS */
+    .reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+    .reveal.active{opacity:1;transform:translateY(0)}
+
+    /* FORM ALERTS */
+    .form-alert {margin-top: 1rem;padding: 0.75rem 1rem;border-radius: 12px;font-size: 0.9rem;display:none}
+    .form-alert.success {background: rgba(34,197,94,.15); color:#4ade80;}
+    .form-alert.error {background: rgba(239,68,68,.15); color:#f87171;}
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px){
+      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .video-card{grid-column:span 12}
+      .problem-solution{grid-template-columns:1fr;gap:2rem}
+    }
     @media (max-width: 768px){
-      .investor-title{font-size:2.2rem}
-      .use-of-funds{grid-template-columns:1fr}
-      .cta-buttons{flex-direction:column;align-items:center}
-      .highlights-grid{grid-template-columns:1fr}
+      .nav-container{grid-template-columns:1fr auto;gap:1rem}
+      .nav-links{display:none}
+      .menu-toggle{display:block}
+      .lang-toggle-nav{order:1;margin-right:1rem}
+      .nav-right{order:2}
+      .video-card{grid-column:span 12}
+      .lang-btn{padding:0.3rem 0.6rem;font-size:0.8rem}
+      .contact-grid {grid-template-columns:1fr;gap:2rem}
+      .hero-stats {gap:2rem}
+    }
+    @media (max-width: 640px){
+      nav{padding:.8rem 1rem}
+      section{padding:4rem 1rem}
+      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+      .team-grid{grid-template-columns:1fr}
+      .cta-row{flex-direction:column;align-items:center}
+      .btn{width:100%;max-width:280px;justify-content:center}
+      .nav-container{grid-template-columns:1fr auto auto;align-items:center}
+      .logo{font-size:1.1rem}
+      .lang-toggle-nav{margin-right:0.5rem}
+      .problem-solution{gap:1.5rem}
+      .problem-card, .solution-card{padding:1.5rem}
     }
 
-    /* Sauvegarde de la langue choisie dans localStorage */
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        localStorage.setItem("preferredLang", btn.dataset.lang);
-    });
-
-    /* Applique la langue préférée si dispo */
-    const preferredLang = localStorage.getItem("preferredLang") || "en";
-    document.body.classList.add("lang-" + preferredLang);
-    
+    /* Hidden content for inactive language */
+    .hidden{display:none !important}
   </style>
 </head>
-
-  <body>
-  <div class="wrap">
-    <!-- Hero Section -->
-    <div class="hero-investor">
-      <h1 class="investor-title">Series A Investment Opportunity</h1>
-      <p class="investor-subtitle">
-        Join us in revolutionizing space propulsion with breakthrough Graviton Engine technology
-      </p>
-      <div class="funding-amount">€5M Series A</div>
-      <div class="funding-use">To scale technology and enter commercial markets</div>
-    </div>
-    
-    <!-- Investment Highlights -->
-    <div class="highlights-grid">
-      <div class="highlight-card">
-        <div class="highlight-icon">🚀</div>
-        <div class="highlight-metric">90%</div>
-        <div class="highlight-label">Cost Reduction vs Traditional Propulsion</div>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">⚡</div>
-        <div class="highlight-metric">10x</div>
-        <div class="highlight-label">Energy Efficiency Improvement</div>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🌍</div>
-        <div class="highlight-metric">€400B+</div>
-        <div class="highlight-label">Addressable Market Size (TAM)</div>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🎯</div>
-        <div class="highlight-metric">3</div>
-        <div class="highlight-label">Patents Filed & Pending</div>
-      </div>
-    </div>
-    
-    <!-- Market Analysis -->
-    <div class="business-section">
-      <h2 class="section-title">Market Opportunity</h2>
-      <p class="section-description">
-        The global space economy is projected to exceed €1 trillion by 2040, driven by satellite deployment, 
-        space tourism, and interplanetary missions. Current propulsion limitations create massive bottlenecks.
-      </p>
-      <div class="market-analysis">
-        <div class="market-stats">
-          <div class="market-stat">
-            <div class="market-number">€400B</div>
-            <div class="market-label">Total Addressable Market</div>
-          </div>
-          <div class="market-stat">
-            <div class="market-number">€120B</div>
-            <div class="market-label">Serviceable Addressable Market</div>
-          </div>
-          <div class="market-stat">
-            <div class="market-number">25%</div>
-            <div class="market-label">Annual Market Growth (CAGR)</div>
-          </div>
-          <div class="market-stat">
-            <div class="market-number">€15B</div>
-            <div class="market-label">Target Market Capture by 2030</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Business Models -->
-    <div class="business-section">
-      <h2 class="section-title">Revenue Streams</h2>
-      <div class="business-model-grid">
-        <div class="model-card">
-          <div class="model-header">
-            <div class="model-icon">🛰️</div>
-            <div class="model-title">Licensing Technology</div>
-          </div>
-          <div class="model-revenue">40% of projected revenue</div>
-          <p class="model-description">
-            License Graviton Engine technology to satellite manufacturers and space agencies. 
-            Recurring royalties on each unit produced.
-          </p>
-        </div>
-        <div class="model-card">
-          <div class="model-header">
-            <div class="model-icon">🔧</div>
-            <div class="model-title">Manufacturing & Sales</div>
-          </div>
-          <div class="model-revenue">35% of projected revenue</div>
-          <p class="model-description">
-            Direct manufacturing and sales of Graviton propulsion systems to commercial 
-            and government customers.
-          </p>
-        </div>
-        <div class="model-card">
-          <div class="model-header">
-            <div class="model-icon">🛠️</div>
-            <div class="model-title">Services & Support</div>
-          </div>
-          <div class="model-revenue">25% of projected revenue</div>
-          <p class="model-description">
-            Maintenance, upgrades, and technical support services for deployed 
-            Graviton systems worldwide.
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Competitive Advantages -->
-    <div class="business-section">
-      <h2 class="section-title">Competitive Advantages</h2>
-      <div class="competitive-advantages">
-        <div class="advantage-card">
-          <div class="advantage-title">Patent Protection</div>
-          <p class="advantage-description">
-            Strong IP portfolio with 3 filed patents covering core Graviton technology, 
-            creating significant barriers to entry.
-          </p>
-        </div>
-        <div class="advantage-card">
-          <div class="advantage-title">First-Mover Advantage</div>
-          <p class="advantage-description">
-            First commercially viable geometric perpetual motion solution for space propulsion, 
-            5+ years ahead of potential competitors.
-          </p>
-        </div>
-        <div class="advantage-card">
-          <div class="advantage-title">Proven Technology</div>
-          <p class="advantage-description">
-            Working prototypes demonstrating perpetual behavior in controlled environments, 
-            validated by independent testing laboratories.
-          </p>
-        </div>
-        <div class="advantage-card">
-          <div class="advantage-title">Strategic Partnerships</div>
-          <p class="advantage-description">
-            Established relationships with ESA, CNRS, and major aerospace manufacturers 
-            for development and commercialization.
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Financial Projections -->
-    <div class="business-section">
-      <h2 class="section-title">Financial Projections</h2>
-      <div class="financial-projections">
-        <table class="projection-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th>2025</th>
-              <th>2026</th>
-              <th>2027</th>
-              <th>2028</th>
-              <th>2029</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Revenue (€M)</strong></td>
-              <td class="revenue">2.5</td>
-              <td class="revenue">8.2</td>
-              <td class="revenue">25.6</td>
-              <td class="revenue">65.4</td>
-              <td class="revenue">145.8</td>
-            </tr>
-            <tr>
-              <td>Units Sold</td>
-              <td>5</td>
-              <td>18</td>
-              <td>52</td>
-              <td>125</td>
-              <td>245</td>
-            </tr>
-            <tr>
-              <td>Gross Margin</td>
-              <td>45%</td>
-              <td>58%</td>
-              <td>65%</td>
-              <td>72%</td>
-              <td>75%</td>
-            </tr>
-            <tr>
-              <td>EBITDA Margin</td>
-              <td>-25%</td>
-              <td>12%</td>
-              <td>28%</td>
-              <td>42%</td>
-              <td>48%</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    
-    <!-- Use of Funds -->
-    <div class="business-section">
-      <h2 class="section-title">Use of Funds</h2>
-      <div class="use-of-funds">
-        <div class="funds-breakdown">
-          <h3 style="margin-bottom:1.5rem">€5M Series A Allocation</h3>
-          <div class="fund-item">
-            <span class="fund-category">R&D & Product Development</span>
-            <span>
-              <span class="fund-amount">€2.0M</span>
-              <span class="fund-percentage">(40%)</span>
-            </span>
-          </div>
-          <div class="fund-item">
-            <span class="fund-category">Manufacturing & Scale-up</span>
-            <span>
-              <span class="fund-amount">€1.5M</span>
-              <span class="fund-percentage">(30%)</span>
-            </span>
-          </div>
-          <div class="fund-item">
-            <span class="fund-category">Team Expansion</span>
-            <span>
-              <span class="fund-amount">€1.0M</span>
-              <span class="fund-percentage">(20%)</span>
-            </span>
-          </div>
-          <div class="fund-item">
-            <span class="fund-category">Marketing & Sales</span>
-            <span>
-              <span class="fund-amount">€0.3M</span>
-              <span class="fund-percentage">(6%)</span>
-            </span>
-          </div>
-          <div class="fund-item">
-            <span class="fund-category">Working Capital</span>
-            <span>
-              <span class="fund-amount">€0.2M</span>
-              <span class="fund-percentage">(4%)</span>
-            </span>
-          </div>
-        </div>
-        <div>
-          <h3 style="margin-bottom:1.5rem">Key Milestones</h3>
-          <div style="background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem">
-            <div style="margin-bottom:1.5rem">
-              <h4 style="color:var(--accent);margin-bottom:0.5rem">Q2 2025</h4>
-              <p style="color:var(--muted);font-size:0.9rem">First commercial Graviton Engine delivery</p>
-            </div>
-            <div style="margin-bottom:1.5rem">
-              <h4 style="color:var(--accent);margin-bottom:0.5rem">Q4 2025</h4>
-              <p style="color:var(--muted);font-size:0.9rem">Strategic partnership with major satellite manufacturer</p>
-            </div>
-            <div style="margin-bottom:1.5rem">
-              <h4 style="color:var(--accent);margin-bottom:0.5rem">Q2 2026</h4>
-              <p style="color:var(--muted);font-size:0.9rem">Series B funding round (€15M target)</p>
-            </div>
-            <div>
-              <h4 style="color:var(--accent);margin-bottom:0.5rem">2027</h4>
-              <p style="color:var(--muted);font-size:0.9rem">International expansion and mass production</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Documents -->
-    <div class="business-section">
-      <h2 class="section-title">Investment Documents</h2>
-      <div class="documents-grid">
-        <div class="document-card" onclick="requestDocument('pitch-deck')">
-          <div class="document-icon">📊</div>
-          <h4 class="document-title">Pitch Deck</h4>
-          <p class="document-description">Comprehensive presentation with technology overview, market analysis, and financial projections</p>
-        </div>
-        <div class="document-card" onclick="requestDocument('executive-summary')">
-          <div class="document-icon">📄</div>
-          <h4 class="document-title">Executive Summary</h4>
-          <p class="document-description">Detailed business plan summary with key metrics and strategic vision</p>
-        </div>
-        <div class="document-card" onclick="requestDocument('financial-model')">
-          <div class="document-icon">📈</div>
-          <h4 class="document-title">Financial Model</h4>
-          <p class="document-description">5-year financial projections with sensitivity analysis and scenario planning</p>
-        </div>
-        <div class="document-card" onclick="requestDocument('due-diligence')">
-          <div class="document-icon">🔍</div>
-          <h4 class="document-title">Due Diligence Pack</h4>
-          <p class="document-description">Technical specifications, IP portfolio, and regulatory compliance documentation</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Investment CTA -->
-    <div class="investment-cta">
-      <h2 class="cta-title">Ready to Join the Space Revolution?</h2>
-      <p class="cta-description">
-        Connect with our team to discuss investment opportunities and access our comprehensive due diligence materials. 
-        Limited positions available for Series A round.
-      </p>
-      <div class="cta-buttons">
-        <button class="btn btn-primary" onclick="scheduleCall()">
-          📅 Schedule Investor Call
-        </button>
-        <button class="btn btn-secondary" onclick="requestAccess()">
-          📧 Request Data Room Access
-        </button>
-      </div>
-    </div>
-  </div>
+<body>
   
-  <script>
-    function requestDocument(docType) {
-      // Simulate document request
-      alert(`Request for ${docType} submitted. Our team will contact you within 24h to provide secure access.`);
+	<!-- NAV ENGLISH -->
+	<nav aria-label="Main navigation" data-lang-content="en">
+		<div class="nav-container">
+			<a href="#home" class="logo"><span>🚀</span>Tesselite</a>
+			<div class="lang-toggle-nav">
+				<button class="lang-btn active" data-lang="en">EN</button>
+				<button class="lang-btn" data-lang="fr">FR</button>
+			</div>
+			<div class="nav-right">
+				<div class="nav-links">
+					<a href="#home">Home</a>
+					<a href="#solution">Solution</a>
+					<a href="#technology">Technology</a>
+					<a href="#applications">Applications</a>
+					<a href="#progress">Progress</a>
+					<a href="#videos">Prototypes</a>
+					<a href="#team">Team</a>
+					<a href="#contact">Contact</a>
+					<!-- NEW INVESTORS LINK -->
+					<a href="investisseurs.html">Investors</a>
+				</div>
+				<button class="menu-toggle" aria-label="Mobile menu" aria-expanded="false">☰</button>
+			</div>
+		</div>
+		
+		<div class="menu-mobile" id="mobile-menu-en">
+			<a href="#home">Home</a>
+			<a href="#solution">Solution</a>
+			<a href="#technology">Technology</a>
+			<a href="#applications">Applications</a>
+			<a href="#progress">Progress</a>
+			<a href="#videos">Prototypes</a>
+			<a href="#team">Team</a>
+			<a href="#contact">Contact</a>
+			<!-- NEW INVESTORS LINK -->
+			<a href="investisseurs.html">Investors</a>
+		</div>
+	</nav>
+
+	<!-- NAV FRENCH -->
+	<nav aria-label="Navigation principale" data-lang-content="fr" class="hidden">
+		<div class="nav-container">
+			<a href="#home" class="logo"><span>🚀</span>Tesselite</a>
+			<div class="lang-toggle-nav">
+				<button class="lang-btn" data-lang="en">EN</button>
+				<button class="lang-btn active" data-lang="fr">FR</button>
+			</div>
+			<div class="nav-right">
+				<div class="nav-links">
+					<a href="#home">Accueil</a>
+					<a href="#solution">Solution</a>
+					<a href="#technology">Technologie</a>
+					<a href="#applications">Applications</a>
+					<a href="#progress">Progrès</a>
+					<a href="#videos">Prototypes</a>
+					<a href="#team">Équipe</a>
+					<a href="#contact">Contact</a>
+					<!-- NEW INVESTORS LINK -->
+					<a href="investisseurs.html">Investisseurs</a>
+				</div>
+				<button class="menu-toggle" aria-label="Menu mobile" aria-expanded="false">☰</button>
+			</div>
+		</div>
+		
+		<div class="menu-mobile" id="mobile-menu-fr">
+			<a href="#home">Accueil</a>
+			<a href="#solution">Solution</a>
+			<a href="#technology">Technologie</a>
+			<a href="#applications">Applications</a>
+			<a href="#progress">Progrès</a>
+			<a href="#videos">Prototypes</a>
+			<a href="#team">Équipe</a>
+			<a href="#contact">Contact</a>
+			<!-- NEW INVESTORS LINK -->
+			<a href="investisseurs.html">Investisseurs</a>
+		</div>
+	</nav>
+  
+  <!-- HERO ENGLISH -->
+  <header class="hero section-anchor" id="home-en" data-lang-content="en" data-section="home">
+    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
+    <div class="orb" aria-hidden="true"></div>
+    <video class="hero-teaser-video" autoplay muted loop playsinline>
+      <source src="prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-wrap">
+      <h1 class="hero-title">We develop the <span style="-webkit-text-fill-color:inherit;background:none">Graviton Engine</span>, a revolution for space propulsion</h1>
+      <p class="hero-sub">A revolutionary technology that frees space propulsion from current constraints to open the era of accessible and sustainable space transport.</p>
       
-      // In real implementation, this would:
-      // - Capture user info
-      // - Send to CRM
-      // - Provide secure document access
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Cost Reduction</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10x</div>
+          <div class="stat-label">Energy Efficiency</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">$400B+</div>
+          <div class="stat-label">Addressable Market</div>
+        </div>
+      </div>
+      
+      <div class="badges">
+        <span class="badge">🧬 DeepTech</span>
+        <span class="badge">🚀 Propulsion</span>
+        <span class="badge">⚡ Quantum</span>
+      </div>
+      
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="#contact"><span>💬</span> Partnerships & Investment</a>
+		<!-- NEW CTA to investors page -->
+		<a class="btn btn-primary" href="investisseurs.html">🚀 Investor Page</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO FRENCH -->
+  <header class="hero section-anchor hidden" id="home-fr" data-lang-content="fr" data-section="home">
+    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
+    <div class="orb" aria-hidden="true"></div>
+    <video class="hero-teaser-video" autoplay muted loop playsinline>
+      <source src="prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-wrap">
+      <h1 class="hero-title">Nous développons le <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span>, une révolution de la propulsion spatiale</h1>
+      <p class="hero-sub">Une technologie révolutionnaire qui libère la propulsion spatiale des contraintes actuelles pour ouvrir l'ère du transport spatial accessible et durable.</p>
+      
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Réduction des Coûts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10x</div>
+          <div class="stat-label">Efficience Energétique</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">$400B+</div>
+          <div class="stat-label">Marché Adressable</div>
+        </div>
+      </div>
+      
+      <div class="badges">
+        <span class="badge">🧬 DeepTech</span>
+        <span class="badge">🚀 Propulsion</span>
+        <span class="badge">⚡ Quantique</span>
+      </div>
+      
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="#contact"><span>💬</span> Partenariats & Investissements</a>
+		<!-- NEW CTA to investors page -->
+		<a class="btn btn-primary" href="investisseurs.html">🚀 Page Investisseurs</a>
+      </div>
+    </div>
+  </header>
+ 
+	<!-- SOLUTION ENGLISH -->
+  <section class="reveal section-anchor" id="solution-en" data-lang-content="en" data-section="solution">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">The Space Transport Challenge</h2>
+        <p class="section-sub">
+          Revolutionizing space access with breakthrough technology
+        </p>
+      </div>
+      
+      <div class="problem-solution">
+        <div class="problem-card">
+          <div class="card-icon">⚠️</div>
+          <h3 class="card-title">Current Problem</h3>
+          <p class="card-description">
+            Space transport remains prohibitive with costs over $10,000/kg, 
+            drastically limiting space exploration and commercialization.
+          </p>
+          <ul class="benefits">
+            <li>Exorbitant launch costs</li>
+            <li>Limited energy efficiency</li>
+            <li>Dependence on traditional fuels</li>
+            <li>Restricted access to space</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="card-icon">🚀</div>
+          <h3 class="card-title">Our Solution: The Graviton</h3>
+          <p class="card-description">
+            A revolutionary dynamic configuration capable of maintaining continuous 
+            motion without external input by exploiting a quantum "trap" of energy.
+          </p>
+          <ul class="benefits">
+            <li>90% cost reduction</li>
+            <li>10x superior efficiency</li>
+            <li>Autonomous and sustainable propulsion</li>
+            <li>Democratization of space access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION FRENCH -->
+  <section class="reveal section-anchor hidden" id="solution-fr" data-lang-content="fr" data-section="solution">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Le Défi du Transport Spatial</h2>
+        <p class="section-sub">
+          Révolutionner l'accès à l'espace avec une technologie de rupture
+        </p>
+      </div>
+      
+      <div class="problem-solution">
+        <div class="problem-card">
+          <div class="card-icon">⚠️</div>
+          <h3 class="card-title">Le Problème Actuel</h3>
+          <p class="card-description">
+            Le transport spatial reste prohibitif avec des coûts de plus de 10 000$/kg, 
+            limitant drastiquement l'exploration et la commercialisation de l'espace.
+          </p>
+          <ul class="benefits">
+            <li>Coûts de lancement exorbitants</li>
+            <li>Efficacité énergétique limitée</li>
+            <li>Dépendance aux carburants traditionnels</li>
+            <li>Accès restreint à l'espace</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="card-icon">🚀</div>
+          <h3 class="card-title">Notre Solution : Le Graviton</h3>
+          <p class="card-description">
+            Une configuration dynamique révolutionnaire capable de maintenir un mouvement 
+            continu sans apport externe en exploitant un "piège" quantique de l'énergie.
+          </p>
+          <ul class="benefits">
+            <li>Réduction des coûts de 90%</li>
+            <li>Efficacité 10x supérieure</li>
+            <li>Propulsion autonome et durable</li>
+            <li>Démocratisation de l'accès spatial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY ENGLISH -->
+  <section class="reveal section-anchor" id="technology-en" data-lang-content="en" data-section="technology" style="background:rgba(255,255,255,.02)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Technological Innovation</h2>
+        <p class="section-sub">
+          A mathematical breakthrough towards geometric perpetual motion 
+          and quantum energy conservation
+        </p>
+      </div>
+      
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Mathematical Proof</h3>
+          <p>Geometric solution to "perpetual motion" theoretically validated, 
+          exploiting quantum properties of energy conservation.</p>
+        </div>
+        
+        <div class="card">
+          <div class="icon">🔬</div>
+          <h3>Functional Prototype</h3>
+          <p>Tangible demonstration of perpetual behavior observed and measured 
+          in controlled environment on test bench.</p>
+        </div>
+        
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Advanced 3D Visualizations</h3>
+          <p>Fractal renders and dynamic simulations of space-time structures 
+          to understand and optimize Graviton behavior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY FRENCH -->
+  <section class="reveal section-anchor hidden" id="technology-fr" data-lang-content="fr" data-section="technology" style="background:rgba(255,255,255,.02)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Innovation Technologique</h2>
+        <p class="section-sub">
+          Une percée mathématique vers le mouvement perpétuel géométrique 
+          et la conservation quantique de l'énergie
+        </p>
+      </div>
+      
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Preuve Mathématique</h3>
+          <p>Solution géométrique du "mouvement perpétuel" validée théoriquement, 
+          exploitant les propriétés quantiques de conservation de l'énergie.</p>
+        </div>
+        
+        <div class="card">
+          <div class="icon">🔬</div>
+          <h3>Prototype Fonctionnel</h3>
+          <p>Démonstration tangible du comportement perpétuel observé et mesuré 
+          en environnement contrôlé sur banc d'essai.</p>
+        </div>
+        
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Visualisations 3D Avancées</h3>
+          <p>Rendus fractals et simulations dynamiques des structures d'espace-temps 
+          pour comprendre et optimiser le comportement du Graviton.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS ENGLISH -->
+  <section class="reveal section-anchor" id="applications-en" data-lang-content="en" data-section="applications">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Applications & Markets</h2>
+        <p class="section-sub">
+          A competitive differential for exploration, defense and space tourism
+        </p>
+      </div>
+      
+      <div class="grid grid-4">
+        <div class="app-card">
+          <div class="app-icon">🛰️</div>
+          <h3>Satellites & Cargo</h3>
+          <p>Drastic reduction in orbit deployment costs for commercial satellites and cargo transport.</p>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-icon">🌌</div>
+          <h3>Space Exploration</h3>
+          <p>Faster and less expensive interplanetary missions to Mars, Moon and beyond.</p>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-icon">🛡️</div>
+          <h3>Defense Applications</h3>
+          <p>Discrete and autonomous propulsion for space defense and security applications.</p>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-icon">🚀</div>
+          <h3>Space Tourism</h3>
+          <p>Democratization of space tourism through 90% reduced access costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS FRENCH -->
+  <section class="reveal section-anchor hidden" id="applications-fr" data-lang-content="fr" data-section="applications">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Applications & Marchés</h2>
+        <p class="section-sub">
+          Un différentiel compétitif pour l'exploration, la défense et le tourisme spatial
+        </p>
+      </div>
+      
+      <div class="grid grid-4">
+        <div class="app-card">
+          <div class="app-icon">🛰️</div>
+          <h3>Satellites & Cargo</h3>
+          <p>Réduction drastique des coûts de mise en orbite pour les satellites commerciaux et le transport de cargo.</p>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-icon">🌌</div>
+          <h3>Exploration Spatiale</h3>
+          <p>Missions interplanétaires plus rapides et moins coûteuses vers Mars, la Lune et au-delà.</p>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-icon">🛡️</div>
+          <h3>Applications Défense</h3>
+          <p>Propulsion discrète et autonome pour les applications de défense et de sécurité spatiale.</p>
+        </div>
+        
+        <div class="app-card">
+          <div class="app-icon">🚀</div>
+          <h3>Tourisme Spatial</h3>
+          <p>Démocratisation du tourisme spatial grâce à des coûts d'accès réduits de 90%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESS ENGLISH -->
+  <section class="reveal section-anchor" id="progress-en" data-lang-content="en" data-section="progress" style="background:rgba(255,255,255,.02)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Progress &amp; Achievements</h2>
+        <p class="section-sub">Our key milestones to date to de-risk the technology and accelerate the transition to application.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Validated milestones</h3>
+          <div class="ticks" role="list">
+            <div class="tick" role="listitem"><i>✓</i><span>Mathematical proof</span></div>
+            <div class="tick" role="listitem"><i>✓</i><span>Advanced three-dimensional visualizations</span></div>
+            <div class="tick" role="listitem"><i>✓</i><span>Functional prototype demonstrating perpetual behavior</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Strategic ambition</h3>
+          <p style="color:var(--muted);margin-bottom:1rem"><em>A competitive differential for exploration, defense and space tourism</em></p>
+          <div class="ticks" role="list">
+            <div class="tick" role="listitem"><i>→</i><span>Energy efficiency</span></div>
+            <div class="tick" role="listitem"><i>→</i><span>Increased speeds (perspective)</span></div>
+            <div class="tick" role="listitem"><i>→</i><span>Propulsion autonomy</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROGRESS FRENCH -->
+  <section class="reveal section-anchor hidden" id="progress-fr" data-lang-content="fr" data-section="progress" style="background:rgba(255,255,255,.02)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Progrès &amp; Réalisations</h2>
+        <p class="section-sub">Nos jalons clés à date pour dé-risquer la technologie et accélérer le passage à l'application.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Jalons validés</h3>
+          <div class="ticks" role="list">
+            <div class="tick" role="listitem"><i>✓</i><span>Preuve mathématique</span></div>
+            <div class="tick" role="listitem"><i>✓</i><span>Visualisations tridimensionnelles avancées</span></div>
+            <div class="tick" role="listitem"><i>✓</i><span>Prototype fonctionnel démontrant un comportement perpétuel</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Ambition stratégique</h3>
+          <p style="color:var(--muted);margin-bottom:1rem"><em>Un différentiel compétitif pour l'exploration, la défense et le tourisme spatial</em></p>
+          <div class="ticks" role="list">
+            <div class="tick" role="listitem"><i>→</i><span>Efficience énergétique</span></div>
+            <div class="tick" role="listitem"><i>→</i><span>Vitesses accrues (perspective)</span></div>
+            <div class="tick" role="listitem"><i>→</i><span>Autonomie de propulsion</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS ENGLISH -->
+  <section class="reveal section-anchor" id="videos-en" data-lang-content="en" data-section="videos">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Prototypes</h2>
+        <p class="section-sub">A glimpse of our fractal renders, rotation dynamics and prototype demonstrations.</p>
+      </div>
+
+      <div class="video-grid">
+        <article class="video-card">
+          <header><h4>A Perpetual Bubble Simulation</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00000300_a_perpetual_bubble_1080p.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Rendering of a stable space-time bubble structure.</div>
+        </article>
+
+        <article class="video-card">
+          <header><h4>In The Heart of A Vortex</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Untangling of a space-time vortex structure to uncover its primitive shape.</div>
+        </article>
+
+        <article class="video-card">
+          <header><h4>Prototype — Demonstration in controlled environment</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Perpetual behavior observed and measured on test bench.</div>
+        </article>
+
+        <article class="video-card">
+          <header><h4>Roadmap — Fluids &amp; EM interactions</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Towards Navier-Stokes, plasma and electromagnetic fields.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS FRENCH -->
+  <section class="reveal section-anchor hidden" id="videos-fr" data-lang-content="fr" data-section="videos">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Prototypes</h2>
+        <p class="section-sub">Simulations dynamiques de prototypes de structures d'espace-temps.</p>
+      </div>
+
+      <div class="video-grid">
+        <article class="video-card">
+          <header><h4>Histoire d'une bulle perpétuelle</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00000300_a_perpetual_bubble_1080p.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Rendu d'une structure bulle d'espace-temps.</div>
+        </article>
+
+        <article class="video-card">
+          <header><h4>Au cœur d'un tourbillon</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Démêlement d'une structure tourbillon pour exposer sa forme primitive.</div>
+        </article>
+
+        <article class="video-card">
+          <header><h4>Prototype — Démonstration en environnement contrôlé</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Comportement perpétuel observé et mesuré sur banc d'essai.</div>
+        </article>
+
+        <article class="video-card">
+          <header><h4>Feuille de route — Fluides &amp; interactions EM</h4></header>
+          <div class="player">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+          <div class="video-meta">Vers Navier–Stokes, plasma et champs électromagnétiques.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM ENGLISH -->
+  <section class="reveal section-anchor" id="team-en" data-lang-content="en" data-section="team" style="background:rgba(255,255,255,.02)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Our Team</h2>
+        <p class="section-sub">
+          Unique expertise in theoretical physics and space applications
+        </p>
+      </div>
+      
+      <div class="team-grid">
+        <article class="card" style="text-align:center">
+          <div class="avatar">NM</div>
+          <h3>NDEFFO Marcel</h3>
+          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CEO & Founder</p>
+          <p>Visionary and expert in theoretical physics, pioneer in the development 
+          of the Graviton concept and its space applications.</p>
+        </article>
+        
+        <article class="card" style="text-align:center">
+          <div class="avatar">KH</div>
+          <h3>KOHO Hervé</h3>
+          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CTO & Co-Founder</p>
+          <p>Expert engineer in space systems and propulsion technologies, 
+          responsible for technical development and R&D.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM FRENCH -->
+  <section class="reveal section-anchor hidden" id="team-fr" data-lang-content="fr" data-section="team" style="background:rgba(255,255,255,.02)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Notre Équipe</h2>
+        <p class="section-sub">
+          Une expertise unique en physique théorique et applications spatiales
+        </p>
+      </div>
+      
+      <div class="team-grid">
+        <article class="card" style="text-align:center">
+          <div class="avatar">NM</div>
+          <h3>NDEFFO Marcel</h3>
+          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CEO & Fondateur</p>
+          <p>Visionnaire et expert en physique théorique, pionnier du développement 
+          du concept Graviton et de ses applications spatiales.</p>
+        </article>
+        
+        <article class="card" style="text-align:center">
+          <div class="avatar">KH</div>
+          <h3>KOHO Hervé</h3>
+          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CTO & Co-Fondateur</p>
+          <p>Ingénieur expert en systèmes spatiaux et technologies de propulsion, 
+          responsable du développement technique et de la R&D.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT ENGLISH -->
+  <section class="contact-section section-anchor" id="contact-en" data-lang-content="en" data-section="contact">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Partnerships & Investments</h2>
+        <p class="section-sub">
+          R&D partnerships, scientific institutions, deep-tech incubators and strategic investors
+        </p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="reveal">
+          <h3>Get in Touch</h3>
+          <p>Join us in this technological revolution that will transform access to space.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <span style="font-size:1.5rem">📧</span>
+              <div>
+                <strong>Email</strong><br>
+                <a href="mailto:graviton@tesselite.com" style="color:var(--accent)">graviton@tesselite.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <span style="font-size:1.5rem">🌐</span>
+              <div>
+                <strong>Website</strong><br>
+                <a href="https://www.tesselite.com" style="color:var(--accent)">www.tesselite.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <span style="font-size:1.5rem">💰</span>
+              <div>
+                <strong>Opportunities</strong><br>
+                Investment • Partnerships • Crowdfunding
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form reveal">
+          <h3>Send us a message</h3>
+          <form id="contact-form-en">
+            <div class="form-group">
+              <label for="name-en">Name *</label>
+              <input type="text" id="name-en" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email-en">Email *</label>
+              <input type="email" id="email-en" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="company-en">Organization</label>
+              <input type="text" id="company-en" name="company" placeholder="Company, institution, fund...">
+            </div>
+            
+            <div class="form-group">
+              <label for="subject-en">Subject</label>
+              <select id="subject-en" name="subject">
+                <option value="">Select a subject</option>
+                <option value="investment">Investment opportunity</option>
+                <option value="partnership">R&D partnership</option>
+                <option value="media">Media inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message-en">Message *</label>
+              <textarea id="message-en" name="message" required 
+                        placeholder="Tell us about your interest in our technology..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              <span>📤</span> Send message
+            </button>
+            <div class="form-alert" id="form-alert-en"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FRENCH -->
+  <section class="contact-section section-anchor hidden" id="contact-fr" data-lang-content="fr" data-section="contact">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:4rem">
+        <h2 class="section-title">Partenariats & Investissements</h2>
+        <p class="section-sub">
+          Partenariats de R&D, institutions scientifiques, incubateurs deep-tech et investisseurs stratégiques
+        </p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="reveal">
+          <h3>Nous Contacter</h3>
+          <p>Rejoignez-nous dans cette révolution technologique qui transformera l'accès à l'espace.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <span style="font-size:1.5rem">📧</span>
+              <div>
+                <strong>Email</strong><br>
+                <a href="mailto:graviton@tesselite.com" style="color:var(--accent)">graviton@tesselite.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <span style="font-size:1.5rem">🌐</span>
+              <div>
+                <strong>Site Web</strong><br>
+                <a href="https://www.tesselite.com" style="color:var(--accent)">www.tesselite.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <span style="font-size:1.5rem">💰</span>
+              <div>
+                <strong>Opportunités</strong><br>
+                Investissement • Partenariats • Crowdfunding
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form reveal">
+          <h3>Envoyez-nous un message</h3>
+          <form id="contact-form-fr">
+            <div class="form-group">
+              <label for="name-fr">Nom *</label>
+              <input type="text" id="name-fr" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email-fr">Email *</label>
+              <input type="email" id="email-fr" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="company-fr">Organisation</label>
+              <input type="text" id="company-fr" name="company" placeholder="Entreprise, institution, fonds...">
+            </div>
+            
+            <div class="form-group">
+              <label for="subject-fr">Sujet</label>
+              <select id="subject-fr" name="subject">
+                <option value="">Sélectionner un sujet</option>
+                <option value="investment">Opportunité d'investissement</option>
+                <option value="partnership">Partenariat R&D</option>
+                <option value="media">Demande média</option>
+                <option value="other">Autre</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message-fr">Message *</label>
+              <textarea id="message-fr" name="message" required 
+                        placeholder="Parlez-nous de votre intérêt pour notre technologie..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width:100%">
+              <span>📤</span> Envoyer le message
+            </button>
+            <div class="form-alert" id="form-alert-fr"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap" style="text-align:center">
+      <p style="color:var(--muted);font-size:.95rem">&copy; 2025 Tesselite. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Loading indicator -->
+  <div id="loading" style="position:fixed;top:0;left:0;width:100%;height:4px;background:var(--grad-primary);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;z-index:9999"></div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    // Variables globales
+    let currentLang = 'en';
+    let scrollTimeout;
+    let nav = document.querySelector('nav');
+    const loading = document.getElementById('loading');
+
+    // Language switching functionality
+    function switchLanguage(lang) {
+      currentLang = lang;
+      // Update document language
+      document.getElementById('html-root').lang = lang === 'en' ? 'en' : 'fr';
+      
+      // Hide all content
+      document.querySelectorAll('[data-lang-content]').forEach(el => {
+        el.classList.add('hidden');
+      });
+      
+      // Show content for selected language
+      document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
+        el.classList.remove('hidden');
+      });
+      
+      // Update language toggle buttons 
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+      
+      // Update meta tags
+      updateMetaTags(lang);
+      
+      // Update active navigation reference
+      updateActiveNav();
     }
-    
-    function scheduleCall() {
-      // Simulate scheduling system integration
-      window.open('https://calendly.com/tesselite-investors', '_blank');
-    }
-    
-    function requestAccess() {
-      // Simulate data room access request
-      const email = prompt('Please enter your email for data room access:');
-      if (email) {
-        alert(`Data room access request sent to ${email}. You will receive login credentials within 24 hours.`);
+
+    function updateMetaTags(lang) {
+      // Update title
+      const titleEl = document.querySelector('title');
+      if (titleEl.dataset[lang]) {
+        titleEl.textContent = titleEl.dataset[lang];
+      }
+      
+      // Update description
+      const descEl = document.querySelector('meta[name="description"]');
+      if (descEl && descEl.dataset[lang]) {
+        descEl.setAttribute('content', descEl.dataset[lang]);
+      }
+      
+      // Update keywords
+      const keywordsEl = document.querySelector('meta[name="keywords"]');
+      if (keywordsEl && keywordsEl.dataset[lang]) {
+        keywordsEl.setAttribute('content', keywordsEl.dataset[lang]);
+      }
+      
+      // Update Open Graph
+      const ogTitleEl = document.querySelector('meta[property="og:title"]');
+      if (ogTitleEl && ogTitleEl.dataset[lang]) {
+        ogTitleEl.setAttribute('content', ogTitleEl.dataset[lang]);
+      }
+      
+      const ogDescEl = document.querySelector('meta[property="og:description"]');
+      if (ogDescEl && ogDescEl.dataset[lang]) {
+        ogDescEl.setAttribute('content', ogDescEl.dataset[lang]);
       }
     }
+
+    function updateActiveNav() {
+      // Update global nav reference to current language nav
+      nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+    }
+
+    // Language toggle event listeners
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Navigation background on scroll avec performance optimisée
+    function handleScroll() {
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+          const scrolled = window.scrollY;
+          
+          // Update all navigation bars
+          document.querySelectorAll('nav').forEach(navEl => {
+            navEl.style.background = scrolled > 96 ? 'rgba(10,10,10,.96)' : 'rgba(10,10,10,.9)';
+          });
+          
+          // Animation de la barre de progression du scroll
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollProgress = scrolled / docHeight;
+          loading.style.transform = `scaleX(${Math.min(scrollProgress, 1)})`;
+          scrollTimeout = null;
+        }, 16); // 60fps
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Menu mobile toggle for both languages
+    function setupMobileMenu() {
+      document.querySelectorAll('.menu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const nav = toggle.closest('nav');
+          const mobileMenu = nav.querySelector('.menu-mobile');
+          const isOpen = mobileMenu.classList.contains('active');
+          
+          // Close all other mobile menus first
+          document.querySelectorAll('.menu-mobile').forEach(menu => {
+            if (menu !== mobileMenu) {
+              menu.classList.remove('active');
+              const otherToggle = menu.closest('nav').querySelector('.menu-toggle');
+              otherToggle.setAttribute('aria-expanded', 'false');
+              otherToggle.textContent = '☰';
+            }
+          });
+          
+          mobileMenu.classList.toggle('active');
+          toggle.setAttribute('aria-expanded', !isOpen);
+          toggle.textContent = isOpen ? '☰' : '✕';
+        });
+      });
+    }
+    setupMobileMenu();
+
+    // Fermer le menu mobile en cliquant ailleurs
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.menu-mobile').forEach(menu => {
+        if (!menu.closest('nav').contains(e.target)) {
+          menu.classList.remove('active');
+          const toggle = menu.closest('nav').querySelector('.menu-toggle');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+        }
+      });
+    });
+
+    // Smooth scroll amélioré pour les liens d'ancre
+    document.addEventListener('click', function(e) {
+      if (e.target.matches('a[href^="#"]')) {
+        e.preventDefault();
+        const targetSection = e.target.getAttribute('href').substring(1);
+        
+        // Trouver la section correspondante dans la langue active
+        const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.hidden)`);
+        
+        if (target) {
+          // Fermer le menu mobile si ouvert
+          document.querySelectorAll('.menu-mobile').forEach(menu => {
+            menu.classList.remove('active');
+            const toggle = menu.closest('nav').querySelector('.menu-toggle');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = '☰';
+          });
+          
+          // Scroll fluide avec offset pour la nav fixe
+          const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+          const navHeight = currentNav ? currentNav.offsetHeight : 80;
+          const targetPosition = target.offsetTop - navHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+
+    // Animations au scroll (Intersection Observer)
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    // Observer tous les éléments avec la classe 'reveal'
+    document.querySelectorAll('.reveal').forEach(el => {
+      scrollObserver.observe(el);
+    });
+
+    // Chargement lazy des vidéos
+    function loadVideo(placeholder, src) {
+      const player = placeholder.parentElement;
+      const video = document.createElement('video');
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = true; // Nécessaire pour l'autoplay
+      video.style.width = '100%';
+      video.style.height = '100%';
+      video.style.objectFit = 'cover';
+      
+      // Ajouter les sources
+      const source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      
+      // Remplacer le placeholder
+      player.innerHTML = '';
+      player.appendChild(video);
+      
+      // Animation de chargement
+      video.addEventListener('loadstart', () => {
+        player.style.opacity = '0.7';
+      });
+      
+      video.addEventListener('canplay', () => {
+        player.style.opacity = '1';
+      });
+      
+      // Gestion des erreurs
+      video.addEventListener('error', () => {
+        player.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);">Vidéo non disponible</div>';
+      });
+    }
+
+    // Gestion du formulaire de contact avec EmailJS
+    (function() {
+      emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
+    })();
+     
+    function setupContactForms(){
+      ["en","fr"].forEach(lang=>{
+        const form=document.getElementById(`contact-form-${lang}`);
+        const alertBox=document.getElementById(`form-alert-${lang}`);
+        if(!form) return;
+        form.addEventListener("submit",async e=>{
+          e.preventDefault();
+          const formData=new FormData(form);
+          const btn=form.querySelector("button[type='submit']");
+          const original=btn.innerHTML;
+          btn.innerHTML= lang==="en"?"<span>⏳</span> Sending...":"<span>⏳</span> Envoi...";
+          btn.disabled=true;
+          alertBox.style.display="none";
+          try{
+            await emailjs.send("service_tesselite","template_tesselite",{
+              from_name:formData.get("name"),
+              from_email:formData.get("email"),
+              company:formData.get("company")||"",
+              subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),
+              message:formData.get("message"),
+              to_email:"graviton@tesselite.com"
+            });
+            alertBox.textContent= lang==="en"?"✅ Message sent successfully!":"✅ Message envoyé avec succès !";
+            alertBox.className="form-alert success";
+            alertBox.style.display="block";
+            form.reset();
+          }catch(err){
+            console.error(err);
+            alertBox.textContent= lang==="en"?"❌ Error sending message. Please try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";
+            alertBox.className="form-alert error";
+            alertBox.style.display="block";
+          }finally{
+            btn.innerHTML=original;
+            btn.disabled=false;
+          }
+        });
+      });
+    }
+    setupContactForms();
+
+    // Effet parallaxe subtil pour l'orbe du hero
+    let ticking = false;
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+      const orbs = document.querySelectorAll('.orb');
+      orbs.forEach(orb => {
+        if (scrolled < window.innerHeight) {
+          orb.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.1}deg)`;
+        }
+      });
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Gestion des erreurs d'images et videos
+    document.addEventListener('error', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.target.style.display = 'none';
+        console.warn('Image non trouvée:', e.target.src);
+      } else if (e.target.tagName === 'VIDEO') {
+        console.warn('Vidéo non trouvée:', e.target.src);
+      }
+    }, true);
+
+    // Préchargement des ressources critiques
+    function preloadCriticalResources() {
+      const criticalResources = [
+        'prototype.mp4',
+        'prototype_00000300_a_perpetual_bubble_1080p.mp4',
+        'prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4'
+      ];
+      
+      criticalResources.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'video';
+        link.href = src;
+        document.head.appendChild(link);
+      });
+    }
+
+    // Performance: Initialisation différée
+    window.addEventListener('load', () => {
+      preloadCriticalResources();
+      console.log('🚀 Tesselite - Site complet chargé et optimisé');
+    });
+
+    // Gestion du mode sombre automatique
+    function handleColorScheme() {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      function updateTheme(e) {
+        if (e.matches) {
+          document.documentElement.style.setProperty('--bg', '#0a0a0a');
+        }
+      }
+      
+      prefersDark.addEventListener('change', updateTheme);
+      updateTheme(prefersDark);
+    }
+    handleColorScheme();
+
+    // Initialize with default language
+    switchLanguage('en');
+
+    // Easter egg: Animation spéciale
+    let konamiCode = [];
+    const konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    
+    document.addEventListener('keydown', (e) => {
+      konamiCode.push(e.keyCode);
+      if (konamiCode.length > konami.length) {
+        konamiCode.shift();
+      }
+      
+      if (konamiCode.join(',') === konami.join(',')) {
+        document.body.style.animation = 'pulse 2s infinite';
+        console.log('🎉 Easter egg activé ! Tesselite x Graviton');
+        setTimeout(() => {
+          document.body.style.animation = '';
+        }, 5000);
+      }
+    });
+
+    // Animation CSS pour l'easter egg
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pulse {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.02); }
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .menu-mobile.active {
+        animation: fadeIn 0.3s ease;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+  <!-- Schema.org structured data pour le SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tesselite",
+    "description": "Deeptech startup developing the Graviton Engine for revolutionary space propulsion",
+    "url": "https://tesselite.com",
+    "foundingDate": "2023",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "NDEFFO Marcel",
+        "jobTitle": "CEO & Founder"
+      },
+      {
+        "@type": "Person", 
+        "name": "KOHO Hervé",
+        "jobTitle": "CTO & Co-Founder"
+      }
+    ],
+    "industry": "Aerospace Technology",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Support",
+      "email": "graviton@tesselite.com"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/tesselite",
+      "https://twitter.com/tesselite"
+    ]
+  }
   </script>
 </body>
 </html>
-
