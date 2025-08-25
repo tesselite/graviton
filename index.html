@@ -12,7 +12,8 @@
   <meta property="og:title" data-en="Tesselite - Revolutionizing space propulsion with the Graviton" data-fr="Tesselite - Révolutionner la propulsion spatiale avec le Graviton" content="Tesselite - Revolutionizing space propulsion with the Graviton" />
   <meta property="og:description" data-en="A technological breakthrough towards 10x more efficient and 90% less expensive space transport." data-fr="Une percée technologique vers un transport spatial 10x plus efficace et 90% moins cher." content="A technological breakthrough towards 10x more efficient and 90% less expensive space transport." />
   <meta property="og:url" content="https://tesselite.com" />
-  
+  <meta property="og:image" content="https://tesselite.com/og-image.jpg" />
+	
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   
@@ -179,10 +180,14 @@
 
     /* FOOTER */
     footer{border-top:1px solid var(--stroke);background:rgba(0,0,0,.45);padding:2rem 1.25rem;text-align:center}
+	.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem}
+    .footer-links a{color:var(--muted);text-decoration:none;transition:color var(--transition)}
+    .footer-links a:hover{color:#fff}
 
     /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+	@keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
 
     /* SCROLL ANIMATIONS */
     .reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
@@ -208,9 +213,12 @@
       .nav-right{order:2}
       .video-card{grid-column:span 12}
       .lang-btn{padding:0.3rem 0.6rem;font-size:0.8rem}
-      .contact-grid {grid-template-columns:1fr;gap:2rem}
+      .contact-grid {display: flex;flex-direction: column-reverse;gap: 1.5rem;}
+	  .contact-form, .card {padding:1.2rem;}
+      .contact-form form {max-width:100%;}
       .hero-stats {gap:2rem}
     }
+	  
     @media (max-width: 640px){
       nav{padding:.8rem 1rem}
       section{padding:4rem 1rem}
@@ -224,21 +232,45 @@
       .problem-solution{gap:1.5rem}
       .problem-card, .solution-card{padding:1.5rem}
     }
-  
+
+	  /* --- feedback visuel formulaire --- */
+    .form-alert {margin-top: 1rem;padding: 0.75rem 1rem;border-radius: 12px;font-size: 0.9rem;}
+    .form-alert.success {background: rgba(34,197,94,.15); color:#4ade80;}
+    .form-alert.error {background: rgba(239,68,68,.15); color:#f87171;}
+   
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .menu-mobile.active {
+      animation: fadeIn 0.3s ease;}
+
+      /* DARK MODE SUPPORT */
+    @media (prefers-color-scheme: light) {
+      /* Variables pour thème clair si nécessaire */
+    }
+	  
     /* Hidden content for inactive language */
     .hidden{display:none !important}
+  
   </style>
 </head>
+
 <body>
-  
-	<!-- NAV ENGLISH -->
+  	<!-- NAV ENGLISH -->
 	<nav aria-label="Main navigation" data-lang-content="en">
 		<div class="nav-container">
-			<a href="#home" class="logo"><span>🚀</span>Tesselite</a>
+			<div class="logo">
+        		<img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
+       			<span>Tesselite</span>
+   		   </div>
+
 			<div class="lang-toggle-nav">
 				<button class="lang-btn active" data-lang="en">EN</button>
 				<button class="lang-btn" data-lang="fr">FR</button>
 			</div>
+			
 			<div class="nav-right">
 				<div class="nav-links">
 					<a href="#home">Home</a>
@@ -273,11 +305,16 @@
 	<!-- NAV FRENCH -->
 	<nav aria-label="Navigation principale" data-lang-content="fr" class="hidden">
 		<div class="nav-container">
-			<a href="#home" class="logo"><span>🚀</span>Tesselite</a>
+			<div class="logo">
+        		<img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
+       			<span>Tesselite</span>
+   		   </div>
+			
 			<div class="lang-toggle-nav">
 				<button class="lang-btn" data-lang="en">EN</button>
 				<button class="lang-btn active" data-lang="fr">FR</button>
 			</div>
+			
 			<div class="nav-right">
 				<div class="nav-links">
 					<a href="#home">Accueil</a>
@@ -645,7 +682,7 @@
         </div>
         <div class="card">
           <h3>Strategic ambition</h3>
-          <p style="color:var(--muted);margin-bottom:1rem"><em>A competitive differential for exploration, defense and space tourism</em></p>
+          <p style="color:var(--muted);margin-bottom:1rem"><em>A competitive differential for exploration, defense and space tourism</em></p> */
           <div class="ticks" role="list">
             <div class="tick" role="listitem"><i>→</i><span>Energy efficiency</span></div>
             <div class="tick" role="listitem"><i>→</i><span>Increased speeds (perspective)</span></div>
@@ -793,9 +830,9 @@
   <section class="reveal section-anchor" id="team-en" data-lang-content="en" data-section="team" style="background:rgba(255,255,255,.02)">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Our Team</h2>
+        <h2 class="section-title">Our Leaders</h2>
         <p class="section-sub">
-          Unique expertise in theoretical physics and space applications
+          Unique expertise in theoretical physics and engineering applications
         </p>
       </div>
       
@@ -812,7 +849,7 @@
           <div class="avatar">KH</div>
           <h3>KOHO Hervé</h3>
           <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CTO & Co-Founder</p>
-          <p>Expert engineer in space systems and propulsion technologies, 
+          <p>Expert engineer in mechanical systems and technologies, 
           responsible for technical development and R&D.</p>
         </article>
       </div>
@@ -823,9 +860,9 @@
   <section class="reveal section-anchor hidden" id="team-fr" data-lang-content="fr" data-section="team" style="background:rgba(255,255,255,.02)">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Notre Équipe</h2>
+        <h2 class="section-title">Nos Leaders</h2>
         <p class="section-sub">
-          Une expertise unique en physique théorique et applications spatiales
+          Une expertise unique en physique théorique et en applications technologiques
         </p>
       </div>
       
@@ -842,7 +879,7 @@
           <div class="avatar">KH</div>
           <h3>KOHO Hervé</h3>
           <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CTO & Co-Fondateur</p>
-          <p>Ingénieur expert en systèmes spatiaux et technologies de propulsion, 
+          <p>Ingénieur expert en systèmes mécaniques et technologies industrielles, 
           responsable du développement technique et de la R&D.</p>
         </article>
       </div>
@@ -1453,5 +1490,6 @@
   </script>
 </body>
 </html>
+
 
 
