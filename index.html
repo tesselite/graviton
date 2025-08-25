@@ -101,9 +101,21 @@
       .cta-buttons{flex-direction:column;align-items:center}
       .highlights-grid{grid-template-columns:1fr}
     }
+
+    /* Sauvegarde de la langue choisie dans localStorage */
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        localStorage.setItem("preferredLang", btn.dataset.lang);
+    });
+
+    /* Applique la langue préférée si dispo */
+    const preferredLang = localStorage.getItem("preferredLang") || "en";
+    document.body.classList.add("lang-" + preferredLang);
+    
   </style>
 </head>
-<body>
+
+  <body>
   <div class="wrap">
     <!-- Hero Section -->
     <div class="hero-investor">
@@ -433,3 +445,4 @@
   </script>
 </body>
 </html>
+
