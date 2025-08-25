@@ -93,8 +93,8 @@
     /* SECTIONS */
     section{padding:6.5rem 1.25rem}
     .wrap{max-width:var(--maxw);margin-inline:auto}
-    .section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin-bottom:2.5rem}
+    .section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
+    .section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin:0 auto 2.5rem; text-align:center;}
 
     /* CARTES */
     .grid{display:grid;gap:1.25rem}
@@ -111,10 +111,15 @@
 
     /* PROBLEM/SOLUTION SECTION */
     .problem-solution {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-    .problem-card, .solution-card {padding:2.5rem;border-radius:var(--radius);position:relative}
+    .problem-card, .solution-card {padding:2.5rem;border-radius:var(--radius);position:relative;transition:all var(--transition);}
     .problem-card {background:linear-gradient(135deg, #ff6b6b20, #ff8e8e20);border:1px solid #ff6b6b30}
-    .solution-card {background:linear-gradient(135deg, var(--primary)20, var(--accent)20);border:1px solid var(--primary)30}
-    .card-icon {width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem}
+    .solution-card {background:linear-gradient(135deg,rgba(0,102,255,0.15),rgba(0,255,136,0.15));border:2px solid var(--primary);box-shadow:0 8px 24px rgba(0,102,255,0.25);}
+    .problem-card:hover,.solution-card:hover{
+  											transform:translateY(-6px); /* effet de translation */
+  											box-shadow:0 12px 28px rgba(102,126,234,.25); /* ombre accentuée */
+  											border-color:var(--brand1); /* contour mis en avant */
+  											background:rgba(255,255,255,.06); /* léger éclaircissement */}
+	.card-icon {width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem}
     .problem-card .card-icon {background:linear-gradient(135deg, #ff6b6b, #ff8e8e)}
     .solution-card .card-icon {background:var(--grad-primary)}
     .card-title {font-size:1.5rem;font-weight:700;margin-bottom:1rem}
@@ -155,9 +160,15 @@
 
     /* CONTACT */
     .contact-section {background:var(--bg);padding:6rem 1.25rem}
-    .contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-    .contact-info h3 {margin-bottom:1rem;font-size:1.5rem}
-    .contact-info p {margin-bottom:2rem;opacity:0.9}
+    .contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch;}
+    .contact-info{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;transition:all var(--transition);}
+	.contact-info:hover{
+						transform:translateY(-6px); /* léger effet de translation */
+  						border-color:var(--brand1); /* accentuation du contour */
+  						background:rgba(255,255,255,.08); /* éclaircissement au survol */
+  						box-shadow:0 12px 28px rgba(102,126,234,.25); /* ombre plus prononcée */}
+	.contact-info h3 {margin-bottom:1rem;font-size:1.5rem;text-align:center}
+    .contact-info p {margin-bottom:2rem;opacity:0.9;text-align:center}
     .contact-methods {display:grid;gap:1rem}
     .contact-method {display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);transition:all var(--transition)}
     .contact-method:hover {background:rgba(255,255,255,.08);border-color:var(--brand1)}
@@ -1488,6 +1499,7 @@
   </script>
 </body>
 </html>
+
 
 
 
