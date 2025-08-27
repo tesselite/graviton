@@ -481,24 +481,24 @@
 
         <!-- Video 3 -->
         <article class="video-card" aria-labelledby="v3-title-en">
-          <header><h4 id="v3-title-en">A pristine rotation</h4></header>
+          <header><h4 id="v3-title-en">A Leaf Story</h4></header>
           <div class="player">
             <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00001700_a_pristine_rotation_1080p.mp4')">
               <div class="play-icon">▶</div>
             </div>
           </div>
-          <div class="video-meta">Growing a rotation's primitive from a seed.</div>
+          <div class="video-meta">Growing a pristine rotation from an initial seed.</div>
         </article>
 
         <!-- Video 4 -->
         <article class="video-card" aria-labelledby="v4-title-en">
-          <header><h4 id="v4-title-en">Roadmap – Fluids &amp; EM interactions</h4></header>
+          <header><h4 id="v4-title-en">A Vortex Slowdown</h4></header>
           <div class="player">
-            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00001800_a_vortex_slowdown_900p.mp4')">
               <div class="play-icon">▶</div>
             </div>
           </div>
-          <div class="video-meta">Towards Navier-Stokes, plasma and electromagnetic fields.</div>
+          <div class="video-meta">Freezing the time clock to explore spatially a vortex's vicinity.</div>
         </article>
       </div>
     </div>
@@ -535,7 +535,7 @@
 
         <!-- Video 3 -->
         <article class="video-card" aria-labelledby="v3-title-fr">
-          <header><h4 id="v3-title-fr">Une primitive de rotation</h4></header>
+          <header><h4 id="v3-title-fr">L'histoire d'une feuille</h4></header>
           <div class="player">
             <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00001700_a_pristine_rotation_1080p.mp4')">
               <div class="play-icon">▶</div>
@@ -546,13 +546,13 @@
 
         <!-- Video 4 -->
         <article class="video-card" aria-labelledby="v4-title-fr">
-          <header><h4 id="v4-title-fr">Feuille de route – Fluides &amp; interactions EM</h4></header>
+          <header><h4 id="v4-title-fr">Exploration d'un vortex</h4></header>
           <div class="player">
-            <div class="video-placeholder" onclick="loadVideo(this, 'prototype.mp4')">
+            <div class="video-placeholder" onclick="loadVideo(this, 'prototype_00001800_a_vortex_slowdown_900p.mp4')">
               <div class="play-icon">▶</div>
             </div>
           </div>
-          <div class="video-meta">Vers Navier‑Stokes, plasma et champs électromagnétiques.</div>
+          <div class="video-meta">Ralentissement du temps pour explorer spatialement un vortex.</div>
         </article>
       </div>
     </div>
@@ -1028,11 +1028,10 @@
     // Préchargement des ressources critiques
     function preloadCriticalResources() {
       const criticalResources = [
-        'prototype.mp4',
         'prototype_00000300_an_infinite_bubble_1080p.mp4',
         'prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4',
         'prototype_00001700_a_pristine_rotation_1080p.mp4',
-        'graviton3D(4k)-6_New.mp4'
+        'prototype_00001800_a_vortex_slowdown_900p.mp4',
       ];
       
       criticalResources.forEach(src => {
