@@ -161,7 +161,9 @@
     /* CONTACT */
     .contact-section {background:var(--bg);padding:6rem 1.25rem}
     .contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch;}
-    .contact-info{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;transition:all var(--transition);}
+    
+	/* CONTACT INFO */
+	.contact-info{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;transition:all var(--transition);}
 	.contact-info:hover{
 						transform:translateY(-6px); /* léger effet de translation */
   						border-color:var(--brand1); /* accentuation du contour */
@@ -169,8 +171,8 @@
   						box-shadow:0 12px 28px rgba(102,126,234,.25); /* ombre plus prononcée */}
 	.contact-info h3 {margin-bottom:1rem;font-size:1.5rem;text-align:center}
     .contact-info p {margin-bottom:2rem;opacity:0.9;text-align:center}
-    .contact-methods {display:grid;gap:1rem}
-    .contact-method {display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);transition:all var(--transition)}
+    .contact-methods {display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:1.2rem}
+    .contact-method {display:flex;margin-bottom: 2.5rem;align-items:center;gap:1rem;padding:1rem;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);transition:all var(--transition)}
     .contact-method:hover {background:rgba(255,255,255,.08);border-color:var(--brand1)}
 
     /* CONTACT FORM */
@@ -225,8 +227,9 @@
       .video-card{grid-column:span 12}
       .lang-btn{padding:0.3rem 0.6rem;font-size:0.8rem}
       .contact-grid {display: flex;flex-direction: column-reverse;gap: 1.5rem;}
-	  .contact-form, .card {padding:1.2rem;}
+	  .contact-form, .contact-info, .card {padding:1.5rem;}
       .contact-form form {max-width:100%;}
+	  .contact-methods {grid-template-columns:1fr;}
       .hero-stats {gap:2rem}
     }
 	  
@@ -906,9 +909,9 @@
       </div>
       
       <div class="contact-grid">
-        <div class="reveal">
+        <div class="contact-info">
           <h3>Get in Touch</h3>
-          <p>Join us in this technological revolution that will transform access to space.</p>
+          <p>We’re here to discuss partnerships, collaborations, and opportunities.</p>
           
           <div class="contact-methods">
             <div class="contact-method">
@@ -993,9 +996,9 @@
       </div>
       
       <div class="contact-grid">
-        <div class="reveal">
+        <div class="contact-info">
           <h3>Nous Contacter</h3>
-          <p>Rejoignez-nous dans cette révolution technologique qui transformera l'accès à l'espace.</p>
+          <p>Nous sommes à votre disposition pour discuter de partenariats, collaborations et opportunités.</p>
           
           <div class="contact-methods">
             <div class="contact-method">
@@ -1500,6 +1503,7 @@
   </script>
 </body>
 </html>
+
 
 
 
