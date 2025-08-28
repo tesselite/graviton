@@ -17,8 +17,22 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;padding:2rem 1rem}
-    
     .wrap{max-width:var(--maxw);margin:0 auto}
+	  
+	/* Header / Topbar */
+	.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--stroke);box-shadow: 0 4px 20px rgba(0,0,0,0.1);}
+	.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+	.brand{display:flex;align-items:center;gap:.8rem;font-weight:800;letter-spacing:.3px;font-size:1.1rem}
+	.brand-badge{width:32px;height:32px;border-radius:10px;background:var(--grad);box-shadow: 0 4px 12px rgba(102,126,234,.3);animation: pulse 2s ease-in-out infinite;}
+	@keyframes pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+	}
+	.back-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.2rem;border-radius:16px;border:1px solid var(--stroke);background:var(--card);transition:all var(--transition);font-weight:600;text-decoration:none;color:#fff;backdrop-filter: blur(8px);font-size:0.95rem;}
+	.back-btn:hover{transform:translateY(-2px);border-color:var(--brand1);box-shadow:0 8px 25px rgba(102,126,234,.25);background:rgba(255,255,255,.08);}
+	.back-btn:active{transform:translateY(0);}
+	  
+	 /* HERO */
     .hero-investor{text-align:center;margin-bottom:4rem;padding:3rem 0;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);border-radius:var(--radius)}
     .investor-title{font-size:3rem;margin-bottom:1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
     .investor-subtitle{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 2rem}
@@ -95,43 +109,70 @@
     .document-title{font-size:1.1rem;margin-bottom:0.5rem}
     .document-description{color:var(--muted);font-size:0.9rem;line-height:1.5}
     
-    @media (max-width: 768px){
+	/* Modal */
+	.modal {display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter: blur(8px); /* Flou de l'arrière-plan */-webkit-backdrop-filter: blur(8px); /* Support Safari */justify-content:center;align-items:center}
+	.modal.show {display: flex;}
+	.modal-content {background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;max-width:400px;width:90%;color:#fff;position:relative;animation: modalSlideIn 0.3s ease;}
+	
+	@keyframes modalSlideIn {
+		from { opacity: 0; transform: scale(0.8); }
+		to { opacity: 1; transform: scale(1); }
+	}
+	  
+	.modal-content input, .modal-content textarea {width:100%;margin-bottom:1rem;padding:0.8rem;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,0.05);color:#fff;font-family: inherit;}
+	  
+	.modal-content input::placeholder, 
+	.modal-content textarea::placeholder {
+		color: var(--muted);
+	}
+	  
+	.close {position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer;color: var(--muted);transition: color var(--transition);}
+	  
+	  .close:hover {color: #fff;}
+	  
+	/* Footer */
+	footer{padding:2.5rem 0;border-top:1px solid var(--stroke);color:var(--muted);text-align:center}
+    
+	/* Responsive */
+	@media (max-width:1024px){
+		.highlights{grid-template-columns:1fr 1fr}
+		.docs{grid-template-columns:1fr 1fr}
+		.access-grid{grid-template-columns:1fr}
+	  
+	@media (max-width: 768px){
       .investor-title{font-size:2.2rem}
       .use-of-funds{grid-template-columns:1fr}
       .cta-buttons{flex-direction:column;align-items:center}
       .highlights-grid{grid-template-columns:1fr}
     }
 
-  /* Sauvegarde de la langue choisie dans localStorage */
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      localStorage.setItem("preferredLang", btn.dataset.lang);
-    });
-
-  /* Applique la langue préférée si dispo */
-  const preferredLang = localStorage.getItem("preferredLang") || "en";
-  document.body.classList.add("lang-" + preferredLang);
-
-  /* Gestion basique du contenu selon la langue */
-  function applyLang(lang) {
-    // sur la page investisseurs
-    if (document.title.includes("Investors")) {
-      if (lang === "fr") {
-        document.title = "Investisseurs - Levée de fonds Série A";
-        const heroTitle = document.querySelector(".investor-title");
-        if(heroTitle) heroTitle.textContent = "Opportunité d’investissement Série A";
-        const subtitle = document.querySelector(".investor-subtitle");
-        if(subtitle) subtitle.textContent = "Rejoignez-nous pour révolutionner la propulsion spatiale avec le moteur Graviton";
-      } else {
-        document.title = "Investors - Tesselite Series A Fundraising";
-      }
-    }
-  }
-  applyLang(preferredLang);
-    
-  </style>
+	@media (max-width:680px){
+		.topbar-inner{flex-wrap:wrap;gap:.6rem}
+		.form-row{grid-template-columns:1fr}
+		.highlights{grid-template-columns:1fr}
+		.docs{grid-template-columns:1fr}
+		.hero{padding:3.2rem 0 1.2rem}
+		.card{padding:1.25rem}
+		.btn{padding:.7rem .9rem}
+		
+ </style>
 </head>
 <body>
+  <!-- Topbar with Back to Main Site -->
+	<header class="topbar" role="banner">
+		<div class="wrap topbar-inner">
+			<div class="brand" aria-label="Tesselite Investors">
+				<span class="brand-badge" aria-hidden="true"></span>
+				<span>TESSELITE · Investors</span>
+			</div>
+			<nav aria-label="Utility Navigation">
+				<a class="back-btn" href="https://tesselite.com" rel="noopener" aria-label="Back to main site">
+					<span>⬅</span> Back to Tesselite.com
+				</a>
+			</nav>
+		</div>
+	</header>
+	
   <div class="wrap">
     <!-- Hero Section -->
     <div class="hero-investor">
@@ -367,8 +408,8 @@
           </div>
         </div>
         <div>
-          <h3 style="margin-bottom:1.5rem">Key Milestones</h3>
-          <div style="background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem">
+            <div style="background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem">
+			<h3 style="margin-bottom:1.5rem">Key Milestones</h3>
             <div style="margin-bottom:1.5rem">
               <h4 style="color:var(--accent);margin-bottom:0.5rem">Q2 2025</h4>
               <p style="color:var(--muted);font-size:0.9rem">First commercial Graviton Engine delivery</p>
@@ -418,6 +459,7 @@
     </div>
     
     <!-- Investment CTA -->
+
     <div class="investment-cta">
       <h2 class="cta-title">Ready to Join the Space Revolution?</h2>
       <p class="cta-description">
@@ -434,30 +476,96 @@
       </div>
     </div>
   </div>
+	
+  <!-- Modal Request Access -->
+  <div id="requestModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<h3>Request Data Room Access</h3>
+		<form id="accessForm">
+			<input type="text" name="name" placeholder="Full Name" required>
+			<input type="email" name="email" placeholder="Email Address" required>
+			<input type="text" name="company" placeholder="Company" required>
+			<textarea name="reason" placeholder="Reason for Access" rows="3" required></textarea>
+			<button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+		</form>
+	</div>
+  </div>
+
+  <footer>
+	<div class="wrap">© <span id="currentYear"></span> TESSELITE. All rights reserved.</div>
+  </footer>
+	
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   
   <script>
+	// Initialize EmailJS
+	emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
+	
+	// Set current year
+	document.getElementById('currentYear').textContent = new Date().getFullYear();
+	  
     function requestDocument(docType) {
-      // Simulate document request
-      alert(`Request for ${docType} submitted. Our team will contact you within 24h to provide secure access.`);
-      
-      // In real implementation, this would:
-      // - Capture user info
-      // - Send to CRM
-      // - Provide secure document access
-    }
-    
+       // Scroll to CTA section when documents are clicked
+      const cta = document.querySelector('.investment-cta');
+      if(cta) {
+        cta.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
+         
     function scheduleCall() {
-      // Simulate scheduling system integration
-      window.open('https://calendly.com/tesselite-investors', '_blank');
-    }
+      window.open("TON_GOOGLE_CALENDAR_LINK", "_blank");
+	}
     
     function requestAccess() {
-      // Simulate data room access request
-      const email = prompt('Please enter your email for data room access:');
-      if (email) {
-        alert(`Data room access request sent to ${email}. You will receive login credentials within 24 hours.`);
+      const modal = document.getElementById("requestModal");
+      modal.classList.add("show"); // Ajouter la classe pour afficher
+	}
+	  
+	function closeModal() {
+      const modal = document.getElementById("requestModal");
+      modal.classList.remove("show"); // Retirer la classe pour masquer
+	}
+	
+	// Close modal when clicking outside
+	document.getElementById("requestModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closeModal();
       }
-    }
+    });
+	
+	// Close modal with Escape key
+	document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+	
+	// Handle form submission
+    document.getElementById("accessForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+      
+      // Send email via EmailJS
+      emailjs.sendForm("service_tesselite", "template_tesselite", this)
+        .then(function() {
+          alert("✅ Request submitted successfully! You will receive an email with access link shortly.");
+          closeModal();
+          // Reset form
+          document.getElementById("accessForm").reset();
+        }, function(error) {
+          alert("❌ Error sending request: " + JSON.stringify(error));
+        })
+        .finally(function() {
+          // Reset button state
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+    });
   </script>
 </body>
 </html>
