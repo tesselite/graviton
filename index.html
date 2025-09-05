@@ -1281,6 +1281,7 @@
       const player = placeholder.parentElement;
       const video = document.createElement('video');
       video.controls = true;
+      video.controlsList = "nodownload"; // Désactivation du bouton de téléchargement
       video.autoplay = true;
       video.muted = true; // Nécessaire pour l'autoplay
       video.style.width = '100%';
