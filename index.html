@@ -63,10 +63,10 @@
     /* HERO */
     .hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);padding-top:80px}
     .hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
-    .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1; }
+    .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1}
     .orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
-    .hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem;animation:fadeUp .8s ease both}
-    h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 auto 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.85rem}
+    .hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem 1.25rem;animation:fadeUp .8s ease both}
+    h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 .85rem 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
     .hero-sub{color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.7;margin:0 auto 1.5rem}
     .badges{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.6rem}
     .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.04);padding:.5rem .75rem;border-radius:999px;font-size:.9rem;transition:all var(--transition)}
@@ -264,7 +264,7 @@
     }
 	  
     /* Hidden content for inactive language */
-    .hidden{display:none !important}
+    .french{display:none !important}
   
   </style>
 </head>
@@ -286,15 +286,10 @@
 			<div class="nav-right">
 				<div class="nav-links">
 					<a href="#home">Home</a>
-					<a href="#solution">Solution</a>
-					<a href="#technology">Technology</a>
-					<a href="#applications">Applications</a>
-					<a href="#progress">Progress</a>
-					<a href="#videos">Prototypes</a>
-					<a href="#team">Team</a>
+					<a href="#problem-statement">Problem Statement</a>
+					<a href="#achievement">Achievement</a>
 					<a href="#contact">Contact</a>
-					<!-- NEW INVESTORS LINK -->
-					<a href="investisseurs.html">Investors</a>
+					<a href="investors.html">Investors Room</a>
 				</div>
 				<button class="menu-toggle" aria-label="Mobile menu" aria-expanded="false">☰</button>
 			</div>
@@ -310,12 +305,12 @@
 			<a href="#team">Team</a>
 			<a href="#contact">Contact</a>
 			<!-- NEW INVESTORS LINK -->
-			<a href="investisseurs.html">Investors</a>
+			<a href="investors.html">Investors</a>
 		</div>
 	</nav>
 
 	<!-- NAV FRENCH -->
-	<nav aria-label="Navigation principale" data-lang-content="fr" class="hidden">
+	<nav aria-label="Navigation principale" data-lang-content="fr" class="french">
 		<div class="nav-container">
 			<div class="logo">
         		<img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
@@ -338,7 +333,7 @@
 					<a href="#team">Équipe</a>
 					<a href="#contact">Contact</a>
 					<!-- NEW INVESTORS LINK -->
-					<a href="investisseurs.html">Investisseurs</a>
+					<a href="investors.html">Investisseurs</a>
 				</div>
 				<button class="menu-toggle" aria-label="Menu mobile" aria-expanded="false">☰</button>
 			</div>
@@ -354,7 +349,7 @@
 			<a href="#team">Équipe</a>
 			<a href="#contact">Contact</a>
 			<!-- NEW INVESTORS LINK -->
-			<a href="investisseurs.html">Investisseurs</a>
+			<a href="investors.html">Investisseurs</a>
 		</div>
 	</nav>
   
@@ -367,16 +362,14 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-wrap">
-      <h1 class="hero-title">Revolutionary Propulsion Technology<br><span style="-webkit-text-fill-color:inherit;background:none">300% Efficiency Validated</span></h1>
-      <p class="hero-sub">First mathematical proof of optimal aerodynamic geometry. From UAVs to satellites to deep space missions — a single breakthrough technology platform.</p>
+      <h1 class="hero-title">Revolutionary Mathematical<br><span style="-webkit-text-fill-color:inherit;background:none">Breakthrough</span></h1>
+      <p class="hero-sub">First mathematical proof of space & motion optimal geometry.<br>
+          Unlocking energy conservation for more efficient design of UAVs,<br>
+          satellites and deep space vehicles. </p>
       
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">300%</div>
-          <div class="stat-label">Efficiency Gain</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">$27.7B</div>
+          <div class="stat-number">$30B</div>
           <div class="stat-label">Combined TAM</div>
         </div>
         <div class="stat">
@@ -386,20 +379,20 @@
       </div>
       
       <div class="badges">
-        <span class="badge">📐 Mathematical Proof</span>
-        <span class="badge">🔬 CFD Validated</span>
-        <span class="badge">🛡️ Patent-Protected</span>
+        <span class="badge">📐 Mathematical Design</span>
+        <span class="badge">🔬 Experimental Check</span>
+        <span class="badge" style="background:rgba(255,255,255,.2)">🛡️ Patent Secure</span>
       </div>
       
       <div class="cta-row">
-        <a class="btn btn-primary" href="investisseurs.html"><span>🚀</span> Investor Information</a>
+        <a class="btn btn-primary" href="investors.html"><span>🚀</span> Investor Information</a>
         <a class="btn btn-ghost" href="#contact"><span>💬</span> Contact Us</a>
       </div>
     </div>
   </header>
 
   <!-- HERO FRENCH -->
-  <header class="hero section-anchor hidden" id="home-fr" data-lang-content="fr" data-section="home">
+  <header class="hero section-anchor french" id="home-fr" data-lang-content="fr" data-section="home">
     <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
     <div class="orb" aria-hidden="true"></div>
     <video class="hero-teaser-video" autoplay muted loop playsinline>
@@ -432,17 +425,17 @@
       </div>
       
       <div class="cta-row">
-        <a class="btn btn-primary" href="investisseurs.html"><span>🚀</span> Informations Investisseurs</a>
+        <a class="btn btn-primary" href="investors.html"><span>🚀</span> Informations Investisseurs</a>
         <a class="btn btn-ghost" href="#contact"><span>💬</span> Nous Contacter</a>
       </div>
     </div>
   </header>
  
 	<!-- SOLUTION ENGLISH -->
-  <section class="reveal section-anchor" id="solution-en" data-lang-content="en" data-section="solution">
+  <section class="reveal section-anchor" id="problem" data-lang-content="en" data-section="solution">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">The Propulsion Challenge</h2>
+        <h2 class="section-title">Problem Statement</h2>
         <p class="section-sub">
           Current propulsion systems have reached their limits. We've unlocked the next generation.
         </p>
@@ -483,7 +476,7 @@
   </section>
 
   <!-- SOLUTION FRENCH -->
-  <section class="reveal section-anchor hidden" id="solution-fr" data-lang-content="fr" data-section="solution">
+  <section class="reveal section-anchor french" id="solution-fr" data-lang-content="fr" data-section="solution">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Le Défi de la Propulsion</h2>
@@ -562,7 +555,7 @@
   </section>
 
   <!-- TECHNOLOGY FRENCH -->
-  <section class="reveal section-anchor hidden" id="technology-fr" data-lang-content="fr" data-section="technology" style="background:rgba(255,255,255,.02)">
+  <section class="reveal section-anchor french" id="technology-fr" data-lang-content="fr" data-section="technology" style="background:rgba(255,255,255,.02)">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Innovation Technologique</h2>
@@ -635,7 +628,7 @@
   </section>
 
   <!-- APPLICATIONS FRENCH -->
-  <section class="reveal section-anchor hidden" id="applications-fr" data-lang-content="fr" data-section="applications">
+  <section class="reveal section-anchor french" id="applications-fr" data-lang-content="fr" data-section="applications">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Stratégie de Marché en Trois Phases</h2>
@@ -703,7 +696,7 @@
   </section>
   
   <!-- PROGRESS FRENCH -->
-  <section class="reveal section-anchor hidden" id="progress-fr" data-lang-content="fr" data-section="progress" style="background:rgba(255,255,255,.02)">
+  <section class="reveal section-anchor" id="progress-fr" data-lang-content="fr" data-section="progress" style="background:rgba(255,255,255,.02)">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Progrès &amp; Jalons</h2>
@@ -785,7 +778,7 @@
   </section>
 
   <!-- VIDEOS FRENCH -->
-  <section class="reveal section-anchor hidden" id="videos-fr" data-lang-content="fr" data-section="videos">
+  <section class="reveal section-anchor french" id="videos-fr" data-lang-content="fr" data-section="videos">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Prototypes</h2>
@@ -867,7 +860,7 @@
   </section>
 
   <!-- TEAM FRENCH -->
-  <section class="reveal section-anchor hidden" id="team-fr" data-lang-content="fr" data-section="team" style="background:rgba(255,255,255,.02)">
+  <section class="reveal section-anchor french" id="team-fr" data-lang-content="fr" data-section="team" style="background:rgba(255,255,255,.02)">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Équipe Fondatrice</h2>
@@ -932,7 +925,7 @@
               <span style="font-size:1.5rem">💼</span>
               <div>
                 <strong>Investor Relations</strong><br>
-                <a href="investisseurs.html" style="color:var(--accent)">View Investor Page</a>
+                <a href="investors.html" style="color:var(--accent)">View Investor Page</a>
               </div>
             </div>
           </div>
@@ -984,7 +977,7 @@
   </section>
 
   <!-- CONTACT FRENCH -->
-  <section class="contact-section section-anchor hidden" id="contact-fr" data-lang-content="fr" data-section="contact">
+  <section class="contact-section section-anchor french" id="contact-fr" data-lang-content="fr" data-section="contact">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Nous Rejoindre</h2>
@@ -1019,7 +1012,7 @@
               <span style="font-size:1.5rem">💼</span>
               <div>
                 <strong>Relations Investisseurs</strong><br>
-                <a href="investisseurs.html" style="color:var(--accent)">Voir Page Investisseurs</a>
+                <a href="investors.html" style="color:var(--accent)">Voir Page Investisseurs</a>
               </div>
             </div>
           </div>
@@ -1074,7 +1067,7 @@
   <footer>
     <div class="wrap" style="text-align:center">
       <div class="footer-links">
-        <a href="investisseurs.html">Investors</a>
+        <a href="investors.html">Investors</a>
         <a href="#technology">Technology</a>
         <a href="#applications">Applications</a>
         <a href="#team">Team</a>
@@ -1108,12 +1101,12 @@
       
       // Hide all content
       document.querySelectorAll('[data-lang-content]').forEach(el => {
-        el.classList.add('hidden');
+        el.classList.add('french');
       });
       
       // Show content for selected language
       document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
-        el.classList.remove('hidden');
+        el.classList.remove('french');
       });
       
       // Update language toggle buttons 
@@ -1164,7 +1157,7 @@
 
     function updateActiveNav() {
       // Update global nav reference to current language nav
-      nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+      nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.french)`);
     }
 
     // Language toggle event listeners
@@ -1241,7 +1234,7 @@
         const targetSection = e.target.getAttribute('href').substring(1);
         
         // Trouver la section correspondante dans la langue active
-        const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.hidden)`);
+        const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.french)`);
         
         if (target) {
           // Fermer le menu mobile si ouvert
@@ -1253,7 +1246,7 @@
           });
           
           // Scroll fluide avec offset pour la nav fixe
-          const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+          const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.french)`);
           const navHeight = currentNav ? currentNav.offsetHeight : 80;
           const targetPosition = target.offsetTop - navHeight;
           
