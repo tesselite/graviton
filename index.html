@@ -108,7 +108,7 @@
     .icon{width:50px;height:50px;border-radius:16px;background:var(--grad-primary);display:grid;place-items:center;margin-bottom:1rem;font-weight:800;font-size:1.2rem;box-shadow:var(--shadow)}
 
     /* PROBLEM/SOLUTION SECTION */
-    .problem-solution {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .problem-statement {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
     .problem-card, .solution-card {padding:2.5rem;border-radius:var(--radius);position:relative;transition:all var(--transition);}
     .problem-card {background:linear-gradient(135deg, #ff6b6b20, #ff8e8e20);border:1px solid #ff6b6b30}
     .solution-card {background:linear-gradient(135deg,rgba(0,102,255,0.15),rgba(0,255,136,0.15));border:2px solid var(--primary);box-shadow:0 8px 24px rgba(0,102,255,0.25);}
@@ -214,7 +214,7 @@
       .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
       .video-card{grid-column:span 12}
-      .problem-solution{grid-template-columns:1fr;gap:2rem}
+      .problem-statement{grid-template-columns:1fr;gap:2rem}
     }
     @media (max-width: 768px){
       .nav-container{grid-template-columns:1fr auto;gap:1rem}
@@ -241,7 +241,7 @@
       .nav-container{grid-template-columns:1fr auto auto;align-items:center}
       .logo{font-size:1.1rem}
       .lang-toggle-nav{margin-right:0.5rem}
-      .problem-solution{gap:1.5rem}
+      .problem-statement{gap:1.5rem}
       .problem-card, .solution-card{padding:1.5rem}
     }
 
@@ -297,15 +297,11 @@
 		
 		<div class="menu-mobile" id="mobile-menu-en">
 			<a href="#home">Home</a>
-			<a href="#solution">Solution</a>
-			<a href="#technology">Technology</a>
-			<a href="#applications">Applications</a>
-			<a href="#progress">Progress</a>
-			<a href="#videos">Prototypes</a>
-			<a href="#team">Team</a>
+			<a href="#problem-statement">Problem Statement</a>
+			<a href="#achievement">Achievement</a>
 			<a href="#contact">Contact</a>
 			<!-- NEW INVESTORS LINK -->
-			<a href="investors.html">Investors</a>
+			<a href="investors.html">Investors Room</a>
 		</div>
 	</nav>
 
@@ -363,7 +359,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-wrap">
       <h1 class="hero-title">Revolutionary Mathematical<br><span style="-webkit-text-fill-color:inherit;background:none">Breakthrough</span></h1>
-      <p class="hero-sub">First mathematical proof of space & motion optimal geometry.<br>
+      <p class="hero-sub">First mathematical proof of motion-space optimal geometry.<br>
           Unlocking energy conservation for more efficient design of UAVs,<br>
           satellites and deep space vehicles. </p>
       
@@ -432,16 +428,18 @@
   </header>
  
 	<!-- SOLUTION ENGLISH -->
-  <section class="reveal section-anchor" id="problem" data-lang-content="en" data-section="solution">
+  <section class="reveal section-anchor" id="problem-statement" data-lang-content="en" data-section="problem-statement">
     <div class="wrap">
       <div style="text-align:center;margin-bottom:4rem">
         <h2 class="section-title">Problem Statement</h2>
         <p class="section-sub">
-          Current propulsion systems have reached their limits. We've unlocked the next generation.
+          Current propulsion systems are inefficient, polluting and painful to evolve,
+            hindering the desire of mankind to explore the farter space.
+            Those systems are rooted on ancient designs unquestioned by modern mathematics.
         </p>
       </div>
       
-      <div class="problem-solution">
+      <div class="problem-statement">
         <div class="problem-card">
           <div class="card-icon">⚠️</div>
           <h3 class="card-title">Industry Bottleneck</h3>
@@ -485,7 +483,7 @@
         </p>
       </div>
       
-      <div class="problem-solution">
+      <div class="problem-statement">
         <div class="problem-card">
           <div class="card-icon">⚠️</div>
           <h3 class="card-title">Goulot d'Étranglement</h3>
