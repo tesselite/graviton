@@ -1,162 +1,126 @@
 <!DOCTYPE html>
 <html lang="en" id="html-root">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-en="Tesselite — Graviton • Revolutionizing Space Propulsion" data-fr="Tesselite — Graviton • Révolutionner la Propulsion Spatiale">Tesselite — Graviton • Revolutionizing Space Propulsion</title>
-  <meta name="description" data-en="Tesselite develops the Graviton Engine, a revolutionary propulsion technology validated at 300% efficiency gain. From UAVs to satellites to space travel." data-fr="Tesselite développe le Graviton, une technologie de propulsion révolutionnaire avec 300% d'amélioration d'efficacité validée. Des drones aux satellites jusqu'au voyage spatial." content="Tesselite develops the Graviton Engine, a revolutionary propulsion technology validated at 300% efficiency gain. From UAVs to satellites to space travel." />
-  <meta name="keywords" data-en="propulsion technology, graviton, UAV, satellite, space travel, deep tech, aerospace innovation" data-fr="technologie de propulsion, graviton, drone, satellite, voyage spatial, deep tech, innovation aérospatiale" content="propulsion technology, graviton, UAV, satellite, space travel, deep tech, aerospace innovation" />
-  
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" data-en="Tesselite - Revolutionary propulsion technology with 300% efficiency gain" data-fr="Tesselite - Technologie de propulsion révolutionnaire avec 300% de gain d'efficacité" content="Tesselite - Revolutionary propulsion technology with 300% efficiency gain" />
-  <meta property="og:description" data-en="First mathematical proof of optimal aerodynamic geometry. Applicable from drones to space missions." data-fr="Première preuve mathématique de la géométrie aérodynamique optimale. Applicable des drones aux missions spatiales." content="First mathematical proof of optimal aerodynamic geometry. Applicable from drones to space missions." />
-	
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  
-  <style>
-    :root{
-      --bg:#0a0a0a;--muted:#a0a0a0;--card:rgba(255,255,255,.05);
-      --stroke:rgba(255,255,255,.12);
-      --brand1:#667eea;--brand2:#764ba2;--brand3:#f093fb;
-      --accent:#00FF88;--primary:#0066FF;
-      --grad:linear-gradient(135deg,var(--brand1) 0%,var(--brand2) 50%,var(--brand3) 100%);
-      --grad-primary:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      --radius:22px;--shadow:0 20px 40px rgba(102,126,234,.22);
-      --maxw:1200px;--transition:.25s ease;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    html,body{height:100%}
-    body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
-    a{color:inherit}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tesselite — Graviton • Revolutionizing Space Propulsion</title>
+<meta name="description" content="Tesselite develops the Graviton Engine, a revolutionary propulsion technology validated at 300% efficiency gain. From UAVs to satellites to space travel." />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<style>
+:root{
+--bg:#0a0a0a;--muted:#a0a0a0;--card:rgba(255,255,255,.05);
+--stroke:rgba(255,255,255,.12);
+--brand1:#667eea;--brand2:#764ba2;--brand3:#f093fb;
+--accent:#00FF88;--primary:#0066FF;
+--grad:linear-gradient(135deg,var(--brand1) 0%,var(--brand2) 50%,var(--brand3) 100%);
+--grad-primary:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+--radius:22px;--shadow:0 20px 40px rgba(102,126,234,.22);
+--maxw:1200px;--transition:.25s ease;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{height:100%}
+body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
 
-    /* NAVIGATION */
-    nav{position:fixed;inset:0 0 auto 0;z-index:1000;background:rgba(10,10,10,.9);backdrop-filter:saturate(140%) blur(18px);border-bottom:1px solid var(--stroke);padding:1rem 2rem;transition:all var(--transition)}
-    .nav-container{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem}
-    
-    .logo{display:flex;align-items:center;gap:.75rem;font-weight:800;font-size:1.25rem;justify-self:start;text-decoration:none}
-    .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    
-    .lang-toggle-nav {justify-self:center;background:var(--card);border:1px solid var(--stroke);border-radius:50px;padding:0.4rem;backdrop-filter:blur(20px);transition:all var(--transition);display:flex;}
-    .lang-toggle-nav:hover {background:rgba(255,255,255,.1);border-color:var(--brand1);}
-    .lang-btn {background:none;border:none;color:#fff;font-weight:600;padding:0.4rem 0.8rem;border-radius:25px;cursor:pointer;transition:all var(--transition);font-size:0.85rem;}
-    .lang-btn.active {background:var(--grad);color:#fff;}
-    .lang-btn:not(.active):hover {background:rgba(255,255,255,.1);}
-    
-    .nav-right{display:flex;align-items:center;gap:1rem;justify-self:end}
-    .nav-links{display:flex;gap:1.25rem}
-    .nav-links a{position:relative;text-decoration:none;font-weight:600;transition:color var(--transition)}
-    .nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:width var(--transition)}
-    .nav-links a:hover{color:var(--brand1)}
-    .nav-links a:hover::after{width:100%}
+/* NAVIGATION */
+nav{position:fixed;inset:0 0 auto 0;z-index:1000;background:rgba(10,10,10,.9);backdrop-filter:saturate(140%) blur(18px);border-bottom:1px solid var(--stroke);padding:1rem 2rem;transition:all var(--transition)}
+.nav-container{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.logo{display:flex;align-items:center;gap:.75rem;font-weight:800;font-size:1.25rem;text-decoration:none; flex-shrink: 0;}
+.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-center {display: flex;align-items: center;gap: 1rem;}
+.lang-toggle-nav {background:var(--card);border:1px solid var(--stroke);border-radius:50px;padding:0.4rem;backdrop-filter:blur(20px);transition:all var(--transition);display:flex;}
+.lang-toggle-nav:hover {background:rgba(255,255,255,.1);border-color:var(--brand1);}
+.lang-btn {background:none;border:none;color:#fff;font-weight:600;padding:0.4rem 0.8rem;border-radius:25px;cursor:pointer;transition:all var(--transition);font-size:0.85rem;}
+.lang-btn.active {background:var(--grad);color:#fff;}
+.lang-btn:not(.active):hover {background:rgba(255,255,255,.1);}
+.nav-right{display:flex;align-items:center;gap:1rem;justify-self:end}
+.nav-links{display:flex;gap:2rem; align-items: center;}
+.nav-links a{position:relative;text-decoration:none;font-weight:600; font-size: 0.95rem; transition:color var(--transition); padding: 0.5rem 0;}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--grad);transition:width var(--transition)}
+.nav-links a:hover{color:var(--brand1)}
+.nav-links a:hover::after{width:100%}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem;z-index: 1001;}
+.menu-mobile{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--stroke);padding:1rem 2rem; animation: slideDown 0.3s ease;}
+.menu-mobile.active{display:block}
+.menu-mobile a{display:block;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;font-size:1rem; transition: all var(--transition);}
+.menu-mobile a:hover {background: rgba(255,255,255,.05);color: var(--brand1);
+}
 
-    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
-    .menu-mobile{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--stroke);padding:1rem 2rem}
-    .menu-mobile.active{display:block}
-    .menu-mobile a{display:block;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;font-size:1rem}
+/* HERO */
+.hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);padding-top:80px}
+.hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
+.hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1}
+.orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
+.hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem 1.25rem;animation:fadeUp .8s ease both}
+h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 .85rem 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.7;margin:0 auto 1.5rem}
+.badges{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.6rem}
+.badge{border:1px solid var(--stroke);background:rgba(255,255,255,.04);padding:.5rem .75rem;border-radius:999px;font-size:.9rem;transition:all var(--transition)}
+.badge:hover{background:rgba(255,255,255,.08);border-color:var(--brand1)}
+.cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.hero-stats {display:flex;justify-content:center;gap:3rem;margin:2rem 0;flex-wrap:wrap}
+.stat {text-align:center}
+.stat-number {font-size:2.5rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label {font-size:0.9rem;opacity:0.8;margin-top:0.5rem}
 
-    /* HERO */
-    .hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);padding-top:80px}
-    .hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
-    .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1}
-    .orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
-    .hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem 1.25rem;animation:fadeUp .8s ease both}
-    h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 .85rem 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .hero-sub{color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.7;margin:0 auto 1.5rem}
-    .badges{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.6rem}
-    .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.04);padding:.5rem .75rem;border-radius:999px;font-size:.9rem;transition:all var(--transition)}
-    .badge:hover{background:rgba(255,255,255,.08);border-color:var(--brand1)}
-    .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+/* BOUTONS */
+.btn{appearance:none;border:0;border-radius:999px;padding:1rem 1.5rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
+.btn-primary{background:var(--grad-primary);box-shadow:var(--shadow);color:#fff}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(0,102,255,.4)}
+.btn-ghost{background:transparent;border:1px solid var(--stroke);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--brand1);transform:translateY(-2px)}
 
-    /* HERO STATS */
-    .hero-stats {display:flex;justify-content:center;gap:3rem;margin:2rem 0;flex-wrap:wrap}
-    .stat {text-align:center}
-    .stat-number {font-size:2.5rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .stat-label {font-size:0.9rem;opacity:0.8;margin-top:0.5rem}
-    
-    /* BOUTONS */
-    .btn{appearance:none;border:0;border-radius:999px;padding:1rem 1.5rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
-    .btn-primary{background:var(--grad-primary);box-shadow:var(--shadow);color:#fff}
-    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(0,102,255,.4)}
-    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
-    .btn-primary:hover::before{left:100%}
-    .btn-ghost{background:transparent;border:1px solid var(--stroke);color:#fff}
-    .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--brand1);transform:translateY(-2px)}
+/* SECTIONS */
+section{padding:6.5rem 1.25rem}
+.wrap{max-width:var(--maxw);margin-inline:auto}
+.section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
+.section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin:0 auto 2.5rem; text-align:center;}
 
-    /* SECTIONS */
-    section{padding:6.5rem 1.25rem}
-    .wrap{max-width:var(--maxw);margin-inline:auto}
-    .section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
-    .section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin:0 auto 2.5rem; text-align:center;}
+/* CARTES */
+.grid{display:grid;gap:1.25rem}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
+.card h3{font-size:1.2rem;margin-bottom:.5rem;position:relative;z-index:1}
+.card p{color:var(--muted);line-height:1.7;position:relative;z-index:1}
 
-    /* CARTES */
-    .grid{display:grid;gap:1.25rem}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition);position:relative;overflow:hidden}
-    .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(102,126,234,.05),transparent 50%);opacity:0;transition:opacity var(--transition)}
-    .card:hover{transform:translateY(-8px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
-    .card:hover::before{opacity:1}
-    .card h3{font-size:1.2rem;margin-bottom:.5rem;position:relative;z-index:1}
-    .card p{color:var(--muted);line-height:1.7;position:relative;z-index:1}
-    .icon{width:50px;height:50px;border-radius:16px;background:var(--grad-primary);display:grid;place-items:center;margin-bottom:1rem;font-weight:800;font-size:1.2rem;box-shadow:var(--shadow)}
+/* PROBLEM SECTION */
+.problem-section{background:rgba(0,0,0,.3);position:relative}
+.problem-card{background:linear-gradient(135deg, #ff6b6b20, #ff8e8e20);border:1px solid #ff6b6b30;padding:2rem;border-radius:var(--radius);transition:all var(--transition)}
+.problem-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(255,107,107,.25);border-color:#ff6b6b}
 
-    /* PROBLEM/SOLUTION SECTION */
-    .problem-statement {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-    .problem-card, .solution-card {padding:2.5rem;border-radius:var(--radius);position:relative;transition:all var(--transition);}
-    .problem-card {background:linear-gradient(135deg, #ff6b6b20, #ff8e8e20);border:1px solid #ff6b6b30}
-    .solution-card {background:linear-gradient(135deg,rgba(0,102,255,0.15),rgba(0,255,136,0.15));border:2px solid var(--primary);box-shadow:0 8px 24px rgba(0,102,255,0.25);}
-    .problem-card:hover,.solution-card:hover{
-  											transform:translateY(-6px); /* effet de translation */
-  											box-shadow:0 12px 28px rgba(102,126,234,.25); /* ombre accentuée */
-  											border-color:var(--brand1); /* contour mis en avant */
-  											background:rgba(255,255,255,.06); /* léger éclaircissement */}
-	.card-icon {width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem}
-    .problem-card .card-icon {background:linear-gradient(135deg, #ff6b6b, #ff8e8e)}
-    .solution-card .card-icon {background:var(--grad-primary)}
-    .card-title {font-size:1.5rem;font-weight:700;margin-bottom:1rem}
-    .card-description {color:var(--muted);margin-bottom:1.5rem}
+/* TIMELINE */
+.timeline {  position: relative;max-width: 800px;margin: 0 auto;}
+.timeline::before {content: '';position: absolute;left: 30px;top: 0;bottom: 0;width: 2px;background: linear-gradient(to bottom, transparent, var(--brand1), transparent);
+}
+.timeline-item{display:flex;gap:2rem;margin-bottom:3rem; align-items: flex-start;}
+.timeline-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.timeline-marker {width: 60px;height: 60px;border-radius: 50%;display: flex;align-items: center;justify-content: center;font-size: 1.5rem;flex-shrink: 0;position: relative;z-index: 2;}
+.timeline-content{flex:1;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition)}
+.timeline-content:hover{border-color:var(--brand1);transform:translateX(8px)}
 
-    /* BENEFITS LIST */
-    .benefits {list-style:none}
-    .benefits li {display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;color:var(--muted)}
-    .benefits li::before {content:'✓';background:var(--grad-primary);color:white;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:bold}
+/* IMPACT SECTION */
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.impact-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;text-align:center;transition:all var(--transition)}
+.impact-card:hover{transform:translateY(-8px);border-color:rgba(102,126,234,.4)}
+.impact-icon{font-size:3rem;margin-bottom:1rem}
 
-    /* PROGRESS */
-    .ticks{display:grid;gap:.75rem}
-    .tick{display:flex;gap:.6rem;align-items:flex-start;transition:transform var(--transition)}
-    .tick:hover{transform:translateX(5px)}
-    .tick i{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--grad-primary);font-size:.9rem;flex-shrink:0}
+/* VIDEOS */
+.video-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.video-card{grid-column:span 6;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;transition:all var(--transition)}
+.video-card:hover{transform:translateY(-5px);border-color:rgba(102,126,234,.3)}
+.video-card header{padding:1rem 1.25rem;border-bottom:1px solid var(--stroke)}
+.video-card h4{font-size:1.05rem}
+.video-card .player{position:relative;aspect-ratio:16/9;background:#000}
+video{display:block;width:100%;height:100%;object-fit:cover}
+.video-placeholder{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,rgba(102,126,234,.1),rgba(118,75,162,.1));color:#fff;cursor:pointer;transition:all var(--transition)}
+.video-placeholder:hover{background:linear-gradient(135deg,rgba(102,126,234,.2),rgba(118,75,162,.2))}
+.play-icon{width:60px;height:60px;background:rgba(255,255,255,.1);border-radius:50%;display:grid;place-items:center;font-size:1.5rem;backdrop-filter:blur(10px)}
+.video-meta{padding:.8rem 1.25rem;color:var(--muted);font-size:.95rem;border-top:1px solid var(--stroke)}
 
-    /* APPLICATIONS */
-    .app-card {background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;text-align:center;transition:all var(--transition)}
-    .app-card:hover {transform:translateY(-8px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
-    .app-icon {font-size:3rem;margin-bottom:1rem}
-
-    /* VIDEOS */
-    .video-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-    .video-card{grid-column:span 6;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);overflow:hidden;transition:all var(--transition)}
-    .video-card:hover{transform:translateY(-5px);border-color:rgba(102,126,234,.3)}
-    .video-card header{padding:1rem 1.25rem;border-bottom:1px solid var(--stroke)}
-    .video-card h4{font-size:1.05rem}
-    .video-card .player{position:relative;aspect-ratio:16/9;background:#000}
-    video{display:block;width:100%;height:100%;object-fit:cover}
-    .video-placeholder{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,rgba(102,126,234,.1),rgba(118,75,162,.1));color:#fff;cursor:pointer;transition:all var(--transition)}
-    .video-placeholder:hover{background:linear-gradient(135deg,rgba(102,126,234,.2),rgba(118,75,162,.2))}
-    .play-icon{width:60px;height:60px;background:rgba(255,255,255,.1);border-radius:50%;display:grid;place-items:center;font-size:1.5rem;backdrop-filter:blur(10px)}
-    .video-meta{padding:.8rem 1.25rem;color:var(--muted);font-size:.95rem;border-top:1px solid var(--stroke)}
-
-    /* TEAM */
-    .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
-    .avatar{width:100px;height:100px;border-radius:50%;background:var(--grad-primary);display:grid;place-items:center;font-weight:800;margin:0 auto 1rem;font-size:1.5rem;box-shadow:var(--shadow)}
-
-    /* CONTACT */
+ /* CONTACT */
     .contact-section {background:var(--bg);padding:6rem 1.25rem}
     .contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch;}
     
@@ -189,539 +153,618 @@
     .form-group textarea::placeholder{color:rgba(255,255,255,.6)}
     .form-group select option{background:var(--bg);color:#fff}
 
-    /* FOOTER */
-    footer{border-top:1px solid var(--stroke);background:rgba(0,0,0,.45);padding:2rem 1.25rem;text-align:center}
-	.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem}
-    .footer-links a{color:var(--muted);text-decoration:none;transition:color var(--transition)}
-    .footer-links a:hover{color:#fff}
+/* FOOTER */
+footer{border-top:1px solid var(--stroke);background:rgba(0,0,0,.45);padding:2rem 1.25rem;text-align:center}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-bottom:2rem;text-align:left}
+.footer-section h4{color:#fff;font-weight:600;margin-bottom:1rem}
+.footer-links{display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{color:var(--muted);transition:color var(--transition)}
+.footer-links a:hover{color:#fff}
 
-    /* ANIMATIONS */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-	@keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
-
-    /* SCROLL ANIMATIONS */
-    .reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
-    .reveal.active{opacity:1;transform:translateY(0)}
-
-    /* FORM ALERTS */
-    .form-alert {margin-top: 1rem;padding: 0.75rem 1rem;border-radius: 12px;font-size: 0.9rem;display:none}
-    .form-alert.success {background: rgba(34,197,94,.15); color:#4ade80;}
-    .form-alert.error {background: rgba(239,68,68,.15); color:#f87171;}
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px){
-      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .video-card{grid-column:span 12}
-      .problem-statement{grid-template-columns:1fr;gap:2rem}
-    }
-    @media (max-width: 768px){
-      .nav-container{grid-template-columns:1fr auto;gap:1rem}
-      .nav-links{display:none}
-      .menu-toggle{display:block}
-      .lang-toggle-nav{order:1;margin-right:1rem}
-      .nav-right{order:2}
-      .video-card{grid-column:span 12}
-      .lang-btn{padding:0.3rem 0.6rem;font-size:0.8rem}
-      .contact-grid {display: flex;flex-direction: column-reverse;gap: 1.5rem;}
-	  .contact-form, .contact-info, .card {padding:1.5rem;}
-      .contact-form form {max-width:100%;}
-	  .contact-methods {grid-template-columns:1fr;}
-      .hero-stats {gap:2rem}
-    }
-	  
-    @media (max-width: 640px){
-      nav{padding:.8rem 1rem}
-      section{padding:4rem 1rem}
-      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-      .team-grid{grid-template-columns:1fr}
-      .cta-row{flex-direction:column;align-items:center}
-      .btn{width:100%;max-width:280px;justify-content:center}
-      .nav-container{grid-template-columns:1fr auto auto;align-items:center}
-      .logo{font-size:1.1rem}
-      .lang-toggle-nav{margin-right:0.5rem}
-      .problem-statement{gap:1.5rem}
-      .problem-card, .solution-card{padding:1.5rem}
-    }
-
-	  /* --- feedback visuel formulaire --- */
-    .form-alert {margin-top: 1rem;padding: 0.75rem 1rem;border-radius: 12px;font-size: 0.9rem;}
-    .form-alert.success {background: rgba(34,197,94,.15); color:#4ade80;}
-    .form-alert.error {background: rgba(239,68,68,.15); color:#f87171;}
-   
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .menu-mobile.active {
-      animation: fadeIn 0.3s ease;}
-
-      /* DARK MODE SUPPORT */
-    @media (prefers-color-scheme: light) {
-      /* Variables pour thème clair si nécessaire */
-    }
-	  
-    /* Hidden content for inactive language */
-    .french{display:none !important}
-  
-  </style>
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+	
+/* RESPONSIVE */
+@media (max-width: 768px){
+.nav-container{flex-wrap: wrap;}
+.nav-links{display:none}
+.menu-toggle{display:block}
+.nav-center {order: 3;width: 100%;justify-content: center;margin-top: 1rem;}
+.video-card{grid-column:span 12}
+.contact-grid {display:flex;flex-direction:column-reverse;gap:1.5rem;}
+.grid-2,.grid-3{grid-template-columns:1fr}
+.timeline::before {left: 25px;}
+.timeline-marker {width: 50px;height: 50px;font-size: 1.2rem;}
+.timeline-item{gap: 1rem;}
+.impact-grid{grid-template-columns:1fr}
+}
+.french{display:none !important}
+</style>
 </head>
-
 <body>
-  	<!-- NAV ENGLISH -->
-	<nav aria-label="Main navigation" data-lang-content="en">
-		<div class="nav-container">
-			<div class="logo">
-        		<img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
-       			<span>Tesselite</span>
-   		   </div>
 
-			<div class="lang-toggle-nav">
-				<button class="lang-btn active" data-lang="en">EN</button>
-				<button class="lang-btn" data-lang="fr">FR</button>
-			</div>
-			
-			<div class="nav-right">
-				<div class="nav-links">
-					<a href="#home">Home</a>
-					<a href="#problem-statement">Problem Statement</a>
-					<a href="#achievement">Achievement</a>
-					<a href="#contact">Contact</a>
-					<a href="investors.html">Investors Room</a>
-				</div>
-				<button class="menu-toggle" aria-label="Mobile menu" aria-expanded="false">☰</button>
-			</div>
-		</div>
-		
-		<div class="menu-mobile" id="mobile-menu-en">
-			<a href="#home">Home</a>
-			<a href="#problem-statement">Problem Statement</a>
-			<a href="#achievement">Achievement</a>
-			<a href="#contact">Contact</a>
-			<!-- NEW INVESTORS LINK -->
-			<a href="investors.html">Investors Room</a>
-		</div>
-	</nav>
+<!-- NAV ENGLISH -->
+<nav aria-label="Main navigation" data-lang-content="en">
+<div class="nav-container">
+<div class="logo">
+<span>Tesselite</span>
+</div>
+<div class="lang-toggle-nav">
+<button class="lang-btn active" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="fr">FR</button>
+</div>
+<div class="nav-right">
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#problem">Problem Statement</a>
+<a href="#solution">Achievements</a>
+<a href="#contact">Contact</a>
+<a href="investisseurs.html">Investors Room</a>
+</div>
+<button class="menu-toggle" aria-label="Mobile menu">☰</button>
+</div>
+</div>
+<div class="menu-mobile">
+<a href="#home">Home</a>
+<a href="#problem">Problem Statement</a>
+<a href="#solution">Achievements</a>
+<a href="#contact">Contact</a>
+<a href="investisseurs.html">Investors Room</a>
+</div>
+</nav>
 
-	<!-- NAV FRENCH -->
-	<nav aria-label="Navigation principale" data-lang-content="fr" class="french">
-		<div class="nav-container">
-			<div class="logo">
-        		<img src="logo.jpg" alt="Logo Tesselite" width="40" height="40" style="border-radius:10px" />
-       			<span>Tesselite</span>
-   		   </div>
-			
-			<div class="lang-toggle-nav">
-				<button class="lang-btn" data-lang="en">EN</button>
-				<button class="lang-btn active" data-lang="fr">FR</button>
-			</div>
-			
-			<div class="nav-right">
-				<div class="nav-links">
-					<a href="#home">Accueil</a>
-					<a href="#solution">Solution</a>
-					<a href="#technology">Technologie</a>
-					<a href="#applications">Applications</a>
-					<a href="#progress">Progrès</a>
-					<a href="#videos">Prototypes</a>
-					<a href="#team">Équipe</a>
-					<a href="#contact">Contact</a>
-					<!-- NEW INVESTORS LINK -->
-					<a href="investors.html">Investisseurs</a>
-				</div>
-				<button class="menu-toggle" aria-label="Menu mobile" aria-expanded="false">☰</button>
-			</div>
-		</div>
-		
-		<div class="menu-mobile" id="mobile-menu-fr">
-			<a href="#home">Accueil</a>
-			<a href="#solution">Solution</a>
-			<a href="#technology">Technologie</a>
-			<a href="#applications">Applications</a>
-			<a href="#progress">Progrès</a>
-			<a href="#videos">Prototypes</a>
-			<a href="#team">Équipe</a>
-			<a href="#contact">Contact</a>
-			<!-- NEW INVESTORS LINK -->
-			<a href="investors.html">Investisseurs</a>
-		</div>
-	</nav>
-  
-  <!-- HERO ENGLISH -->
-  <header class="hero section-anchor" id="home-en" data-lang-content="en" data-section="home">
-    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
-    <div class="orb" aria-hidden="true"></div>
-    <video class="hero-teaser-video" autoplay muted loop playsinline>
-      <source src="prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-wrap">
-      <h1 class="hero-title">Revolutionary Mathematical<br><span style="-webkit-text-fill-color:inherit;background:none">Breakthrough</span></h1>
-      <p class="hero-sub">First mathematical proof of motion-space optimal geometry.<br>
-          Unlocking energy conservation for more efficient design of UAVs,<br>
-          satellites and deep space vehicles. </p>
-      
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-number">$30B</div>
-          <div class="stat-label">Combined TAM</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">3 Markets</div>
-          <div class="stat-label">UAV • Satellite • Space</div>
-        </div>
-      </div>
-      
-      <div class="badges">
-        <span class="badge">📐 Mathematical Design</span>
-        <span class="badge">🔬 Experimental Check</span>
-        <span class="badge" style="background:rgba(255,255,255,.2)">🛡️ Patent Secure</span>
-      </div>
-      
-      <div class="cta-row">
-        <a class="btn btn-primary" href="investors.html"><span>🚀</span> Investor Information</a>
-        <a class="btn btn-ghost" href="#contact"><span>💬</span> Contact Us</a>
-      </div>
-    </div>
-  </header>
+<!-- NAV FRENCH -->
+<nav aria-label="Navigation principale" data-lang-content="fr" class="french">
+<div class="nav-container">
+<div class="logo">
+<span>Tesselite</span>
+</div>
+<div class="lang-toggle-nav">
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn active" data-lang="fr">FR</button>
+</div>
+<div class="nav-right">
+<div class="nav-links">
+<a href="#home">Accueil</a>
+<a href="#problem">Problème et Contexte</a>
+<a href="#solution">Réalisations</a>
+<a href="#contact">Contact</a>
+<a href="investisseurs.html">Investisseurs</a>
+</div>
+<button class="menu-toggle" aria-label="Menu mobile">☰</button>
+</div>
+</div>
+<div class="menu-mobile">
+<a href="#home">Accueil</a>
+<a href="#problem">Problème et Contexte</a>
+<a href="#solution">Réalisations</a>
+<a href="#contact">Contact</a>
+<a href="investisseurs.html">Investisseurs</a>
+</div>
+</nav>
 
-  <!-- HERO FRENCH -->
-  <header class="hero section-anchor french" id="home-fr" data-lang-content="fr" data-section="home">
-    <div class="hero-video" style="background:linear-gradient(45deg,var(--brand1),var(--brand2),var(--brand3));opacity:0.2;"></div>
-    <div class="orb" aria-hidden="true"></div>
-    <video class="hero-teaser-video" autoplay muted loop playsinline>
-      <source src="prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-wrap">
-      <h1 class="hero-title">Technologie de Propulsion Révolutionnaire<br><span style="-webkit-text-fill-color:inherit;background:none">300% d'Efficacité Validée</span></h1>
-      <p class="hero-sub">Première preuve mathématique de la géométrie aérodynamique optimale. Des drones aux satellites jusqu'aux missions spatiales lointaines — une plateforme technologique unique.</p>
-      
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-number">300%</div>
-          <div class="stat-label">Gain d'Efficacité</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">$27.7B</div>
-          <div class="stat-label">TAM Combiné</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">3 Marchés</div>
-          <div class="stat-label">Drone • Satellite • Spatial</div>
-        </div>
-      </div>
-      
-      <div class="badges">
-        <span class="badge">📐 Preuve Mathématique</span>
-        <span class="badge">🔬 Validé CFD</span>
-        <span class="badge">🛡️ Protégé par Brevet</span>
-      </div>
-      
-      <div class="cta-row">
-        <a class="btn btn-primary" href="investors.html"><span>🚀</span> Informations Investisseurs</a>
-        <a class="btn btn-ghost" href="#contact"><span>💬</span> Nous Contacter</a>
-      </div>
-    </div>
-  </header>
- 
-	<!-- SOLUTION ENGLISH -->
-  <section class="reveal section-anchor" id="problem-statement" data-lang-content="en" data-section="problem-statement">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Problem Statement</h2>
-        <p class="section-sub">
-          Current propulsion systems are inefficient, polluting and painful to evolve,
-            hindering the desire of mankind to explore the farter space.
-            Those systems are rooted on ancient designs unquestioned by modern mathematics.
-        </p>
-      </div>
-      
-      <div class="problem-statement">
-        <div class="problem-card">
-          <div class="card-icon">⚠️</div>
-          <h3 class="card-title">Industry Bottleneck</h3>
-          <p class="card-description">
-            Conventional propulsion limits performance across aviation and space, with incremental improvements 
-            over 50+ years unable to meet emerging market demands.
-          </p>
-          <ul class="benefits">
-            <li>Limited flight time (UAVs: 20-30 minutes)</li>
-            <li>Battery weight constraints (50-70% of payload)</li>
-            <li>High noise levels (urban operation restrictions)</li>
-            <li>Fuel efficiency plateau (2-3% annual gains)</li>
-          </ul>
-        </div>
-        
-        <div class="solution-card">
-          <div class="card-icon">🚀</div>
-          <h3 class="card-title">The Graviton Solution</h3>
-          <p class="card-description">
-            First mathematical proof of optimal propulsion geometry, validated through NASA-standard 
-            simulations and preliminary testing at 300% efficiency improvement.
-          </p>
-          <ul class="benefits">
-            <li>3x flight time OR 70% battery weight reduction</li>
-            <li>100% noise reduction (urban compliance)</li>
-            <li>Applicable: drones → satellites → space</li>
-            <li>Patent-protected breakthrough technology</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- HERO ENGLISH -->
+<header class="hero" id="home" data-lang-content="en">
+<div class="hero-overlay"></div>
+<div class="orb" aria-hidden="true"></div>
+<div class="hero-wrap">
+<h1 class="hero-title">Revolutionary Mathematical<br><span style="-webkit-text-fill-color:inherit;background:none">Breakthrough</span></h1>
+<p class="hero-sub">First mathematical proof of motion-space optimal geometry.<br>
+Unlocking energy conservation for more efficient design of UAVs,<br>
+satellites and deep space vehicles.</p>
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-number">$30B</div>
+<div class="stat-label">Combined TAM</div>
+</div>
+<div class="stat">
+<div class="stat-number">3 Markets</div>
+<div class="stat-label">UAV • Satellite • Space</div>
+</div>
+</div>
+<div class="badges">
+<span class="badge">📐 Mathematical Design</span>
+<span class="badge">🔬 Experimental Check</span>
+<span class="badge" style="background:rgba(255,255,255,.2)">🛡️ Patent Secure</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#solution"><span>🚀</span> Discover Graviton</a>
+<a class="btn btn-ghost" href="#contact"><span>💬</span> Contact Us</a>
+</div>
+</div>
+</header>
 
-  <!-- SOLUTION FRENCH -->
-  <section class="reveal section-anchor french" id="solution-fr" data-lang-content="fr" data-section="solution">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Le Défi de la Propulsion</h2>
-        <p class="section-sub">
-          Les systèmes de propulsion actuels ont atteint leurs limites. Nous avons débloqué la prochaine génération.
-        </p>
+<!-- HERO FRENCH -->
+<header class="hero french" id="home-fr" data-lang-content="fr">
+<div class="hero-overlay"></div>
+<div class="orb" aria-hidden="true"></div>
+<div class="hero-wrap">
+<h1 class="hero-title">Révolution Mathématique<br><span style="-webkit-text-fill-color:inherit;background:none">en Propulsion</span></h1>
+<p class="hero-sub">Première preuve mathématique de la géométrie optimale.<br>
+Conservation d'énergie pour la conception de drones,<br>
+satellites et véhicules spatiaux.</p>
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-number">$30B</div>
+<div class="stat-label">TAM Combiné</div>
+</div>
+<div class="stat">
+<div class="stat-number">3 Marchés</div>
+<div class="stat-label">Drone • Satellite • Spatial</div>
+</div>
+</div>
+<div class="badges">
+<span class="badge">📐 Design Mathématique</span>
+<span class="badge">🔬 Validation Expérimentale</span>
+<span class="badge" style="background:rgba(255,255,255,.2)">🛡️ Brevet Sécurisé</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#solution"><span>🚀</span> Découvrir le Graviton</a>
+<a class="btn btn-ghost" href="#contact"><span>💬</span> Nous Contacter</a>
+</div>
+</div>
+</header>
+
+<!-- PROBLEM SECTION ENGLISH -->
+<section id="problem" class="reveal problem-section" data-lang-content="en">
+<div class="wrap">
+<div style="text-align:center;margin-bottom:4rem">
+<h2 class="section-title">The Challenge</h2>
+<p class="section-sub">
+For two millennia, propulsion has relied on empirical optimization without mathematical foundation
+</p>
+</div>
+<div class="grid grid-3">
+<div class="card">
+<h3>⏰ Historical Context</h3>
+<p>From Heron's aeolipile (3rd century BC) to modern turbines, 
+each advance was empirical optimization of Newton's reaction principle.</p>
+</div>
+<div class="card">
+<h3>📈 Incremental Progress</h3>
+<p>Current models gain only 1-3% efficiency per generation, 
+via CFD and iterations without analytical mathematical foundation.</p>
+</div>
+<div class="card">
+<h3>⚠️ Absence of Theory</h3>
+<p>As Froude noted in 1878: "Theory does not determine optimal form, 
+it explains it afterwards."</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM SECTION FRENCH -->
+<section id="problem-fr" class="reveal problem-section french" data-lang-content="fr">
+<div class="wrap">
+<div style="text-align:center;margin-bottom:4rem">
+<h2 class="section-title">Le Défi</h2>
+<p class="section-sub">
+Pendant deux millénaires, la propulsion a reposé sur l'optimisation empirique sans fondement mathématique
+</p>
+</div>
+<div class="grid grid-3">
+<div class="card">
+<h3>⏰ Contexte Historique</h3>
+<p>De l'éolipyle d'Héron (IIIᵉ siècle av. J.-C.) aux turbines modernes, 
+chaque avancée fut une optimisation empirique du principe de réaction de Newton.</p>
+</div>
+<div class="card">
+<h3>📈 Progrès Incrémental</h3>
+<p>Les modèles actuels ne gagnent que 1 à 3% d'efficacité par génération, 
+via CFD et itérations sans fondement mathématique analytique.</p>
+</div>
+<div class="card">
+<h3>⚠️ Absence de Théorie</h3>
+<p>Comme le notait Froude en 1878 : "La théorie ne détermine pas la forme optimale, 
+elle l'explique après coup."</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TIMELINE ENGLISH -->
+<<section id="timeline" class="reveal timeline-section" data-lang-content="en">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:4rem">
+      <h2 class="section-title">Historical Evolution</h2>
+      <p class="section-sub">From Antiquity to the Tesselite revolution: two millennia of technological evolution</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#f59e0b"></div>
+        <div class="timeline-content">
+          <h3 style="color:#f59e0b">Antiquity - Renaissance</h3>
+          <p><strong>Propulsion:</strong> Aeolipile, da Vinci's screw, sails, hydraulic turbines</p>
+          <p><strong>Principle:</strong> Action-reaction and mechanical lift</p>
+        </div>
       </div>
       
-      <div class="problem-statement">
-        <div class="problem-card">
-          <div class="card-icon">⚠️</div>
-          <h3 class="card-title">Goulot d'Étranglement</h3>
-          <p class="card-description">
-            La propulsion conventionnelle limite les performances dans l'aviation et l'espace, avec des améliorations 
-            incrémentales sur 50+ ans incapables de répondre aux nouvelles demandes du marché.
-          </p>
-          <ul class="benefits">
-            <li>Autonomie limitée (drones : 20-30 minutes)</li>
-            <li>Contraintes de poids batterie (50-70% charge utile)</li>
-            <li>Niveaux sonores élevés (restrictions urbaines)</li>
-            <li>Efficacité énergétique plafonnée (2-3% gains/an)</li>
-          </ul>
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#f97316"></div>
+        <div class="timeline-content">
+          <h3 style="color:#f97316">18th - 19th Century</h3>
+          <p><strong>Propulsion:</strong> Steam engines, marine propellers, first turbines</p>
+          <p><strong>Principle:</strong> Thermodynamic conversion, geometric empiricism</p>
         </div>
-        
-        <div class="solution-card">
-          <div class="card-icon">🚀</div>
-          <h3 class="card-title">La Solution Graviton</h3>
-          <p class="card-description">
-            Première preuve mathématique de la géométrie de propulsion optimale, validée par simulations 
-            standard NASA et tests préliminaires avec 300% d'amélioration d'efficacité.
-          </p>
-          <ul class="benefits">
-            <li>3x autonomie OU 70% réduction poids batterie</li>
-            <li>100% réduction du bruit (conformité urbaine)</li>
-            <li>Applicable : drones → satellites → spatial</li>
-            <li>Technologie protégée par brevet</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNOLOGY ENGLISH -->
-  <section class="reveal section-anchor" id="technology-en" data-lang-content="en" data-section="technology" style="background:rgba(255,255,255,.02)">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Technological Innovation</h2>
-        <p class="section-sub">
-          A scientific breakthrough backed by rigorous validation and real-world testing
-        </p>
       </div>
       
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="icon">📐</div>
-          <h3>Mathematical Proof</h3>
-          <p>World's first rigorous mathematical demonstration of optimal aerodynamic geometry 
-          for propulsion systems — foundation for all Graviton technology.</p>
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#ef4444"></div>
+        <div class="timeline-content">
+          <h3 style="color:#ef4444">20th Century</h3>
+          <p><strong>Propulsion:</strong> Turbojets, rockets, ramjets</p>
+          <p><strong>Principle:</strong> High-speed mass ejection</p>
         </div>
-        
-        <div class="card">
-          <div class="icon">🔬</div>
-          <h3>Standard Validation</h3>
-          <p>Computational fluid dynamics simulations confirm 300% efficiency gain. 
-          Preliminary bench tests validate performance claims.</p>
-        </div>
-        
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>Multi-Market Platform</h3>
-          <p>Single core technology applicable across UAVs (Phase 1), satellites (Phase 2), 
-          and deep space missions (Phase 3) — sequential market entry strategy.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNOLOGY FRENCH -->
-  <section class="reveal section-anchor french" id="technology-fr" data-lang-content="fr" data-section="technology" style="background:rgba(255,255,255,.02)">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Innovation Technologique</h2>
-        <p class="section-sub">
-          Une percée scientifique soutenue par une validation rigoureuse et des tests réels
-        </p>
       </div>
       
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="icon">📐</div>
-          <h3>Preuve Mathématique</h3>
-          <p>Première démonstration mathématique rigoureuse au monde de la géométrie aérodynamique 
-          optimale pour les systèmes de propulsion — fondement de toute la technologie Graviton.</p>
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#ec4899"></div>
+        <div class="timeline-content">
+          <h3 style="color:#ec4899">Late 20th - 21st Century</h3>
+          <p><strong>Propulsion:</strong> Electric, ionic, nuclear propulsion</p>
+          <p><strong>Principle:</strong> Direct energy → momentum conversion</p>
         </div>
-        
-        <div class="card">
-          <div class="icon">🔬</div>
-          <h3>Validation Standard </h3>
-          <p>Simulations de dynamique des fluides confirment 300% de gain d'efficacité. 
-          Tests préliminaires en banc valident les performances.</p>
-        </div>
-        
-        <div class="card">
-          <div class="icon">🎯</div>
-          <h3>Plateforme Multi-Marchés</h3>
-          <p>Technologie centrale unique applicable aux drones (Phase 1), satellites (Phase 2), 
-          et missions spatiales lointaines (Phase 3) — stratégie d'entrée séquentielle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPLICATIONS ENGLISH -->
-  <section class="reveal section-anchor" id="applications-en" data-lang-content="en" data-section="applications">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Three-Phase Market Strategy</h2>
-        <p class="section-sub">
-          Sequential market entry: validate in UAVs, scale to satellites, dominate space propulsion
-        </p>
       </div>
       
-      <div class="grid grid-3">
-        <div class="app-card">
-          <div class="app-icon">🚁</div>
-          <h3>Phase 1: UAV & Light Aircraft</h3>
-          <p><strong>Market:</strong> $8.5B by 2028<br>
-          <strong>Timeline:</strong> 2026-2028<br>
-          eVTOL, delivery drones, agricultural UAVs. Fast certification, revenue generation, technology validation.</p>
-        </div>
-        
-        <div class="app-card">
-          <div class="app-icon">🛰️</div>
-          <h3>Phase 2: Satellites & Orbital</h3>
-          <p><strong>Market:</strong> $4.2B by 2030<br>
-          <strong>Timeline:</strong> 2028-2031<br>
-          SmallSat propulsion, constellation deployment, orbital logistics. Proven tech from Phase 1.</p>
-        </div>
-        
-        <div class="app-card">
-          <div class="app-icon">🌌</div>
-          <h3>Phase 3: Deep Space Missions</h3>
-          <p><strong>Market:</strong> $15B+ by 2035<br>
-          <strong>Timeline:</strong> 2031+<br>
-          Lunar, Mars, asteroid missions. Ultimate application with flight heritage from Phases 1-2.</p>
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#06b6d4;box-shadow:0 0 20px rgba(6,182,212,.5)"></div>
+        <div class="timeline-content" style="border-color:#06b6d4;background:rgba(6,182,212,.05)">
+          <h3 style="color:#06b6d4">21st Century - The Tesselite Era</h3>
+          <p><strong>Propulsion:</strong> Graviton (normative geometry)</p>
+          <p><strong>Principle:</strong> Analytical demonstration of fundamental laws</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- APPLICATIONS FRENCH -->
-  <section class="reveal section-anchor french" id="applications-fr" data-lang-content="fr" data-section="applications">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Stratégie de Marché en Trois Phases</h2>
-        <p class="section-sub">
-          Entrée séquentielle : valider avec les drones, passer à l'échelle satellites, dominer la propulsion spatiale
-        </p>
+<!-- TIMELINE FRENCH -->
+<section id="timeline-fr" class="reveal timeline-section french" data-lang-content="fr">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:4rem">
+      <h2 class="section-title">Évolution Historique</h2>
+      <p class="section-sub">De l'Antiquité à la révolution Tesselite : deux millénaires d'évolution technologique</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#f59e0b"></div>
+        <div class="timeline-content">
+          <h3 style="color:#f59e0b">Antiquité - Renaissance</h3>
+          <p><strong>Propulsion:</strong> Éolipyle, vis de Vinci, voiles, turbines hydrauliques</p>
+          <p><strong>Principe:</strong> Action-réaction et portance mécanique</p>
+        </div>
       </div>
       
-      <div class="grid grid-3">
-        <div class="app-card">
-          <div class="app-icon">🚁</div>
-          <h3>Phase 1 : Drones & Avions Légers</h3>
-          <p><strong>Marché :</strong> $8.5B d'ici 2028<br>
-          <strong>Calendrier :</strong> 2026-2028<br>
-          eVTOL, drones de livraison, UAV agricoles. Certification rapide, génération de revenus, validation technologique.</p>
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#f97316"></div>
+        <div class="timeline-content">
+          <h3 style="color:#f97316">XVIIIᵉ - XIXᵉ siècle</h3>
+          <p><strong>Propulsion:</strong> Machines à vapeur, hélices marines, premières turbines</p>
+          <p><strong>Principe:</strong> Conversion thermodynamique, empirisme géométrique</p>
         </div>
-        
-        <div class="app-card">
-          <div class="app-icon">🛰️</div>
-          <h3>Phase 2 : Satellites & Orbital</h3>
-          <p><strong>Marché :</strong> $4.2B d'ici 2030<br>
-          <strong>Calendrier :</strong> 2028-2031<br>
-          Propulsion SmallSat, déploiement constellations, logistique orbitale. Technologie prouvée Phase 1.</p>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#ef4444"></div>
+        <div class="timeline-content">
+          <h3 style="color:#ef4444">XXᵉ siècle</h3>
+          <p><strong>Propulsion:</strong> Turboréacteurs, fusées, ramjets</p>
+          <p><strong>Principe:</strong> Éjection de masse à haute vitesse</p>
         </div>
-        
-        <div class="app-card">
-          <div class="app-icon">🌌</div>
-          <h3>Phase 3 : Missions Spatiales</h3>
-          <p><strong>Marché :</strong> $15B+ d'ici 2035<br>
-          <strong>Calendrier :</strong> 2031+<br>
-          Missions lunaires, Mars, astéroïdes. Application ultime avec héritage des Phases 1-2.</p>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#ec4899"></div>
+        <div class="timeline-content">
+          <h3 style="color:#ec4899">Fin XXᵉ - XXIᵉ siècle</h3>
+          <p><strong>Propulsion:</strong> Propulsion électrique, ionique, nucléaire</p>
+          <p><strong>Principe:</strong> Conversion directe énergie → momentum</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker" style="background:#06b6d4;box-shadow:0 0 20px rgba(6,182,212,.5)"></div>
+        <div class="timeline-content" style="border-color:#06b6d4;background:rgba(6,182,212,.05)">
+          <h3 style="color:#06b6d4">XXIᵉ siècle - L'Ère Tesselite</h3>
+          <p><strong>Propulsion:</strong> Graviton (géométrie normative)</p>
+          <p><strong>Principe:</strong> Démonstration analytique des lois fondamentales</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROGRESS ENGLISH -->
-  <section class="reveal section-anchor" id="progress-en" data-lang-content="en" data-section="progress" style="background:rgba(255,255,255,.02)">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Progress &amp; Milestones</h2>
-        <p class="section-sub">De-risking the technology through validated achievements and clear next steps</p>
-      </div>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>✅ Validated Achievements</h3>
-          <div class="ticks" role="list">
-            <div class="tick" role="listitem"><i>✓</i><span>Mathematical proof completed (peer review pending)</span></div>
-            <div class="tick" role="listitem"><i>✓</i><span>CFD simulations: 300% efficiency gain confirmed</span></div>
-            <div class="tick" role="listitem"><i>✓</i><span>Preliminary bench tests validate performance</span></div>
-            <div class="tick" role="listitem"><i>✓</i><span>Patent filing strategy finalized (US/EU/CN/JP)</span></div>          
-		  </div>
-        </div>
-        <div class="card">
-          <h3>→ Next Milestones (Pre-Series Funded)</h3>
-          <div class="ticks" role="list">
-            <div class="tick" role="listitem"><i>→</i><span>Build physical prototypes (UAV-scale)</span></div>
-            <div class="tick" role="listitem"><i>→</i><span>File international patents (4+ jurisdictions)</span></div>
-            <div class="tick" role="listitem"><i>→</i><span>Incorporate US entity (Delaware C-Corp)</span></div>
-            <div class="tick" role="listitem"><i>→</i><span>Prepare Series A fundraising ($2-5M target)</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- PROGRESS FRENCH -->
-  <section class="reveal section-anchor" id="progress-fr" data-lang-content="fr" data-section="progress" style="background:rgba(255,255,255,.02)">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Progrès &amp; Jalons</h2>
-        <p class="section-sub">Dé-risquer la technologie par des réalisations validées et des prochaines étapes claires</p>
-      </div>
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>✅ Réalisations Validées</h3>
-          <div class="ticks" role="list">
-            <div class="tick" role="listitem"><i>✓</i><span>Preuve mathématique complétée (revue par pairs en cours)</span></div>
-            <div class="tick" role="listitem"><i>✓</i><span>Simulations Numériques : 300% gain confirmé</span></div>
-            <div class="tick" role="listitem"><i>✓</i><span>Tests préliminaires valident les performances</span></div>
-            <div class="tick" role="listitem"><i>✓</i><span>Stratégie de brevets finalisée (US/EU/CN/JP)</span></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3>→ Prochains Jalons (Financés Pre-Series)</h3>
-          <div class="ticks" role="list">
-            <div class="tick" role="listitem"><i>→</i><span>Construire prototypes physiques (échelle drone)</span></div>
-            <div class="tick" role="listitem"><i>→</i><span>Déposer brevets internationaux (4+ juridictions)</span></div>
-            <div class="tick" role="listitem"><i>→</i><span>Incorporer entité US (Delaware C-Corp)</span></div>
-            <div class="tick" role="listitem"><i>→</i><span>Préparer levée Serie A ($2-5M cible)</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- SOLUTION ENGLISH -->
+<section id="solution" class="reveal" data-lang-content="en" style="background:linear-gradient(180deg,rgba(6,182,212,.05),rgba(59,130,246,.05))">
+<div class="wrap">
+<div style="text-align:center;margin-bottom:4rem">
+<h2 class="section-title">The Graviton: A Geometric Revolution</h2>
+<p class="section-sub">The first propulsion form analytically demonstrated from fundamental physics laws.</p>
+</div>
+<div class="grid grid-2" style="gap:3rem;align-items:center">
+<div>
+<div class="card" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);margin-bottom:1.5rem">
+<h3 style="color:#3b82f6">⚡ Paradigm Inversion</h3>
+<div style="margin-top:1rem">
+<p style="color:#ef4444;margin-bottom:.5rem">❌ <strong>Before:</strong> Form resulted from experience or numerical optimization</p>
+<p style="color:#06b6d4">✓ <strong>Now:</strong> Optimal form flows from an analytically demonstrated equation</p>
+</div>
+</div>
+<div class="card" style="background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3)">
+<h3 style="color:#06b6d4">🏆 Achievement of a Vision</h3>
+<p>From Leonardo da Vinci to Tsiolkovsky, engineers sought the ideal machine. 
+Tesselite fulfills this dream by translating physical laws into a universal geometric equation.</p>
+</div>
+</div>
+<div style="text-align:center">
+<div class="card" style="background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(59,130,246,.15));border:2px solid #06b6d4;padding:3rem">
+<div style="font-size:5rem;font-weight:900;background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem">300%</div>
+<div style="font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:.5rem">Efficiency Gain</div>
+<div style="color:var(--muted)">At equivalent thrust</div>
+<div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)">
+<p style="font-size:.9rem;color:var(--muted)">A figure never observed in modern propulsion history</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-3" style="margin-top:3rem">
+<div class="card">
+<h4 style="color:#06b6d4;margin-bottom:1rem">📈 Aerial & Marine</h4>
+<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
+<li>• Blade tip vortex reduction</li>
+<li>• Cavitation elimination</li>
+<li>• Drastically reduced consumption</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="color:#06b6d4;margin-bottom:1rem">⚡ Energy & Space</h4>
+<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
+<li>• More compact and lighter systems</li>
+<li>• Massive cost reduction</li>
+<li>• Minimal carbon footprint</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="color:#06b6d4;margin-bottom:1rem">🎯 Systemic Innovation</h4>
+<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
+<li>• Facilitated hybrid integration</li>
+<li>• Optimized autonomous systems</li>
+<li>• Universal scalability</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SOLUTION FRENCH -->
+<section id="solution-fr" class="reveal french" data-lang-content="fr" style="background:linear-gradient(180deg,rgba(6,182,212,.05),rgba(59,130,246,.05))">
+<div class="wrap">
+<div style="text-align:center;margin-bottom:4rem">
+<h2 class="section-title">Le Graviton : Une Révolution Géométrique</h2>
+<p class="section-sub">La première forme de propulsion démontrée analytiquement à partir des lois fondamentales de la physique.</p>
+</div>
+<div class="grid grid-2" style="gap:3rem;align-items:center">
+<div>
+<div class="card" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.3);margin-bottom:1.5rem">
+<h3 style="color:#3b82f6">⚡ Inversion du Paradigme</h3>
+<div style="margin-top:1rem">
+<p style="color:#ef4444;margin-bottom:.5rem">❌ <strong>Avant:</strong> La forme résultait de l'expérience ou de l'optimisation numérique</p>
+<p style="color:#06b6d4">✓ <strong>Maintenant:</strong> La forme optimale découle d'une équation démontrée analytiquement</p>
+</div>
+</div>
+<div class="card" style="background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.3)">
+<h3 style="color:#06b6d4">🏆 Achèvement d'une Vision</h3>
+<p>Depuis Léonard de Vinci jusqu'à Tsiolkovski, les ingénieurs ont cherché la machine idéale. 
+Tesselite accomplit ce rêve en traduisant les lois physiques en une équation géométrique universelle.</p>
+</div>
+</div>
+<div style="text-align:center">
+<div class="card" style="background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(59,130,246,.15));border:2px solid #06b6d4;padding:3rem">
+<div style="font-size:5rem;font-weight:900;background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem">300%</div>
+<div style="font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:.5rem">Gain d'Efficacité</div>
+<div style="color:var(--muted)">À poussée équivalente</div>
+<div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)">
+<p style="font-size:.9rem;color:var(--muted)">Un chiffre jamais observé dans l'histoire moderne des propulsions</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-3" style="margin-top:3rem">
+<div class="card">
+<h4 style="color:#06b6d4;margin-bottom:1rem">📈 Aérien & Marin</h4>
+<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
+<li>• Réduction des vortex de bout de pale</li>
+<li>• Élimination de la cavitation</li>
+<li>• Consommation réduite drastiquement</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="color:#06b6d4;margin-bottom:1rem">⚡ Énergie & Spatial</h4>
+<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
+<li>• Systèmes plus compacts et légers</li>
+<li>• Réduction massive des coûts</li>
+<li>• Empreinte carbone minimale</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="color:#06b6d4;margin-bottom:1rem">🎯 Innovation Systémique</h4>
+<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
+<li>• Intégration hybride facilitée</li>
+<li>• Systèmes autonomes optimisés</li>
+<li>• Scalabilité universelle</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- IMPACT ENGLISH -->
+<section id="impact" class="reveal" data-lang-content="en" style="background:rgba(0,0,0,.3)">
+<div class="wrap">
+<div style="text-align:center;margin-bottom:4rem">
+<h2 class="section-title">Universal Impact</h2>
+<p class="section-sub">Graviton transcends traditional application domains to offer a universal solution</p>
+</div>
+<div class="impact-grid">
+<div class="impact-card">
+<div class="impact-icon">🚢</div>
+<h3>Marine Propulsion</h3>
+<p style="margin-bottom:1rem">Acceleration of large water mass at low speed</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Terminal vortex elimination</li>
+<li>• Analytical model without cavitation</li>
+<li>• Optimal hydrodynamic efficiency</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">✈️</div>
+<h3>Aerial Propulsion</h3>
+<p style="margin-bottom:1rem">Optimized compression, combustion and ejection</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Induction loss reduction</li>
+<li>• Minimized pressure gradients</li>
+<li>• Efficiency > 3× superior</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">🚀</div>
+<h3>Space Propulsion</h3>
+<p style="margin-bottom:1rem">Anaerobic ejection and non-Newtonian flows</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Low density regime adaptation</li>
+<li>• Thrust flow optimization</li>
+<li>• Efficiency in space environment</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">⚡</div>
+<h3>Energy</h3>
+<p style="margin-bottom:1rem">Optimal mechanical and electrical conversion</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• High-efficiency turbines</li>
+<li>• Energy conversion systems</li>
+<li>• Systemic loss reduction</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">🤖</div>
+<h3>Robotics & Drones</h3>
+<p style="margin-bottom:1rem">Compact and efficient propulsion</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Increased autonomy</li>
+<li>• Reduced weight and size</li>
+<li>• Maximum control precision</li>
+</ul>
+</div>
+</div>
+<div class="grid grid-3" style="margin-top:3rem">
+<div class="card" style="background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(59,130,246,.1));border-color:rgba(6,182,212,.3);text-align:center">
+<div style="font-size:3rem;font-weight:900;color:#06b6d4;margin-bottom:.5rem">1</div>
+<div style="font-weight:700;color:#fff;margin-bottom:.5rem">Universal Principle</div>
+<p style="font-size:.9rem;color:var(--muted)">One equation for all media</p>
+</div>
+<div class="card" style="background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(168,85,247,.1));border-color:rgba(59,130,246,.3);text-align:center">
+<div style="font-size:3rem;font-weight:900;color:#3b82f6;margin-bottom:.5rem">∞</div>
+<div style="font-weight:700;color:#fff;margin-bottom:.5rem">Infinite Applications</div>
+<p style="font-size:.9rem;color:var(--muted)">From nanometer to interplanetary scale</p>
+</div>
+<div class="card" style="background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(236,72,153,.1));border-color:rgba(168,85,247,.3);text-align:center">
+<div style="font-size:3rem;font-weight:900;color:#a855f7;margin-bottom:.5rem">300%</div>
+<div style="font-weight:700;color:#fff;margin-bottom:.5rem">Universal Gain</div>
+<p style="font-size:.9rem;color:var(--muted)">Reproducible performance in all domains</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- IMPACT FRENCH -->
+<section id="impact-fr" class="reveal french" data-lang-content="fr" style="background:rgba(0,0,0,.3)">
+<div class="wrap">
+<div style="text-align:center;margin-bottom:4rem">
+<h2 class="section-title">Un Impact Universel</h2>
+<p class="section-sub">Le Graviton transcende les domaines d'application traditionnels pour offrir une solution universelle</p>
+</div>
+<div class="impact-grid">
+<div class="impact-card">
+<div class="impact-icon">🚢</div>
+<h3>Propulsion Marine</h3>
+<p style="margin-bottom:1rem">Accélération d'une grande masse d'eau à faible vitesse</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Élimination des vortex terminaux</li>
+<li>• Modèle analytique sans cavitation</li>
+<li>• Rendement hydrodynamique optimal</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">✈️</div>
+<h3>Propulsion Aérienne</h3>
+<p style="margin-bottom:1rem">Compression, combustion et éjection optimisées</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Réduction des pertes d'induction</li>
+<li>• Gradients de pression minimisés</li>
+<li>• Rendement > 3× supérieur</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">🚀</div>
+<h3>Propulsion Spatiale</h3>
+<p style="margin-bottom:1rem">Éjection anaérobie et flux non-newtoniens</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Adaptation aux régimes faible densité</li>
+<li>• Optimisation du flux de poussée</li>
+<li>• Efficacité en environnement spatial</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">⚡</div>
+<h3>Énergie</h3>
+<p style="margin-bottom:1rem">Conversion mécanique et électrique optimale</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Turbines à haut rendement</li>
+<li>• Systèmes de conversion énergétique</li>
+<li>• Réduction des pertes systémiques</li>
+</ul>
+</div>
+<div class="impact-card">
+<div class="impact-icon">🤖</div>
+<h3>Robotique & Drones</h3>
+<p style="margin-bottom:1rem">Propulsion compacte et efficace</p>
+<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li>• Autonomie accrue</li>
+<li>• Poids et encombrement réduits</li>
+<li>• Précision de contrôle maximale</li>
+</ul>
+</div>
+</div>
+<div class="grid grid-3" style="margin-top:3rem">
+<div class="card" style="background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(59,130,246,.1));border-color:rgba(6,182,212,.3);text-align:center">
+<div style="font-size:3rem;font-weight:900;color:#06b6d4;margin-bottom:.5rem">1</div>
+<div style="font-weight:700;color:#fff;margin-bottom:.5rem">Principe Universel</div>
+<p style="font-size:.9rem;color:var(--muted)">Une seule équation pour tous les milieux</p>
+</div>
+<div class="card" style="background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(168,85,247,.1));border-color:rgba(59,130,246,.3);text-align:center">
+<div style="font-size:3rem;font-weight:900;color:#3b82f6;margin-bottom:.5rem">∞</div>
+<div style="font-weight:700;color:#fff;margin-bottom:.5rem">Applications Infinies</div>
+<p style="font-size:.9rem;color:var(--muted)">Du nanomètre à l'échelle interplanétaire</p>
+</div>
+<div class="card" style="background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(236,72,153,.1));border-color:rgba(168,85,247,.3);text-align:center">
+<div style="font-size:3rem;font-weight:900;color:#a855f7;margin-bottom:.5rem">300%</div>
+<div style="font-weight:700;color:#fff;margin-bottom:.5rem">Gain Universel</div>
+<p style="font-size:.9rem;color:var(--muted)">Performance reproductible dans tous les domaines</p>
+</div>
+</div>
+</div>
+</section>
 
   <!-- VIDEOS ENGLISH -->
   <section class="reveal section-anchor" id="videos-en" data-lang-content="en" data-section="videos">
@@ -827,65 +870,6 @@
     </div>
   </section>
 
-  <!-- TEAM ENGLISH -->
-  <section class="reveal section-anchor" id="team-en" data-lang-content="en" data-section="team" style="background:rgba(255,255,255,.02)">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Founding Team</h2>
-        <p class="section-sub">
-          Unique expertise in theoretical physics and engineering applications
-        </p>
-      </div>
-      
-      <div class="team-grid">
-        <article class="card" style="text-align:center">
-          <div class="avatar">NM</div>
-          <h3>NDEFFO Marcel</h3>
-          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CEO & Founder</p>
-          <p>PhD in Solid Mechanics. Inventor of the Graviton mathematical framework. 
-          Peer-reviewed publications in computational physics.</p>
-        </article>
-        
-        <article class="card" style="text-align:center">
-          <div class="avatar">KH</div>
-          <h3>KOHO Hervé</h3>
-          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CTO & Co-Founder</p>
-          <p>MSc Industrial Engineering + Mecatronical Systems.  
-          Led prototype validation (Standard CFD). Expert in prototype development and testing.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM FRENCH -->
-  <section class="reveal section-anchor french" id="team-fr" data-lang-content="fr" data-section="team" style="background:rgba(255,255,255,.02)">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:4rem">
-        <h2 class="section-title">Équipe Fondatrice</h2>
-        <p class="section-sub">
-          Une expertise unique en physique théorique et en applications technologiques
-        </p>
-      </div>
-      
-      <div class="team-grid">
-        <article class="card" style="text-align:center">
-          <div class="avatar">NM</div>
-          <h3>NDEFFO Marcel</h3>
-          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CEO & Fondateur</p>
-          <p>Doctorat en Mécanique des Solides. Inventeur du cadre mathématique Graviton. 
-          Publications scientifiques en physique computationnelle.</p>
-        </article>
-        
-        <article class="card" style="text-align:center">
-          <div class="avatar">KH</div>
-          <h3>KOHO Hervé</h3>
-          <p style="color:var(--brand1);font-weight:600;margin-bottom:1rem">CTO & Co-Fondateur</p>
-          <p>MSc Ingénierie Aérospatiale + Systèmes Mécatroniques. 
-          Responsable validation prototype (CFD standard). Expert développement et tests prototypes.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- CONTACT ENGLISH -->
   <section class="contact-section section-anchor" id="contact-en" data-lang-content="en" data-section="contact">
@@ -923,7 +907,7 @@
               <span style="font-size:1.5rem">💼</span>
               <div>
                 <strong>Investor Relations</strong><br>
-                <a href="investors.html" style="color:var(--accent)">View Investor Page</a>
+                <a href="investisseurs.html" style="color:var(--accent)">View Investor Page</a>
               </div>
             </div>
           </div>
@@ -986,7 +970,7 @@
       
       <div class="contact-grid">
         <div class="contact-info">
-          <h3>Informations de Contact</h3>
+          <h3>informations de Contact</h3>
           <p>Contactez-nous pour discuter de partenariats, collaborations techniques ou opportunités d'investissement.</p>
           
           <div class="contact-methods">
@@ -1010,7 +994,7 @@
               <span style="font-size:1.5rem">💼</span>
               <div>
                 <strong>Relations Investisseurs</strong><br>
-                <a href="investors.html" style="color:var(--accent)">Voir Page Investisseurs</a>
+                <a href="investisseurs.html" style="color:var(--accent)">Voir Page Investisseurs</a>
               </div>
             </div>
           </div>
@@ -1061,453 +1045,262 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap" style="text-align:center">
-      <div class="footer-links">
-        <a href="investors.html">Investors</a>
-        <a href="#technology">Technology</a>
-        <a href="#applications">Applications</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <p style="color:var(--muted);font-size:.95rem;margin-top:1rem">&copy; 2025 Tesselite. All rights reserved.</p>
-      <p style="color:var(--muted);font-size:.85rem;margin-top:0.5rem">
-        Revolutionary propulsion technology | 300% efficiency gain validated
-      </p>
-    </div>
-  </footer>
+<!-- FOOTER -->
+<footer>
+<div class="wrap">
+<div style="padding-top:2rem;border-top:1px solid var(--stroke);margin-top:2rem;text-align:center">
+<p style="color:var(--muted);font-size:.9rem">&copy; 2025 Tesselite. Revolutionary propulsion technology.</p>
+<div style="margin-top:1.5rem;padding:1.5rem;background:linear-gradient(to right,rgba(6,182,212,.1),rgba(59,130,246,.1));border:1px solid rgba(6,182,212,.2);border-radius:12px">
+<p style="font-size:.85rem;color:var(--muted);line-height:1.6">
+<span style="color:#06b6d4;font-weight:600">Scientific References :</span> Whittle F., "Development of the Jet Engine" (1945) • 
+Sutton & Biblarz, "Rocket Propulsion Elements", Wiley (2016) • Anderson, "Introduction to Flight", McGraw-Hill (2020) • 
+ResearchGate, "Review and Future of Aircraft Propulsion Types" (Y. Yi, 2019) • 
+Cambridge University Press, "Aerothermodynamics and Jet Propulsion" (2023)
+</p>
+</div>
+</div>
+</div>
+</footer>
 
-  <!-- Loading indicator -->
-  <div id="loading" style="position:fixed;top:0;left:0;width:100%;height:4px;background:var(--grad-primary);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;z-index:9999"></div>
+<script>
+// Variables globales
+let currentLang = 'en';
+let scrollTimeout;
+let nav = document.querySelector('nav');
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+// Language switching functionality
+function switchLanguage(lang) {
+currentLang = lang;
+// Update html lang attribute
+document.getElementById('html-root').lang = lang;
+// Hide all language content
+document.querySelectorAll('[data-lang-content]').forEach(el => {
+el.classList.add('french');
+});
+ // Show current language content
+document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
+el.classList.remove('french');
+});
+// Update active language buttons
+document.querySelectorAll('.lang-btn').forEach(btn => {
+btn.classList.remove('active');
+if (btn.dataset.lang === lang) {
+btn.classList.add('active');
+}
+});
 
-  <script>
-    // Variables globales
-    let currentLang = 'en';
-    let scrollTimeout;
-    let nav = document.querySelector('nav');
-    const loading = document.getElementById('loading');
+// Close mobile menu on language switch
+document.querySelectorAll('.menu-mobile').forEach(menu => {
+    menu.classList.remove('active');
+  });
+document.querySelectorAll('.menu-toggle').forEach(toggle => {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = '☰';
+  });
+	
+updateActiveNav();
+}
 
-    // Language switching functionality
-    function switchLanguage(lang) {
-      currentLang = lang;
-      // Update document language
-      document.getElementById('html-root').lang = lang === 'en' ? 'en' : 'fr';
-      
-      // Hide all content
-      document.querySelectorAll('[data-lang-content]').forEach(el => {
-        el.classList.add('french');
-      });
-      
-      // Show content for selected language
-      document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
-        el.classList.remove('french');
-      });
-      
-      // Update language toggle buttons 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.lang === lang) {
-          btn.classList.add('active');
-        }
-      });
-      
-      // Update meta tags
-      updateMetaTags(lang);
-      
-      // Update active navigation reference
-      updateActiveNav();
-    }
+function updateActiveNav() {
+nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.french)`);
+}
 
-    function updateMetaTags(lang) {
-      // Update title
-      const titleEl = document.querySelector('title');
-      if (titleEl.dataset[lang]) {
-        titleEl.textContent = titleEl.dataset[lang];
-      }
-      
-      // Update description
-      const descEl = document.querySelector('meta[name="description"]');
-      if (descEl && descEl.dataset[lang]) {
-        descEl.setAttribute('content', descEl.dataset[lang]);
-      }
-      
-      // Update keywords
-      const keywordsEl = document.querySelector('meta[name="keywords"]');
-      if (keywordsEl && keywordsEl.dataset[lang]) {
-        keywordsEl.setAttribute('content', keywordsEl.dataset[lang]);
-      }
-      
-      // Update Open Graph
-      const ogTitleEl = document.querySelector('meta[property="og:title"]');
-      if (ogTitleEl && ogTitleEl.dataset[lang]) {
-        ogTitleEl.setAttribute('content', ogTitleEl.dataset[lang]);
-      }
-      
-      const ogDescEl = document.querySelector('meta[property="og:description"]');
-      if (ogDescEl && ogDescEl.dataset[lang]) {
-        ogDescEl.setAttribute('content', ogDescEl.dataset[lang]);
-      }
-    }
+// Language toggle event listeners
+document.querySelectorAll('.lang-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+switchLanguage(btn.dataset.lang);
+});
+});
 
-    function updateActiveNav() {
-      // Update global nav reference to current language nav
-      nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.french)`);
-    }
+// Navigation background on scroll
+function handleScroll() {
+if (!scrollTimeout) {
+scrollTimeout = setTimeout(() => {
+const scrolled = window.scrollY;
+document.querySelectorAll('nav').forEach(navEl => {
+navEl.style.background = scrolled > 96 ? 'rgba(10,10,10,.96)' : 'rgba(10,10,10,.9)';
+});
+scrollTimeout = null;
+}, 16);
+}
+}
+window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Language toggle event listeners
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        switchLanguage(btn.dataset.lang);
-      });
-    });
+// Menu mobile toggle
+function setupMobileMenu() {
+document.querySelectorAll('.menu-toggle').forEach(toggle => {
+toggle.addEventListener('click', (e) => {
+e.stopPropagation();
+const nav = toggle.closest('nav');
+const mobileMenu = nav.querySelector('.menu-mobile');
+const isOpen = mobileMenu.classList.contains('active');
+document.querySelectorAll('.menu-mobile').forEach(menu => {
+if (menu !== mobileMenu) {
+menu.classList.remove('active');
+const otherToggle = menu.closest('nav').querySelector('.menu-toggle');
+otherToggle.setAttribute('aria-expanded', 'false');
+otherToggle.textContent = '☰';
+}
+});
+mobileMenu.classList.toggle('active');
+toggle.setAttribute('aria-expanded', !isOpen);
+toggle.textContent = isOpen ? '☰' : '✕';
+});
+});
+}
+setupMobileMenu();
 
-    // Navigation background on scroll avec performance optimisée
-    function handleScroll() {
-      if (!scrollTimeout) {
-        scrollTimeout = setTimeout(() => {
-          const scrolled = window.scrollY;
-          
-          // Update all navigation bars
-          document.querySelectorAll('nav').forEach(navEl => {
-            navEl.style.background = scrolled > 96 ? 'rgba(10,10,10,.96)' : 'rgba(10,10,10,.9)';
-          });
-          
-          // Animation de la barre de progression du scroll
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollProgress = scrolled / docHeight;
-          loading.style.transform = `scaleX(${Math.min(scrollProgress, 1)})`;
-          scrollTimeout = null;
-        }, 16); // 60fps
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Menu mobile toggle for both languages
-    function setupMobileMenu() {
-      document.querySelectorAll('.menu-toggle').forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const nav = toggle.closest('nav');
-          const mobileMenu = nav.querySelector('.menu-mobile');
-          const isOpen = mobileMenu.classList.contains('active');
-          
-          // Close all other mobile menus first
-          document.querySelectorAll('.menu-mobile').forEach(menu => {
-            if (menu !== mobileMenu) {
-              menu.classList.remove('active');
-              const otherToggle = menu.closest('nav').querySelector('.menu-toggle');
-              otherToggle.setAttribute('aria-expanded', 'false');
-              otherToggle.textContent = '☰';
-            }
-          });
-          
-          mobileMenu.classList.toggle('active');
-          toggle.setAttribute('aria-expanded', !isOpen);
-          toggle.textContent = isOpen ? '☰' : '✕';
-        });
-      });
-    }
-    setupMobileMenu();
+// Close mobile menu on outside click
+document.addEventListener('click', (e) => {
+document.querySelectorAll('.menu-mobile').forEach(menu => {
+if (!menu.closest('nav').contains(e.target)) {
+menu.classList.remove('active');
+const toggle = menu.closest('nav').querySelector('.menu-toggle');
+toggle.setAttribute('aria-expanded', 'false');
+toggle.textContent = '☰';
+}
+});
+});
 
-    // Fermer le menu mobile en cliquant ailleurs
-    document.addEventListener('click', (e) => {
-      document.querySelectorAll('.menu-mobile').forEach(menu => {
-        if (!menu.closest('nav').contains(e.target)) {
-          menu.classList.remove('active');
-          const toggle = menu.closest('nav').querySelector('.menu-toggle');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.textContent = '☰';
-        }
-      });
-    });
+// Smooth scroll for anchor links
+document.addEventListener('click', function(e) {
+if (e.target.matches('a[href^="#"]')) {
+e.preventDefault();
+const targetId = e.target.getAttribute('href').substring(1);
+const target = document.getElementById(targetId) || document.querySelector(`[id^="${targetId}"]`);
+if (target) {
+document.querySelectorAll('.menu-mobile').forEach(menu => {
+menu.classList.remove('active');
+const toggle = menu.closest('nav').querySelector('.menu-toggle');
+toggle.setAttribute('aria-expanded', 'false');
+toggle.textContent = '☰';
+});
+const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.french)`);
+const navHeight = currentNav ? currentNav.offsetHeight : 80;
+const targetPosition = target.offsetTop - navHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+}
+});
 
-    // Smooth scroll amélioré pour les liens d'ancre
-    document.addEventListener('click', function(e) {
-      if (e.target.matches('a[href^="#"]')) {
-        e.preventDefault();
-        const targetSection = e.target.getAttribute('href').substring(1);
-        
-        // Trouver la section correspondante dans la langue active
-        const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.french)`);
-        
-        if (target) {
-          // Fermer le menu mobile si ouvert
-          document.querySelectorAll('.menu-mobile').forEach(menu => {
-            menu.classList.remove('active');
-            const toggle = menu.closest('nav').querySelector('.menu-toggle');
-            toggle.setAttribute('aria-expanded', 'false');
-            toggle.textContent = '☰';
-          });
-          
-          // Scroll fluide avec offset pour la nav fixe
-          const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.french)`);
-          const navHeight = currentNav ? currentNav.offsetHeight : 80;
-          const targetPosition = target.offsetTop - navHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
-    });
+// Scroll animations (Intersection Observer)
+const observerOptions = {
+threshold: 0.15,
+rootMargin: '0px 0px -50px 0px'
+};
+const scrollObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('active');
+}
+});
+}, observerOptions);
+document.querySelectorAll('.reveal').forEach(el => {
+scrollObserver.observe(el);
+});
 
-    // Animations au scroll (Intersection Observer)
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
+// Video loading function
+function loadVideo(placeholder, src) {
+const player = placeholder.parentElement;
+const video = document.createElement('video');
+video.controls = true;
+video.controlsList = "nodownload";
+video.autoplay = true;
+video.muted = true;
+video.style.width = '100%';
+video.style.height = '100%';
+video.style.objectFit = 'cover';
+const source = document.createElement('source');
+source.src = src;
+source.type = 'video/mp4';
+video.appendChild(source);
+player.innerHTML = '';
+player.appendChild(video);
+video.addEventListener('loadstart', () => {
+player.style.opacity = '0.7';
+});
+video.addEventListener('canplay', () => {
+player.style.opacity = '1';
+});
+video.addEventListener('error', () => {
+player.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);">Video unavailable</div>';
+});
+}
 
-    const scrollObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
+// Contact form handling with EmailJS
+(function() {
+emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
+})();
 
-    // Observer tous les éléments avec la classe 'reveal'
-    document.querySelectorAll('.reveal').forEach(el => {
-      scrollObserver.observe(el);
-    });
+function setupContactForms(){
+["en","fr"].forEach(lang=>{
+const form=document.getElementById(`contact-form-${lang}`);
+const alertBox=document.getElementById(`form-alert-${lang}`);
+if(!form) return;
+form.addEventListener("submit",async e=>{
+e.preventDefault();
+const formData=new FormData(form);
+const btn=form.querySelector("button[type='submit']");
+const original=btn.innerHTML;
+btn.innerHTML= lang==="en"?"<span>⏳</span> Sending...":"<span>⏳</span> Envoi...";
+btn.disabled=true;
+alertBox.style.display="none";
+try{
+await emailjs.send("service_tesselite","template_tesselite",{
+from_name:formData.get("name"),
+from_email:formData.get("email"),
+company:formData.get("company")||"",
+subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),
+message:formData.get("message"),
+to_email:"graviton@tesselite.com"
+});
+alertBox.textContent= lang==="en"?"✅ Message sent successfully!":"✅ Message envoyé avec succès !";
+alertBox.className="form-alert success";
+alertBox.style.display="block";
+form.reset();
+}catch(err){
+console.error(err);
+alertBox.textContent= lang==="en"?"❌ Error sending message. Please try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";
+alertBox.className="form-alert error";
+alertBox.style.display="block";
+}finally{
+btn.innerHTML=original;
+btn.disabled=false;
+}
+});
+});
+}
+setupContactForms();
 
-    // Chargement lazy des vidéos
-    function loadVideo(placeholder, src) {
-      const player = placeholder.parentElement;
-      const video = document.createElement('video');
-      video.controls = true;
-      video.controlsList = "nodownload"; // Désactivation du bouton de téléchargement
-      video.autoplay = true;
-      video.muted = true; // Nécessaire pour l'autoplay
-      video.style.width = '100%';
-      video.style.height = '100%';
-      video.style.objectFit = 'cover';
-      
-      // Ajouter les sources
-      const source = document.createElement('source');
-      source.src = src;
-      source.type = 'video/mp4';
-      video.appendChild(source);
-      
-      // Remplacer le placeholder
-      player.innerHTML = '';
-      player.appendChild(video);
-      
-      // Animation de chargement
-      video.addEventListener('loadstart', () => {
-        player.style.opacity = '0.7';
-      });
-      
-      video.addEventListener('canplay', () => {
-        player.style.opacity = '1';
-      });
-      
-      // Gestion des erreurs
-      video.addEventListener('error', () => {
-        player.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);">Vidéo non disponible</div>';
-      });
-    }
+// Parallax effect for hero orb
+let ticking = false;
+function updateParallax() {
+const scrolled = window.pageYOffset;
+const orbs = document.querySelectorAll('.orb');
+orbs.forEach(orb => {
+if (scrolled < window.innerHeight) {
+orb.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.1}deg)`;
+}
+});
+ticking = false;
+}
+window.addEventListener('scroll', () => {
+if (!ticking) {
+requestAnimationFrame(updateParallax);
+ticking = true;
+}
+}, { passive: true });
 
-    // Gestion du formulaire de contact avec EmailJS
-    (function() {
-      emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
-    })();
-     
-    function setupContactForms(){
-      ["en","fr"].forEach(lang=>{
-        const form=document.getElementById(`contact-form-${lang}`);
-        const alertBox=document.getElementById(`form-alert-${lang}`);
-        if(!form) return;
-        form.addEventListener("submit",async e=>{
-          e.preventDefault();
-          const formData=new FormData(form);
-          const btn=form.querySelector("button[type='submit']");
-          const original=btn.innerHTML;
-          btn.innerHTML= lang==="en"?"<span>⏳</span> Sending...":"<span>⏳</span> Envoi...";
-          btn.disabled=true;
-          alertBox.style.display="none";
-          try{
-            await emailjs.send("service_tesselite","template_tesselite",{
-              from_name:formData.get("name"),
-              from_email:formData.get("email"),
-              company:formData.get("company")||"",
-              subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),
-              message:formData.get("message"),
-              to_email:"graviton@tesselite.com"
-            });
-            alertBox.textContent= lang==="en"?"✅ Message sent successfully!":"✅ Message envoyé avec succès !";
-            alertBox.className="form-alert success";
-            alertBox.style.display="block";
-            form.reset();
-          }catch(err){
-            console.error(err);
-            alertBox.textContent= lang==="en"?"❌ Error sending message. Please try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";
-            alertBox.className="form-alert error";
-            alertBox.style.display="block";
-          }finally{
-            btn.innerHTML=original;
-            btn.disabled=false;
-          }
-        });
-      });
-    }
-    setupContactForms();
+// Initialize with default language
+switchLanguage('en');
 
-    // Effet parallaxe subtil pour l'orbe du hero
-    let ticking = false;
-    function updateParallax() {
-      const scrolled = window.pageYOffset;
-      const orbs = document.querySelectorAll('.orb');
-      orbs.forEach(orb => {
-        if (scrolled < window.innerHeight) {
-          orb.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.1}deg)`;
-        }
-      });
-      ticking = false;
-    }
+console.log('🚀 Tesselite - Site loaded successfully');
+</script>
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    // Gestion des erreurs d'images et videos
-    document.addEventListener('error', (e) => {
-      if (e.target.tagName === 'IMG') {
-        e.target.style.display = 'none';
-        console.warn('Image non trouvée:', e.target.src);
-      } else if (e.target.tagName === 'VIDEO') {
-        console.warn('Vidéo non trouvée:', e.target.src);
-      }
-    }, true);
-
-    // Préchargement des ressources critiques
-    function preloadCriticalResources() {
-      const criticalResources = [
-        'prototype_00000300_an_infinite_bubble_1080p.mp4',
-        'prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4',
-        'prototype_00001700_a_pristine_rotation_1080p.mp4',
-        'prototype_00001800_a_vortex_slowdown_900p.mp4'
-      ];
-      
-      criticalResources.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'video';
-        link.href = src;
-        document.head.appendChild(link);
-      });
-    }
-
-    // Performance: Initialisation différée
-    window.addEventListener('load', () => {
-      preloadCriticalResources();
-      console.log('🚀 Tesselite - Site complet chargé et optimisé');
-    });
-
-    // Gestion du mode sombre automatique
-    function handleColorScheme() {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      function updateTheme(e) {
-        if (e.matches) {
-          document.documentElement.style.setProperty('--bg', '#0a0a0a');
-        }
-      }
-      
-      prefersDark.addEventListener('change', updateTheme);
-      updateTheme(prefersDark);
-    }
-    handleColorScheme();
-
-    // Initialize with default language
-    switchLanguage('en');
-
-    // Easter egg: Animation spéciale
-    let konamiCode = [];
-    const konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-    
-    document.addEventListener('keydown', (e) => {
-      konamiCode.push(e.keyCode);
-      if (konamiCode.length > konami.length) {
-        konamiCode.shift();
-      }
-      
-      if (konamiCode.join(',') === konami.join(',')) {
-        document.body.style.animation = 'pulse 2s infinite';
-        console.log('🎉 Easter egg activé ! Tesselite x Graviton');
-        setTimeout(() => {
-          document.body.style.animation = '';
-        }, 5000);
-      }
-    });
-
-    // Animation CSS pour l'easter egg
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes pulse {
-        0%, 100% { opacity: 0.7; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.02); }
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      .menu-mobile.active {
-        animation: fadeIn 0.3s ease;
-      }
-    `;
-    document.head.appendChild(style);
-  </script>
-
-  <!-- Schema.org structured data pour le SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Tesselite",
-    "description": "Deeptech startup developing the Graviton Engine for revolutionary space propulsion",
-    "url": "https://tesselite.com",
-    "foundingDate": "2023",
-    "founders": [
-      {
-        "@type": "Person",
-        "name": "NDEFFO Marcel",
-        "jobTitle": "CEO & Founder"
-      },
-      {
-        "@type": "Person", 
-        "name": "KOHO Hervé",
-        "jobTitle": "CTO & Co-Founder"
-      }
-    ],
-    "industry": "Aerospace Technology",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Support",
-      "email": "graviton@tesselite.com"
-    },
-    "sameAs": [
-      "https://linkedin.com/company/tesselite",
-      "https://twitter.com/tesselite"
-    ]
-  }
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
