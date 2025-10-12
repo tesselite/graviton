@@ -40,11 +40,23 @@ nav{position:fixed;inset:0 0 auto 0;z-index:1000;background:rgba(10,10,10,.9);ba
 .nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--grad);transition:width var(--transition)}
 .nav-links a:hover{color:var(--brand1)}
 .nav-links a:hover::after{width:100%}
+
+/* Highlight Investors Room */
+.nav-links a[href*="investisseurs"] {background: var(--grad);color: #fff !important;padding: 0.5rem 1rem !important;border-radius: 25px;margin-left: 0.5rem;transition: all var(--transition);}
+.nav-links a[href*="investisseurs"]::after {display: none;}
+.nav-links a[href*="investisseurs"]:hover {transform: translateY(-2px);box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);}
 .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem;z-index: 1001;}
 .menu-mobile{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--stroke);padding:1rem 2rem; animation: slideDown 0.3s ease;}
 .menu-mobile.active{display:block}
 .menu-mobile a{display:block;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;font-size:1rem; transition: all var(--transition);}
 .menu-mobile a:hover {background: rgba(255,255,255,.05);color: var(--brand1);
+/* Mobile menu highlight */
+.menu-mobile a[href*="investisseurs"] {
+  background: var(--grad);
+  color: #fff !important;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
 }
 
 /* HERO */
@@ -92,14 +104,132 @@ section{padding:6.5rem 1.25rem}
 .problem-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(255,107,107,.25);border-color:#ff6b6b}
 
 /* TIMELINE */
-.timeline {  position: relative;max-width: 800px;margin: 0 auto;}
-.timeline::before {content: '';position: absolute;left: 30px;top: 0;bottom: 0;width: 2px;background: linear-gradient(to bottom, transparent, var(--brand1), transparent);
+.timeline-section {
+  background: #0a0a0a; 
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 1.25rem;
 }
-.timeline-item{display:flex;gap:2rem;margin-bottom:3rem; align-items: flex-start;}
-.timeline-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-.timeline-marker {width: 60px;height: 60px;border-radius: 50%;display: flex;align-items: center;justify-content: center;font-size: 1.5rem;flex-shrink: 0;position: relative;z-index: 2;}
-.timeline-content{flex:1;background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition)}
-.timeline-content:hover{border-color:var(--brand1);transform:translateX(8px)}
+
+.timeline { 
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Ligne verticale centrale */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--brand1) 20%, var(--brand1) 80%, transparent);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+/* Marqueur central */
+.timeline-marker {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  grid-column: 2;
+  grid-row: 1;
+  border: 4px solid #0a0a0a;
+  transition: all var(--transition);
+}
+
+.timeline-marker:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px currentColor;
+}
+
+/* Contenu */
+.timeline-content {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: all var(--transition);
+  position: relative;
+  grid-row: 1;
+}
+
+.timeline-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.timeline-content p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* Effet alterné - items impairs (1, 3, 5) -> contenu à GAUCHE */
+.timeline-item:nth-child(odd) .timeline-content {
+  grid-column: 1;
+  text-align: right;
+}
+
+.timeline-item:nth-child(odd) .timeline-content:hover {
+  transform: translateX(-8px);
+  border-color: var(--brand1);
+  background: rgba(255,255,255,.08);
+}
+
+/* Effet alterné - items pairs (2, 4) -> contenu à DROITE */
+.timeline-item:nth-child(even) .timeline-content {
+  grid-column: 3;
+  text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-content:hover {
+  transform: translateX(8px);
+  border-color: var(--brand1);
+  background: rgba(255,255,255,.08);
+}
+
+/* Chainon manquant - centré HORS de la timeline */
+.timeline-missing-link {
+  max-width: 700px;
+  margin: 4rem auto 0;
+  background: var(--card);
+  border: 2px solid #06b6d4;
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(6,182,212,.4);
+  position: relative;
+}
+
+.timeline-missing-link h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-missing-link p {
+  line-height: 1.8;
+  color: var(--muted);
+}
 
 /* IMPACT SECTION */
 .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
@@ -183,6 +313,7 @@ footer{border-top:1px solid var(--stroke);background:rgba(0,0,0,.45);padding:2re
 .timeline::before {left: 25px;}
 .timeline-marker {width: 50px;height: 50px;font-size: 1.2rem;}
 .timeline-item{gap: 1rem;}
+.timeline-content:hover {transform: translateX(4px);}	
 .impact-grid{grid-template-columns:1fr}
 }
 .french{display:none !important}
@@ -316,7 +447,7 @@ satellites et véhicules spatiaux.</p>
 <section id="problem" class="reveal problem-section" data-lang-content="en">
 <div class="wrap">
 <div style="text-align:center;margin-bottom:4rem">
-<h2 class="section-title">The Challenge</h2>
+<h2 class="section-title">The Rule of Empirism</h2>
 <p class="section-sub">
 For two millennia, propulsion has relied on empirical optimization without mathematical foundation
 </p>
@@ -330,7 +461,7 @@ each advance was empirical optimization of Newton's reaction principle.</p>
 <div class="card">
 <h3>📈 Incremental Progress</h3>
 <p>Current models gain only 1-3% efficiency per generation, 
-via CFD and iterations without analytical mathematical foundation.</p>
+via experiments without analytical mathematical foundation.</p>
 </div>
 <div class="card">
 <h3>⚠️ Absence of Theory</h3>
@@ -345,7 +476,7 @@ it explains it afterwards."</p>
 <section id="problem-fr" class="reveal problem-section french" data-lang-content="fr">
 <div class="wrap">
 <div style="text-align:center;margin-bottom:4rem">
-<h2 class="section-title">Le Défi</h2>
+<h2 class="section-title">Le Règne de l'Empirisme</h2>
 <p class="section-sub">
 Pendant deux millénaires, la propulsion a reposé sur l'optimisation empirique sans fondement mathématique
 </p>
@@ -359,7 +490,7 @@ chaque avancée fut une optimisation empirique du principe de réaction de Newto
 <div class="card">
 <h3>📈 Progrès Incrémental</h3>
 <p>Les modèles actuels ne gagnent que 1 à 3% d'efficacité par génération, 
-via CFD et itérations sans fondement mathématique analytique.</p>
+via experimentations sans fondement mathématique analytique.</p>
 </div>
 <div class="card">
 <h3>⚠️ Absence de Théorie</h3>
@@ -371,7 +502,7 @@ elle l'explique après coup."</p>
 </section>
 
 <!-- TIMELINE ENGLISH -->
-<<section id="timeline" class="reveal timeline-section" data-lang-content="en">
+<section id="timeline" class="reveal timeline-section" data-lang-content="en">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:4rem">
       <h2 class="section-title">Historical Evolution</h2>
@@ -380,50 +511,63 @@ elle l'explique après coup."</p>
     
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#f59e0b"></div>
+        <div class="timeline-marker" style="background:#f59e0b">⚓</div>
         <div class="timeline-content">
           <h3 style="color:#f59e0b">Antiquity - Renaissance</h3>
           <p><strong>Propulsion:</strong> Aeolipile, da Vinci's screw, sails, hydraulic turbines</p>
           <p><strong>Principle:</strong> Action-reaction and mechanical lift</p>
+		  <p><strong>Limits:</strong> Low efficiency, absence of modeling</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#f97316"></div>
+        <div class="timeline-marker" style="background:#f97316">⚙️</div>
         <div class="timeline-content">
           <h3 style="color:#f97316">18th - 19th Century</h3>
           <p><strong>Propulsion:</strong> Steam engines, marine propellers, first turbines</p>
           <p><strong>Principle:</strong> Thermodynamic conversion, geometric empiricism</p>
+		  <p><strong>Limits:</strong> 10-20% efficiency, massive losses</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#ef4444"></div>
+        <div class="timeline-marker" style="background:#ef4444">✈️</div>
         <div class="timeline-content">
           <h3 style="color:#ef4444">20th Century</h3>
           <p><strong>Propulsion:</strong> Turbojets, rockets, ramjets</p>
           <p><strong>Principle:</strong> High-speed mass ejection</p>
+		  <p><strong>Limits:</strong> High complexity, significant thermal losses</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#ec4899"></div>
+        <div class="timeline-marker" style="background:#ec4899">⚡</div>
         <div class="timeline-content">
           <h3 style="color:#ec4899">Late 20th - 21st Century</h3>
           <p><strong>Propulsion:</strong> Electric, ionic, nuclear propulsion</p>
           <p><strong>Principle:</strong> Direct energy → momentum conversion</p>
+		  <p><strong>Limits:</strong> Low energy density, limited power</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#06b6d4;box-shadow:0 0 20px rgba(6,182,212,.5)"></div>
+        <div class="timeline-marker" style="background:#06b6d4;box-shadow:0 0 20px rgba(6,182,212,.5)">✨</div>
         <div class="timeline-content" style="border-color:#06b6d4;background:rgba(6,182,212,.05)">
           <h3 style="color:#06b6d4">21st Century - The Tesselite Era</h3>
           <p><strong>Propulsion:</strong> Graviton (normative geometry)</p>
           <p><strong>Principle:</strong> Analytical demonstration of fundamental laws</p>
+		  <p><strong>Limits:</strong> ---</p>
         </div>
       </div>
-    </div>
+	  </div>
+	
+	<!-- Missing Link Section -->
+      <div class="wrap">
+        <div class="timeline-missing-link">
+          <h3>The Missing Link</h3>
+          <p>The Graviton becomes the missing link between the theory of propulsion and its geometric realization. It represents a theoretical revolution with significant practical impact—from terrestrial transportation to space exploration, including the global energy transition.</p>
+        </div>
+      </div>
   </div>
 </section>
 
@@ -437,50 +581,63 @@ elle l'explique après coup."</p>
     
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#f59e0b"></div>
+        <div class="timeline-marker" style="background:#f59e0b">⚓</div>
         <div class="timeline-content">
           <h3 style="color:#f59e0b">Antiquité - Renaissance</h3>
           <p><strong>Propulsion:</strong> Éolipyle, vis de Vinci, voiles, turbines hydrauliques</p>
           <p><strong>Principe:</strong> Action-réaction et portance mécanique</p>
+		  <p><strong>Limites:</strong> Faible rendement, absence de modélisation</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#f97316"></div>
+        <div class="timeline-marker" style="background:#f97316">⚙️</div>
         <div class="timeline-content">
           <h3 style="color:#f97316">XVIIIᵉ - XIXᵉ siècle</h3>
           <p><strong>Propulsion:</strong> Machines à vapeur, hélices marines, premières turbines</p>
           <p><strong>Principe:</strong> Conversion thermodynamique, empirisme géométrique</p>
+		  <p><strong>Limites:</strong> Rendements 10-20%, pertes massives</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#ef4444"></div>
+        <div class="timeline-marker" style="background:#ef4444">✈️</div>
         <div class="timeline-content">
           <h3 style="color:#ef4444">XXᵉ siècle</h3>
           <p><strong>Propulsion:</strong> Turboréacteurs, fusées, ramjets</p>
           <p><strong>Principe:</strong> Éjection de masse à haute vitesse</p>
+		  <p><strong>Limites:</strong> Complexité élevée, pertes thermiques importantes</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#ec4899"></div>
+        <div class="timeline-marker" style="background:#ec4899">⚡</div>
         <div class="timeline-content">
           <h3 style="color:#ec4899">Fin XXᵉ - XXIᵉ siècle</h3>
           <p><strong>Propulsion:</strong> Propulsion électrique, ionique, nucléaire</p>
           <p><strong>Principe:</strong> Conversion directe énergie → momentum</p>
+		  <p><strong>Limites:</strong> Faible densité énergétique, puissance limitée</p>
         </div>
       </div>
       
       <div class="timeline-item">
-        <div class="timeline-marker" style="background:#06b6d4;box-shadow:0 0 20px rgba(6,182,212,.5)"></div>
+        <div class="timeline-marker" style="background:#06b6d4;box-shadow:0 0 20px rgba(6,182,212,.5)">✨</div>
         <div class="timeline-content" style="border-color:#06b6d4;background:rgba(6,182,212,.05)">
           <h3 style="color:#06b6d4">XXIᵉ siècle - L'Ère Tesselite</h3>
           <p><strong>Propulsion:</strong> Graviton (géométrie normative)</p>
           <p><strong>Principe:</strong> Démonstration analytique des lois fondamentales</p>
+		  <p><strong>Limites:</strong> ---</p>
         </div>
       </div>
-    </div>
+	  </div>
+		
+	  <!-- Le Chainon Manquant -->
+      <div class="wrap">
+        <div class="timeline-missing-link">
+          <h3>Le Chainon Manquant</h3>
+          <p>Le Graviton devient le chaînon manquant entre la théorie de la propulsion et sa réalisation géométrique. C'est une révolution théorique à fort impact pratique — du transport terrestre à la conquête spatiale, en passant par la transition énergétique mondiale.</p>
+        </div>
+      </div>
   </div>
 </section>
 
@@ -520,26 +677,26 @@ Tesselite fulfills this dream by translating physical laws into a universal geom
 <div class="grid grid-3" style="margin-top:3rem">
 <div class="card">
 <h4 style="color:#06b6d4;margin-bottom:1rem">📈 Aerial & Marine</h4>
-<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
-<li>• Blade tip vortex reduction</li>
-<li>• Cavitation elimination</li>
-<li>• Drastically reduced consumption</li>
+<ul style="margin-left:1rem;font-size:.9rem;color:var(--muted);line-height:1.8">
+<li> Blade tip vortex reduction</li>
+<li> Cavitation elimination</li>
+<li> Drastically reduced consumption</li>
 </ul>
 </div>
 <div class="card">
 <h4 style="color:#06b6d4;margin-bottom:1rem">⚡ Energy & Space</h4>
-<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
-<li>• More compact and lighter systems</li>
-<li>• Massive cost reduction</li>
-<li>• Minimal carbon footprint</li>
+<ul style="margin-left:1rem;font-size:.9rem;color:var(--muted);line-height:1.8">
+<li> More compact and lighter systems</li>
+<li> Massive cost reduction</li>
+<li> Minimal carbon footprint</li>
 </ul>
 </div>
 <div class="card">
 <h4 style="color:#06b6d4;margin-bottom:1rem">🎯 Systemic Innovation</h4>
-<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
-<li>• Facilitated hybrid integration</li>
-<li>• Optimized autonomous systems</li>
-<li>• Universal scalability</li>
+<ul style="margin-left:1rem;font-size:.9rem;color:var(--muted);line-height:1.8">
+<li> Facilitated hybrid integration</li>
+<li> Optimized autonomous systems</li>
+<li> Universal scalability</li>
 </ul>
 </div>
 </div>
@@ -582,26 +739,26 @@ Tesselite accomplit ce rêve en traduisant les lois physiques en une équation g
 <div class="grid grid-3" style="margin-top:3rem">
 <div class="card">
 <h4 style="color:#06b6d4;margin-bottom:1rem">📈 Aérien & Marin</h4>
-<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
-<li>• Réduction des vortex de bout de pale</li>
-<li>• Élimination de la cavitation</li>
-<li>• Consommation réduite drastiquement</li>
+<ul style="margin-left:1rem;font-size:.9rem;color:var(--muted);line-height:1.8">
+<li> Réduction des vortex de bout de pale</li>
+<li> Élimination de la cavitation</li>
+<li> Consommation réduite drastiquement</li>
 </ul>
 </div>
 <div class="card">
 <h4 style="color:#06b6d4;margin-bottom:1rem">⚡ Énergie & Spatial</h4>
-<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
-<li>• Systèmes plus compacts et légers</li>
-<li>• Réduction massive des coûts</li>
-<li>• Empreinte carbone minimale</li>
+<ul style="margin-left:1rem;font-size:.9rem;color:var(--muted);line-height:1.8">
+<li> Systèmes plus compacts et légers</li>
+<li> Réduction massive des coûts</li>
+<li> Empreinte carbone minimale</li>
 </ul>
 </div>
 <div class="card">
 <h4 style="color:#06b6d4;margin-bottom:1rem">🎯 Innovation Systémique</h4>
-<ul style="font-size:.9rem;color:var(--muted);line-height:1.8">
-<li>• Intégration hybride facilitée</li>
-<li>• Systèmes autonomes optimisés</li>
-<li>• Scalabilité universelle</li>
+<ul style="margin-left:1rem;font-size:.9rem;color:var(--muted);line-height:1.8">
+<li> Intégration hybride facilitée</li>
+<li> Systèmes autonomes optimisés</li>
+<li> Scalabilité universelle</li>
 </ul>
 </div>
 </div>
@@ -619,51 +776,51 @@ Tesselite accomplit ce rêve en traduisant les lois physiques en une équation g
 <div class="impact-card">
 <div class="impact-icon">🚢</div>
 <h3>Marine Propulsion</h3>
-<p style="margin-bottom:1rem">Acceleration of large water mass at low speed</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Terminal vortex elimination</li>
-<li>• Analytical model without cavitation</li>
-<li>• Optimal hydrodynamic efficiency</li>
+<p style="margin-bottom:.9rem">Acceleration of large water mass at low speed</p>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+ <li> Terminal vortex elimination</li>
+          <li> Analytical model without cavitation</li>
+          <li> Optimal hydrodynamic efficiency</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">✈️</div>
 <h3>Aerial Propulsion</h3>
 <p style="margin-bottom:1rem">Optimized compression, combustion and ejection</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Induction loss reduction</li>
-<li>• Minimized pressure gradients</li>
-<li>• Efficiency > 3× superior</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Induction loss reduction</li>
+<li> Minimized pressure gradients</li>
+<li> Efficiency > 3× superior</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">🚀</div>
 <h3>Space Propulsion</h3>
 <p style="margin-bottom:1rem">Anaerobic ejection and non-Newtonian flows</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Low density regime adaptation</li>
-<li>• Thrust flow optimization</li>
-<li>• Efficiency in space environment</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Low density regime adaptation</li>
+<li> Thrust flow optimization</li>
+<li> Efficiency in space environment</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">⚡</div>
 <h3>Energy</h3>
 <p style="margin-bottom:1rem">Optimal mechanical and electrical conversion</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• High-efficiency turbines</li>
-<li>• Energy conversion systems</li>
-<li>• Systemic loss reduction</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> High-efficiency turbines</li>
+<li> Energy conversion systems</li>
+<li> Systemic loss reduction</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">🤖</div>
 <h3>Robotics & Drones</h3>
 <p style="margin-bottom:1rem">Compact and efficient propulsion</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Increased autonomy</li>
-<li>• Reduced weight and size</li>
-<li>• Maximum control precision</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Increased autonomy</li>
+<li> Reduced weight and size</li>
+<li> Maximum control precision</li>
 </ul>
 </div>
 </div>
@@ -699,50 +856,50 @@ Tesselite accomplit ce rêve en traduisant les lois physiques en une équation g
 <div class="impact-icon">🚢</div>
 <h3>Propulsion Marine</h3>
 <p style="margin-bottom:1rem">Accélération d'une grande masse d'eau à faible vitesse</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Élimination des vortex terminaux</li>
-<li>• Modèle analytique sans cavitation</li>
-<li>• Rendement hydrodynamique optimal</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Élimination des vortex terminaux</li>
+<li> Modèle analytique sans cavitation</li>
+<li> Rendement hydrodynamique optimal</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">✈️</div>
 <h3>Propulsion Aérienne</h3>
 <p style="margin-bottom:1rem">Compression, combustion et éjection optimisées</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Réduction des pertes d'induction</li>
-<li>• Gradients de pression minimisés</li>
-<li>• Rendement > 3× supérieur</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Réduction des pertes d'induction</li>
+<li> Gradients de pression minimisés</li>
+<li> Rendement > 3× supérieur</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">🚀</div>
 <h3>Propulsion Spatiale</h3>
 <p style="margin-bottom:1rem">Éjection anaérobie et flux non-newtoniens</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Adaptation aux régimes faible densité</li>
-<li>• Optimisation du flux de poussée</li>
-<li>• Efficacité en environnement spatial</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Adaptation aux régimes faible densité</li>
+<li> Optimisation du flux de poussée</li>
+<li> Efficacité en environnement spatial</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">⚡</div>
 <h3>Énergie</h3>
 <p style="margin-bottom:1rem">Conversion mécanique et électrique optimale</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Turbines à haut rendement</li>
-<li>• Systèmes de conversion énergétique</li>
-<li>• Réduction des pertes systémiques</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Turbines à haut rendement</li>
+<li> Systèmes de conversion énergétique</li>
+<li> Réduction des pertes systémiques</li>
 </ul>
 </div>
 <div class="impact-card">
 <div class="impact-icon">🤖</div>
 <h3>Robotique & Drones</h3>
 <p style="margin-bottom:1rem">Propulsion compacte et efficace</p>
-<ul style="font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
-<li>• Autonomie accrue</li>
-<li>• Poids et encombrement réduits</li>
-<li>• Précision de contrôle maximale</li>
+<ul style="margin-left:2rem;font-size:.9rem;text-align:left;color:var(--muted);line-height:1.8">
+<li> Autonomie accrue</li>
+<li> Poids et encombrement réduits</li>
+<li> Précision de contrôle maximale</li>
 </ul>
 </div>
 </div>
@@ -903,13 +1060,13 @@ Tesselite accomplit ce rêve en traduisant les lois physiques en une équation g
               </div>
             </div>
             
-            <div class="contact-method">
-              <span style="font-size:1.5rem">💼</span>
-              <div>
-                <strong>Investor Relations</strong><br>
-                <a href="investisseurs.html" style="color:var(--accent)">View Investor Page</a>
-              </div>
-            </div>
+            <div class="contact-method" style="background: var(--grad); border: none; text-align: center; justify-content: center;">
+  			<span style="font-size:1.5rem">💼</span>
+  			<div>
+    			<strong style="color:#fff">Investor Relations</strong><br>
+    			<a href="investisseurs.html" style="color:#fff; font-weight: 600">View Investor Page</a>
+  			</div>
+		    </div>
           </div>
         </div>
         
@@ -990,13 +1147,13 @@ Tesselite accomplit ce rêve en traduisant les lois physiques en une équation g
               </div>
             </div>
             
-            <div class="contact-method">
-              <span style="font-size:1.5rem">💼</span>
-              <div>
-                <strong>Relations Investisseurs</strong><br>
-                <a href="investisseurs.html" style="color:var(--accent)">Voir Page Investisseurs</a>
-              </div>
-            </div>
+            <div class="contact-method" style="background: var(--grad); border: none; text-align: center; justify-content: center;">
+  			<span style="font-size:1.5rem">💼</span>
+  			<div>
+    			<strong style="color:#fff">Relations Investisseurs</strong><br>
+    			<a href="investisseurs.html" style="color:#fff; font-weight: 600">Voir Page Investisseurs</a>
+  			</div>
+		    </div>
           </div>
         </div>
         
