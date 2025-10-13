@@ -230,7 +230,107 @@ section{padding:6.5rem 1.25rem}
   line-height: 1.8;
   color: var(--muted);
 }
+/* IMAGES & ILLUSTRATIONS */
+.tech-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
 
+.tech-card {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.tech-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--brand1);
+  box-shadow: 0 12px 28px rgba(102,126,234,.25);
+}
+
+.tech-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(102,126,234,.1), rgba(118,75,162,.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tech-image img {
+  filter: brightness(0.8) contrast(1.1) sepia(0.2);
+  mix-blend-mode: luminosity;
+}
+	
+.tech-info {
+  padding: 1.5rem;
+}
+
+.tech-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.tech-info p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.tech-stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--stroke);
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand1);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* Quote box */
+.quote-box {
+  background: linear-gradient(135deg, rgba(239,68,68,.1), rgba(220,38,38,.05));
+  border-left: 4px solid #ef4444;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.quote-box strong {
+  color: #fff;
+  font-style: normal;
+}
 /* IMPACT SECTION */
 .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
 .impact-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;text-align:center;transition:all var(--transition)}
@@ -446,58 +546,218 @@ satellites et véhicules spatiaux.</p>
 <!-- PROBLEM SECTION ENGLISH -->
 <section id="problem" class="reveal problem-section" data-lang-content="en">
 <div class="wrap">
+
 <div style="text-align:center;margin-bottom:4rem">
-<h2 class="section-title">The Rule of Empirism</h2>
+<h2 class="section-title">The Rule of Empiricism</h2>
 <p class="section-sub">
-For two millennia, propulsion has relied on empirical optimization without mathematical foundation
+For over two millennia, propulsion has relied on the same fundamental principle: Newton's action-reaction
 </p>
 </div>
+
+<!-- Contexte historique enrichi -->
+<div style="margin-bottom:3rem">
+<h3 style="font-size:1.4rem;margin-bottom:1.5rem;color:#fff">Historical Context</h3>
+<p style="color:var(--muted);line-height:1.8;margin-bottom:1.5rem">
+From <strong style="color:#f59e0b">Heron's aeolipile</strong> (3rd century BC) — the first demonstration of steam reaction — to SpaceX's <strong style="color:#06b6d4">Falcon 9 rocket</strong>, technological progress has consisted of <strong>empirically refining</strong> this fundamental principle enunciated by Newton in the 17th century.
+</p>
+
+<div class="tech-showcase">
+<div class="tech-card">
+<div class="tech-image">⚓</div>
+<div class="tech-info">
+<h4>Antiquity & Renaissance</h4>
+<p>Da Vinci's aerial screw, hydraulic turbines, marine sails — first intuitions of controlled mechanical thrust.</p>
+<div class="tech-stats">
+<div class="stat-item">
+<div class="stat-value"><5%</div>
+<div class="stat-label">Efficiency</div>
+</div>
+<div class="stat-item">
+<div class="stat-value">Manual</div>
+<div class="stat-label">Design</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="tech-card">
+<div class="tech-image">⚙️</div>
+<div class="tech-info">
+<h4>Industrial Era</h4>
+<p>Marine and aerial propellers (Ressel, Wright brothers) based on fluid dynamics.</p>
+<div class="tech-stats">
+<div class="stat-item">
+<div class="stat-value">10-20%</div>
+<div class="stat-label">Efficiency</div>
+</div>
+<div class="stat-item">
+<div class="stat-value">Empirical</div>
+<div class="stat-label">Design</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="tech-card">
+<div class="tech-image">✈️</div>
+<div class="tech-info">
+<h4>20th Century</h4>
+<p>Revolution of turbomachines (Whittle, von Ohain) and anaerobic rockets (Goddard, Tsiolkovsky).</p>
+<div class="tech-stats">
+<div class="stat-item">
+<div class="stat-value">30-50%</div>
+<div class="stat-label">Efficiency</div>
+</div>
+<div class="stat-item">
+<div class="stat-value">CFD</div>
+<div class="stat-label">Design</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Citation de Froude -->
+<div class="quote-box">
+<p><strong>William Froude, 1878:</strong> "Theory does not determine optimal form, it explains it afterwards."</p>
+</div>
+
+<!-- Les 3 cartes problématiques -->
 <div class="grid grid-3">
 <div class="card">
-<h3>⏰ Historical Context</h3>
-<p>From Heron's aeolipile (3rd century BC) to modern turbines, 
-each advance was empirical optimization of Newton's reaction principle.</p>
+<h3>⏰ Historical Legacy</h3>
+<p>From Heron's aeolipile (3rd century BC) to modern turbines, each advance was empirical optimization of Newton's reaction principle.</p>
 </div>
+
 <div class="card">
 <h3>📈 Incremental Progress</h3>
-<p>Current models gain only 1-3% efficiency per generation, 
-via experiments without analytical mathematical foundation.</p>
+<p>Current models gain only 1-3% efficiency per generation, via experiments without analytical mathematical foundation.</p>
 </div>
+
 <div class="card">
 <h3>⚠️ Absence of Theory</h3>
-<p>As Froude noted in 1878: "Theory does not determine optimal form, 
-it explains it afterwards."</p>
+<p>Despite spectacular advances, <strong>propulsion science remains fundamentally empirical</strong>. Propulsive system forms are not derived from complete mathematical demonstration.</p>
 </div>
 </div>
+
+<!-- Enjeux contemporains -->
+<div style="margin-top:3rem;padding:2rem;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:var(--radius)">
+<h3 style="color:#ef4444;margin-bottom:1rem">🎯 Contemporary Challenges</h3>
+<p style="color:var(--muted);line-height:1.8">
+Current models aim for <strong>marginal improvement</strong> (1-3% efficiency per generation), while contemporary challenges — energy, climate, and space — demand a <strong>conceptual breakthrough</strong>. This is precisely the breakthrough that Tesselite proposes, founding its research on a <strong>normative geometric demonstration</strong> of propulsion: <strong style="color:#06b6d4">the Graviton</strong>.
+</p>
+</div>
+
 </div>
 </section>
 
 <!-- PROBLEM SECTION FRENCH -->
 <section id="problem-fr" class="reveal problem-section french" data-lang-content="fr">
 <div class="wrap">
+
 <div style="text-align:center;margin-bottom:4rem">
 <h2 class="section-title">Le Règne de l'Empirisme</h2>
 <p class="section-sub">
-Pendant deux millénaires, la propulsion a reposé sur l'optimisation empirique sans fondement mathématique
+Pendant plus de deux millénaires, la propulsion s'appuie sur le même principe fondamental : l'action-réaction de Newton
 </p>
 </div>
+
+<!-- Contexte historique enrichi -->
+<div style="margin-bottom:3rem">
+<h3 style="font-size:1.4rem;margin-bottom:1.5rem;color:#fff">Contexte Historique</h3>
+<p style="color:var(--muted);line-height:1.8;margin-bottom:1.5rem">
+De <strong style="color:#f59e0b">l'éolipyle d'Héron</strong> (IIIᵉ siècle av. J.-C.) — première démonstration du principe de réaction à la vapeur — jusqu'à la <strong style="color:#06b6d4">fusée Falcon 9</strong> de SpaceX, le progrès technologique a consisté à <strong>affiner empiriquement</strong> ce principe fondamental énoncé par Newton au XVIIᵉ siècle.
+</p>
+
+<div class="tech-showcase">
+<div class="tech-card">
+<div class="tech-image">⚓</div>
+<div class="tech-info">
+<h4>Antiquité & Renaissance</h4>
+<p>Vis aérienne de Vinci, turbines hydrauliques, voiles marines — premières intuitions d'une poussée mécanique contrôlée.</p>
+<div class="tech-stats">
+<div class="stat-item">
+<div class="stat-value"><5%</div>
+<div class="stat-label">Rendement</div>
+</div>
+<div class="stat-item">
+<div class="stat-value">Manuel</div>
+<div class="stat-label">Conception</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="tech-card">
+<div class="tech-image">⚙️</div>
+<div class="tech-info">
+<h4>Ère Industrielle</h4>
+<p>Hélices marines et aériennes (Ressel, frères Wright) fondées sur la dynamique des fluides.</p>
+<div class="tech-stats">
+<div class="stat-item">
+<div class="stat-value">10-20%</div>
+<div class="stat-label">Rendement</div>
+</div>
+<div class="stat-item">
+<div class="stat-value">Empirique</div>
+<div class="stat-label">Conception</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="tech-card">
+<div class="tech-image">✈️</div>
+<div class="tech-info">
+<h4>XXᵉ Siècle</h4>
+<p>Révolution des turbomachines (Whittle, von Ohain) et des fusées anaérobies (Goddard, Tsiolkovski).</p>
+<div class="tech-stats">
+<div class="stat-item">
+<div class="stat-value">30-50%</div>
+<div class="stat-label">Rendement</div>
+</div>
+<div class="stat-item">
+<div class="stat-value">CFD</div>
+<div class="stat-label">Conception</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Citation de Froude -->
+<div class="quote-box">
+<p><strong>William Froude, 1878 :</strong> "La théorie ne détermine pas la forme optimale, elle l'explique après coup."</p>
+</div>
+
+<!-- Les 3 cartes problématiques -->
 <div class="grid grid-3">
 <div class="card">
-<h3>⏰ Contexte Historique</h3>
-<p>De l'éolipyle d'Héron (IIIᵉ siècle av. J.-C.) aux turbines modernes, 
-chaque avancée fut une optimisation empirique du principe de réaction de Newton.</p>
+<h3>⏰ Héritage Historique</h3>
+<p>De l'éolipyle d'Héron (IIIᵉ siècle av. J.-C.) aux turbines modernes, chaque avancée fut une optimisation empirique du principe de réaction de Newton.</p>
 </div>
+
 <div class="card">
 <h3>📈 Progrès Incrémental</h3>
-<p>Les modèles actuels ne gagnent que 1 à 3% d'efficacité par génération, 
-via experimentations sans fondement mathématique analytique.</p>
+<p>Les modèles actuels ne gagnent que 1 à 3% d'efficacité par génération, via expérimentations sans fondement mathématique analytique.</p>
 </div>
+
 <div class="card">
 <h3>⚠️ Absence de Théorie</h3>
-<p>Comme le notait Froude en 1878 : "La théorie ne détermine pas la forme optimale, 
-elle l'explique après coup."</p>
+<p>Malgré des avancées spectaculaires, <strong>la science de la propulsion reste fondamentalement empirique</strong>. Les formes ne sont pas issues d'une démonstration mathématique complète.</p>
 </div>
 </div>
+
+<!-- Enjeux contemporains -->
+<div style="margin-top:3rem;padding:2rem;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:var(--radius)">
+<h3 style="color:#ef4444;margin-bottom:1rem">🎯 Enjeux Contemporains</h3>
+<p style="color:var(--muted);line-height:1.8">
+Les modèles actuels visent <strong>l'amélioration marginale</strong> (1 à 3% par génération), alors que les enjeux contemporains — énergétiques, climatiques et spatiaux — exigent une <strong>rupture conceptuelle</strong>. C'est précisément cette rupture que propose Tesselite, en fondant sa recherche sur une <strong>démonstration géométrique normative</strong> de la propulsion : <strong style="color:#06b6d4">le Graviton</strong>.
+</p>
+</div>
+
 </div>
 </section>
 
