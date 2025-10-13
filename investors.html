@@ -77,14 +77,25 @@ body {
 }
 
 .back-link {
-  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 100px;
+  color: var(--text);
   text-decoration: none;
   font-size: 0.875rem;
-  transition: color var(--transition);
+  font-weight: 600;
+  transition: all var(--transition);
 }
 
 .back-link:hover {
-  color: var(--text);
+  background: rgba(59,130,246,.1);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59,130,246,.2);
 }
 
 /* Hero */
