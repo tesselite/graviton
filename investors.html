@@ -1222,7 +1222,7 @@ document.getElementById("accessForm").addEventListener("submit", function(e) {
   submitBtn.textContent = "Sending...";
   submitBtn.disabled = true;
   
-  emailjs.sendForm("service_tesselite", "template_tesselite", this)
+  emailjs.sendForm("service_tesselite", "template_investor_data", this)
     .then(function() {
       alert("✅ Request submitted successfully! You will receive data room access shortly.");
       closeModal();
