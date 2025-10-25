@@ -70,8 +70,8 @@
     .hero-video {position: absolute; top: 0; left: 0; width: 100%;height: 100%;object-fit: cover; z-index: -2; opacity: 0.3;}
     .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(60% 40% at 50% 50%, rgba(102,126,234,.25), rgba(10,10,10,.7) 60%); z-index: -1; }
     .orb{position:absolute;inset:auto auto 10% -10%;width:40vw;aspect-ratio:1;border-radius:50%;filter:blur(60px);background:conic-gradient(from 120deg,var(--brand1),transparent,var(--brand2));opacity:.35;z-index:-1;animation:rotate 20s linear infinite}
-    .hero-wrap{max-width:900px;text-align:center;padding:0 1.25rem 1.25rem;animation:fadeUp .8s ease both}
-    h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 auto 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.85rem}
+    .hero-wrap{max-width:900px;text-align:center;padding:4rem 1.25rem;animation:fadeUp .8s ease both}
+    h1.hero-title{font-weight:900;line-height:1.08;font-size:clamp(2.4rem,6.2vw,5.2rem);margin:0 auto 1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2rem}
     .hero-sub{color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.7;margin:0 auto 1.5rem}
     .badges{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.6rem;}
     .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.04);padding:.5rem .75rem;border-radius:999px;font-size:.9rem;transition:all var(--transition)}
@@ -88,7 +88,7 @@
     .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--brand1);transform:translateY(-2px)}
 
     /* SECTIONS */
-    section{padding:6.5rem 1.25rem}
+    section{padding:5rem 1.25rem}
     .wrap{max-width:var(--maxw);margin-inline:auto}
     .section-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
     .section-sub{color:var(--muted);max-width:900px;line-height:1.7;margin-bottom:2.5rem}
@@ -238,10 +238,9 @@
         <div class="nav-links">
           <a href="#home">Home</a>
           <a href="#solution">Solution</a>
-          <a href="#progress">Progress</a>
           <a href="#videos">Prototypes</a>
-          <a href="#team">Team</a>
           <a href="#contact">Contact</a>
+          <a href="investors.html">Investors Room</a>
         </div>
         <button class="menu-toggle" aria-label="Mobile menu" aria-expanded="false">☰</button>
       </div>
@@ -251,7 +250,6 @@
       <a href="#solution">Solution</a>
       <a href="#progress">Progress</a>
       <a href="#videos">Prototypes</a>
-      <a href="#team">Team</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -276,7 +274,6 @@
           <a href="#solution">Solution</a>
           <a href="#progress">Progrès</a>
           <a href="#videos">Prototypes</a>
-          <a href="#team">Équipe</a>
           <a href="#contact">Contact</a>
         </div>
         <button class="menu-toggle" aria-label="Menu mobile" aria-expanded="false">☰</button>
@@ -287,7 +284,6 @@
       <a href="#solution">Solution</a>
       <a href="#progress">Progrès</a>
       <a href="#videos">Prototypes</a>
-      <a href="#team">Équipe</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -305,7 +301,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-wrap">
       <h1 class="hero-title">Reinventing propulsion with the <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
-      <p class="hero-sub">A mathematical breakthrough towards continuous motion and energy conservation. Towards faster, more affordable and sustainable space missions.</p>
+      <p class="hero-sub">A mathematical breakthrough towards continuous motion and energy conservation, towards faster, more affordable and sustainable space missions.</p>
       
       <div class="badges">
         <span class="badge">🧬 DeepTech</span>
@@ -360,8 +356,8 @@
   <!-- SOLUTION ENGLISH -->
   <section class="reveal section-anchor" id="solution-en" data-lang-content="en" data-section="solution">
     <div class="wrap">
-      <h2 class="section-title">Our Solution: the Graviton</h2>
-      <p class="section-sub">The Graviton is an unprecedented mathematical solution — capable of maintaining continuous motion and energy conservation. It opens a new era for propulsion and energy systems.</p>
+      <h2 class="section-title">The Graviton</h2>
+      <p class="section-sub">The Graviton is an unprecedented mathematical solution — capable of maintaining continuous motion and energy conservation — opening a new era for propulsion and energy systems.</p>
       <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem">
         <article class="card">
           <div class="icon">⚡</div>
@@ -380,7 +376,7 @@
   <!-- SOLUTION FRENCH-->
   <section class="reveal section-anchor hidden" id="solution-fr" data-lang-content="fr" data-section="solution"> 
     <div class="wrap">
-      <h2 class="section-title">Notre Solution : le Graviton</h2>
+      <h2 class="section-title">Le Graviton</h2>
       <p class="section-sub">Le Graviton est une configuration dynamique inédite — capable de maintenir un mouvement continu et la conservation de l'énergie. Il ouvre une nouvelle ère pour la propulsion et les systèmes énergétiques.</p>
       <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem">
         <article class="card">
@@ -400,15 +396,16 @@
   <!-- PROGRESS ENGLISH -->
   <section class="reveal section-anchor" id="progress-en" data-lang-content="en" data-section="progress">
     <div class="wrap">
-      <h2 class="section-title">Progress &amp; Achievements</h2>
+      <h2 class="section-title">Milestones</h2>
       <p class="section-sub">Our key milestones to date to de-risk the technology and accelerate the transition to application.</p>
       <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem">
         <div class="card">
           <h3>Validated milestones</h3>
+          <p class="" style="color:var(--muted)"><em>A strict validation of theoretical pillar and practical implementation. </em></p>
           <div class="ticks" role="list">
             <div class="tick" role="listitem"><i>✔</i><span>Mathematical proof</span></div>
-            <div class="tick" role="listitem"><i>✔</i><span>Advanced three-dimensional visualizations</span></div>
-            <div class="tick" role="listitem"><i>✔</i><span>Functional prototype demonstrating continuous motion.</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Advanced three-dimensional mathematical visuals</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Continuous motion demonstration with physical prototypes</span></div>
           </div>
         </div>
         <div class="card">
@@ -432,19 +429,20 @@
       <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem">
         <div class="card">
           <h3>Jalons validés</h3>
+          <p class="" style="color:var(--muted)"><em>Une validation rigoureuse de la fondation théorique et de son implémentation pratique.</em></p>
           <div class="ticks" role="list">
-            <div class="tick" role="listitem"><i>✔</i><span>Preuve mathématique</span></div>
-            <div class="tick" role="listitem"><i>✔</i><span>Visualisations tridimensionnelles avancées</span></div>
-            <div class="tick" role="listitem"><i>✔</i><span>Prototype fonctionnel démontrant un mouvement continu.</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Preuve mathématique.</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Visualisations tridimensionnelles avancées.</span></div>
+            <div class="tick" role="listitem"><i>✔</i><span>Prototypes physiques démontrant un mouvement continu.</span></div>
           </div>
         </div>
         <div class="card">
           <h3>Ambition stratégique</h3>
           <p class="" style="color:var(--muted)"><em>Un différentiel compétitif pour l'exploration, la défense et le tourisme spatial</em></p>
           <div class="ticks" role="list" style="margin-top:.6rem">
-            <div class="tick" role="listitem"><i>➔</i><span>Efficience énergétique</span></div>
-            <div class="tick" role="listitem"><i>➔</i><span>Vitesses accrues</span></div>
-            <div class="tick" role="listitem"><i>➔</i><span>Autonomie de propulsion</span></div>
+            <div class="tick" role="listitem"><i>➔</i><span>Efficience énergétique.</span></div>
+            <div class="tick" role="listitem"><i>➔</i><span>Vitesses accrues.</span></div>
+            <div class="tick" role="listitem"><i>➔</i><span>Autonomie de propulsion.</span></div>
           </div>
         </div>
       </div>
@@ -554,44 +552,6 @@
             </div>
           </div>
           <div class="video-meta">Ralentissement du temps pour explorer spatialement un vortex.</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM ENGLISH -->
-  <section class="reveal section-anchor" id="team-en" data-lang-content="en" data-section="team">
-    <div class="wrap">
-      <h2 class="section-title">Our Leaders</h2>
-      <div class="team-grid">
-        <article class="card" aria-labelledby="m1-en">
-          <div class="avatar" aria-hidden="true">NM</div>
-          <h3 id="m1-en">NDEFFO Marcel</h3>
-          <p style="color:var(--muted)">CEO &amp; Founder</p>
-        </article>
-        <article class="card" aria-labelledby="m2-en">
-          <div class="avatar" aria-hidden="true">KH</div>
-          <h3 id="m2-en">KOHO Hervé</h3>
-          <p style="color:var(--muted)">CTO &amp; Co‑Founder</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM FRENCH -->
-  <section class="reveal section-anchor hidden" id="team-fr" data-lang-content="fr" data-section="team">
-    <div class="wrap">
-      <h2 class="section-title">Nos Leaders</h2>
-      <div class="team-grid">
-        <article class="card" aria-labelledby="m1-fr">
-          <div class="avatar" aria-hidden="true">NM</div>
-          <h3 id="m1-fr">NDEFFO Marcel</h3>
-          <p style="color:var(--muted)">CEO &amp; Fondateur</p>
-        </article>
-        <article class="card" aria-labelledby="m2-fr">
-          <div class="avatar" aria-hidden="true">KH</div>
-          <h3 id="m2-fr">KOHO Hervé</h3>
-          <p style="color:var(--muted)">CTO &amp; Co‑Fondateur</p>
         </article>
       </div>
     </div>
