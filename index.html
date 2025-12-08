@@ -64,6 +64,9 @@
     .menu-mobile.active{display:block}
     .menu-mobile a{display:block;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;font-size:1rem}
 
+    /* Video mobile */
+    .hero-teaser-video-mobile{display:none;}
+
     /* HERO AVEC VIDEO EN FOND */
     .hero{min-height:100svh;display:grid;place-items:center;position:relative;isolation:isolate;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%)}
     .hero {padding-top: 80px;} /* compense la nav fixe en desktop */
@@ -157,6 +160,8 @@
     @media (max-width: 1024px){
       .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .video-card{grid-column:span 12}
+      .hero-teaser-video {display:none;}
+      .hero-teaser-video-mobile {display:block;}
       /*.lang-toggle{right:1rem}*/
     }
     @media (max-width: 768px){
@@ -166,9 +171,9 @@
       .menu-toggle{display:block}
       .lang-toggle-nav{order:1;margin-right:1rem} /* Garder le bouton langue visible */
       .nav-right{order:2}
-      /* nav un peu plus haute sur mobile - occupe une bonne partie de l'écran - recadrage plein écran
-      .hero {padding-top: 80px;} 
-      .hero-teaser-video {position: relative;top: auto;left: auto;transform: none;width: 60%;height: 60vh;object-fit: cover;border-radius: var(--radius);z-index: 0;}*/
+      /* nav un peu plus haute sur mobile - occupe une bonne partie de l'écran - recadrage plein écran */
+      .hero-teaser-video {display:none;}
+      .hero-teaser-video-mobile {display:block;}
       .video-card{grid-column:span 12}
       
       /* Ajustements du bouton langue en mobile */
@@ -301,6 +306,10 @@
       <!-- Fallback avec un placeholder animé -->
       <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
     </video>
+    <video class="hero-teaser-video-mobile" autoplay muted loop playsinline>
+      <source src="prototype_00001700_a_pristine_rotation_1080p.mp4" type="video/mp4">
+      <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
+    </video>
     <div class="hero-overlay"></div>
     <div class="hero-wrap">
       <h1 class="hero-title">Reinventing propulsion with the <span style="-webkit-text-fill-color:inherit;background:none">Graviton</span></h1>
@@ -332,6 +341,10 @@
     <video class="hero-teaser-video" autoplay muted loop playsinline>
       <source src="prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4" type="video/mp4">
       <!-- Fallback avec un placeholder animé -->
+      <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
+    </video>
+    <video class="hero-teaser-video-mobile" autoplay muted loop playsinline>
+      <source src="prototype_00001700_a_pristine_rotation_1080p.mp4" type="video/mp4">
       <div style="width:100%;height:300px;background:var(--grad);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:800;">🚀 Tesselite</div>
     </video>
     <div class="hero-wrap">
@@ -989,30 +1002,6 @@
         console.warn('Vidéo non trouvée:', e.target.src);
       }
     }, true);
-
-    // Préchargement des ressources critiques
-    function preloadCriticalResources() {
-      const criticalResources = [
-        'prototype_00000300_an_infinite_bubble_1080p.mp4',
-        'prototype_00001500_in_the_heart_of_a_vortex_1080p.mp4',
-        'prototype_00001700_a_pristine_rotation_1080p.mp4',
-        'prototype_00001800_a_vortex_slowdown_900p.mp4',
-      ];
-      
-      criticalResources.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = src.includes('.mp4') ? 'video' : 'image';
-        link.href = src;
-        document.head.appendChild(link);
-      });
-    }
-
-    // Performance: Initialisation différée
-    window.addEventListener('load', () => {
-      preloadCriticalResources();
-      console.log('🚀 Tesselite - Site bilingue chargé et optimisé');
-    });
 
     // Gestion du mode sombre automatique
     function handleColorScheme() {
