@@ -105,6 +105,7 @@
     .card:hover::before{opacity:1}
     .card h3{font-size:1.2rem;margin-bottom:.5rem;position:relative;z-index:1}
     .card p{color:var(--muted);line-height:1.7;position:relative;z-index:1}
+    .card:hover img{transform: scale(1.1);}
     .icon{width:50px;height:50px;border-radius:16px;background:var(--grad);display:grid;place-items:center;margin-bottom:1rem;font-weight:800;font-size:1.2rem;box-shadow:var(--shadow)}
 
     /* PROGRESS */
@@ -589,14 +590,15 @@
             </p>
           </article>
           
-          <article class="card" style="background-color:black">
+          <article class="card" >
             <h3>💰 Donate</h3>
-            <ul style="color:var(--muted);line-height:1.8;margin:.6rem 0 0 1rem">
-              <li>PayPal</li>
-              <li>Crowdfunding</li>
-              <li>DeepTech Venture Capital</li>
-            </ul>
+            <p style="color:var(--muted);line-height:1.8;margin-top:.6rem">
+              Direct: <a href="https://paypal.me/thegraviton" style="color:var(--brand1);font-weight:bold;" target="_blank">paypal.me</a><br/>
+              Crowdfunding: <i>coming soon</i><br/><br/>
+             <div id="paypal-donate-button-container-en" style="position:relative;z-index:10;margin:.6rem;"></div>
+            </p>
           </article>
+
         </div>
 
         <!-- Contact form -->
@@ -651,12 +653,12 @@
           </article>
           
           <article class="card" style="background-color:black">
-            <h3>💰 Participer</h3>
-            <ul style="color:var(--muted);line-height:1.8;margin:.6rem 0 0 1rem">
-              <li>PayPal</li>
-              <li>Crowdfunding</li>
-              <li>Capital-risque DeepTech</li>
-            </ul>
+            <h3>💰 Donate</h3>
+            <p style="color:var(--muted);line-height:1.8;margin-top:.6rem">
+              Direct: <a href="https://paypal.me/thegraviton" style="color:var(--brand1);font-weight:bold;" target="_blank">paypal.me</a><br/>
+              Crowdfunding: <i>coming soon</i><br/><br/>
+             <div id="paypal-donate-button-container-fr" style="position:relative;z-index:10;margin:.6rem;"></div>
+            </p>
           </article>
         </div>
 
@@ -683,7 +685,7 @@
             <button type="submit" class="btn btn-primary" style="width:100%;margin-top:.6rem">
               <span>📤</span> Envoyer le message
             </button>
-            <div class="form-alert" id="form-alert-en" aria-live="polite" style="display:none"></div>
+            <div class="form-alert" id="form-alert-fr" aria-live="polite" style="display:none"></div>
           </form>
         </div>
       </div>
@@ -697,10 +699,48 @@
   <!-- Loading indicator -->
   <div id="loading" style="position:fixed;top:0;left:0;width:100%;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;z-index:9999"></div>
 
-  <!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
+   <!-- Paypal support -->
+   <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
    <script>
+     ["en","fr"].forEach(lang=>{
+     PayPal.Donation.Button({
+         env: 'production',
+         hosted_button_id: '35E5RCYKW9CVL',
+        // business: 'YOUR_EMAIL_OR_PAYERID',
+         image: {
+             src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+             title: 'PayPal - The safer, easier way to pay online!',
+             alt: 'Donate with PayPal button'
+         },
+         onComplete: function (params) {
+          console.log(params);
+<!--          try{-->
+<!--            await emailjs.send("service_tesselite","template_tesselite",{-->
+<!--              from_name:formData.get("name"),-->
+<!--              from_email:formData.get("email"),-->
+<!--              subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),-->
+<!--              message:formData.get("message"),-->
+<!--              to_email:"graviton@tesselite.com"-->
+<!--            });-->
+<!--            alertBox.textContent= lang==="en"?"✅ Message sent!":"✅ Message envoyé !";-->
+<!--            alertBox.className="form-alert success";-->
+<!--            alertBox.style.display="block";-->
+<!--            form.reset();-->
+<!--          }catch(err){-->
+<!--            console.error(err);-->
+<!--            alertBox.textContent= lang==="en"?"❌ Error sending. Try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";-->
+<!--            alertBox.className="form-alert error";-->
+<!--            alertBox.style.display="block";-->
+<!--          }-->
+         },
+     }).render('#paypal-donate-button-container-'+lang);
+     });
+  </script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
     // Variables globales
     let currentLang = 'en'; // Variable manquante ajoutée
     let scrollTimeout;
