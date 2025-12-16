@@ -138,6 +138,7 @@
     /* CONTACT FORM */
     .contact-form{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;box-shadow: var(--shadow);display: flex;flex-direction: column;justify-content: center;width: 100%;}
     .contact-form h3 {font-size:1.4rem; margin-bottom:1rem; text-align:center;}
+    .contact-form button {font-size:1rem}
     .contact-form form {width:100%; max-width:500px; margin:0 auto;}
     .form-group label{display:block;margin-bottom:.5rem;font-weight:600}
     .form-group input,
@@ -607,7 +608,7 @@
 
         <!-- Contact form -->
         <div class="contact-form">
-          <h3 style="margin-bottom:1.5rem">Send us a message</h3>
+          <h3 style="margin-bottom:1.5rem;">Send us a message</h3>
           <form id="contact-form-en">
             <div class="form-group">
               <label for="name-en">Name *</label>
@@ -625,7 +626,7 @@
               <label for="message-en">Message *</label>
               <textarea id="message-en" name="message" required placeholder="Your message, questions or partnership proposal..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:.6rem">
+            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:.6rem;">
               <span>📤</span> Send message
             </button>
             <div class="form-alert" id="form-alert-en" aria-live="polite" style="display:none"></div>
