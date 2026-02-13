@@ -5,96 +5,55 @@ let nav = document.querySelector('nav');
 const loading = document.getElementById('loading');
 
 
-(function () {
-  const saved = localStorage.getItem("lang");
-  if (saved) {
-    window.location.replace(`/${saved}/`);
-    return;
-  }
-
-  const lang = (navigator.language || "en").slice(0, 2);
-  const target = lang === "fr" ? "fr" : "en";
-
-  window.location.replace(`/${target}/`);
-})();
+//(function () {
+//  const saved = localStorage.getItem("lang");
+//  if (saved) {
+//    window.location.replace(`/${saved}/`);
+//    return;
+//  }
+//
+//  const lang = (navigator.language || "en").slice(0, 2);
+//  const target = lang === "fr" ? "fr" : "en";
+//
+//  window.location.replace(`/${target}/`);
+//})();
 
 
 // Language switching functionality
 function switchLanguage(lang) {
-
-  localStorage.setItem("lang", lang);
-
-  currentLang = lang;
-  // Update document language
-  document.getElementById('html-root').lang = lang === 'en' ? 'en' : 'fr';
-
-  // Hide all content
-  document.querySelectorAll('[data-lang-content]').forEach(el => {
-    el.classList.add('hidden');
-  });
-
-  // Show content for selected language
-  document.querySelectorAll(`[data-lang-content="${lang}"]`).forEach(el => {
-    el.classList.remove('hidden');
-  });
-
-  // Update language toggle buttons
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.dataset.lang === lang) {
-      btn.classList.add('active');
-    }
-  });
-
-  // Update meta tags
-  updateMetaTags(lang);
-
-  // Update active navigation reference
-  updateActiveNav();
+  if (location.pathname.includes(`/${lang}/`)) {
+    return;
+  }
+  const path = location.pathname.replace(/(en|fr)/, lang);
+  location.href = `${path}`;
+//  console.log("input lang", lang);
+//  console.log("old path", location.pathname);
+//  console.log("new path", path);
+  document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+  //currentLang = lang;
+  //updateActiveNav();
 }
 
-function updateMetaTags(lang) {
-  // Update title
-  const titleEl = document.querySelector('title');
-  if (titleEl.dataset[lang]) {
-    titleEl.textContent = titleEl.dataset[lang];
-  }
-
-  // Update description
-  const descEl = document.querySelector('meta[name="description"]');
-  if (descEl && descEl.dataset[lang]) {
-    descEl.setAttribute('content', descEl.dataset[lang]);
-  }
-
-  // Update keywords
-  const keywordsEl = document.querySelector('meta[name="keywords"]');
-  if (keywordsEl && keywordsEl.dataset[lang]) {
-    keywordsEl.setAttribute('content', keywordsEl.dataset[lang]);
-  }
-
-  // Update Open Graph
-  const ogTitleEl = document.querySelector('meta[property="og:title"]');
-  if (ogTitleEl && ogTitleEl.dataset[lang]) {
-    ogTitleEl.setAttribute('content', ogTitleEl.dataset[lang]);
-  }
-
-  const ogDescEl = document.querySelector('meta[property="og:description"]');
-  if (ogDescEl && ogDescEl.dataset[lang]) {
-    ogDescEl.setAttribute('content', ogDescEl.dataset[lang]);
-  }
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) { return parts.pop().split(";").shift(); }
+    return null;
 }
 
-function updateActiveNav() {
-  // Update global nav reference to current language nav
-  nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+let userPreferredLanguage = getCookie("lang");
+
+if (userPreferredLanguage) {
+    switchLanguage(userPreferredLanguage); }
+else {
+    console.log("User Preferred Language not detected");
 }
 
-// Language toggle event listeners
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    switchLanguage(btn.dataset.lang);
-  });
-});
+
+//function updateActiveNav() {
+//  // Update global nav reference to current language nav
+//  nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+//}
 
 // Navigation background on scroll avec performance optimisée
 function handleScroll() {
@@ -334,7 +293,14 @@ function handleColorScheme() {
 handleColorScheme();
 
 // Initialize with default language
-switchLanguage('en');
+//switchLanguage('en');
+
+// Language toggle event listeners
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    switchLanguage(btn.dataset.lang);
+  });
+});
 
 // Easter egg: Konami Code
 let konamiCode = [];
@@ -354,3 +320,36 @@ document.addEventListener('keydown', (e) => {
     }, 5000);
   }
 });
+
+// Paypal support
+ ["en","fr"].forEach(async lang=>{
+ PayPal.Donation.Button({
+     env: 'production',
+     hosted_button_id: '35E5RCYKW9CVL',
+     image: {
+         src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+         title: 'PayPal - The safer, easier way to pay online!',
+         alt: 'Donate with PayPal button'
+     },
+     onComplete: async function (params) {
+      try{
+        await emailjs.send("service_tesselite","template_tesselite",{
+          from_name:formData.get("name"),
+          from_email:formData.get("email"),
+          subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),
+          message:formData.get("message"),
+          to_email:"graviton@tesselite.com"
+        });
+        alertBox.textContent= lang==="en"?"✅ Message sent!":"✅ Message envoyé !";
+        alertBox.className="form-alert success";
+        alertBox.style.display="block";
+        form.reset();
+      }catch(err){
+        console.error(err);
+        alertBox.textContent= lang==="en"?"❌ Error sending. Try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";
+        alertBox.className="form-alert error";
+        alertBox.style.display="block";
+      }
+     },
+ }).render('#paypal-donate-button-container-'+lang);
+ });

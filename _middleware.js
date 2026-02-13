@@ -19,8 +19,6 @@ export function onRequest({ request, next }) {
 
   let lang = "en";
   if (langs.some(l => l.startsWith("fr"))) lang = "fr";
-  if (langs.some(l => l.startsWith("jp"))) lang = "jp";
-  if (langs.some(l => l.startsWith("zh"))) lang = "zh";
 
   return Response.redirect(`${url.origin}/${lang}/`, 302);
 }
