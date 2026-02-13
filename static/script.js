@@ -18,14 +18,21 @@ const loading = document.getElementById('loading');
 //  window.location.replace(`/${target}/`);
 //})();
 
+const supportedLanguagesRegex = ["en", "fr"].join("|");
 
 // Language switching functionality
 function switchLanguage(lang) {
+  const regex = new RegExp(supportedLanguagesRegex, "i");
+  if (!regex.test(lang)) {
+    console.log("lang not supported", lang)
+    return;
+  }
   if (location.pathname.includes(`/${lang}/`)) {
     return;
   }
-  const path = location.pathname.replace(/(en|fr)/, lang);
+  const path = location.pathname.replace(regex, lang);
   location.href = `${path}`;
+//  console.log("supported lang", supportedLanguagesRegex);
 //  console.log("input lang", lang);
 //  console.log("old path", location.pathname);
 //  console.log("new path", path);
