@@ -1,44 +1,25 @@
 // Variables globales
-let currentLang = 'en'; // Variable manquante ajoutée
 let scrollTimeout;
 let nav = document.querySelector('nav');
 const loading = document.getElementById('loading');
 
-
-//(function () {
-//  const saved = localStorage.getItem("lang");
-//  if (saved) {
-//    window.location.replace(`/${saved}/`);
-//    return;
-//  }
-//
-//  const lang = (navigator.language || "en").slice(0, 2);
-//  const target = lang === "fr" ? "fr" : "en";
-//
-//  window.location.replace(`/${target}/`);
-//})();
-
-const supportedLanguagesRegex = ["en", "fr", "ja", "zh"].join("|");
+const supportedLanguages = ["en", "fr", "ja", "zh"];
+const supportedLanguagesRegex =  new RegExp(supportedLanguages.join("|"), "i");
 
 // Language switching functionality
-function switchLanguage(lang) {
-  const regex = new RegExp(supportedLanguagesRegex, "i");
-  if (!regex.test(lang)) {
+function switchLanguage(lang, setCookie) {
+  if (!supportedLanguagesRegex.test(lang)) {
     console.log("lang not supported", lang)
     return;
   }
   if (location.pathname.includes(`/${lang}/`)) {
     return;
   }
-  const path = location.pathname.replace(regex, lang);
+  const path = location.pathname.replace(supportedLanguagesRegex, lang);
   location.href = `${path}`;
-//  console.log("supported lang", supportedLanguagesRegex);
-//  console.log("input lang", lang);
-//  console.log("old path", location.pathname);
-//  console.log("new path", path);
-  document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
-  //currentLang = lang;
-  //updateActiveNav();
+  if (setCookie) {
+    document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+  }
 }
 
 function getCookie(name) {
@@ -48,19 +29,14 @@ function getCookie(name) {
     return null;
 }
 
-let userPreferredLanguage = getCookie("lang");
+const userPreferredLanguage = getCookie("lang");
+const userDefaultLanguage = (navigator.language || navigator.userLanguage).split("-")[0];
 
-if (userPreferredLanguage) {
-    switchLanguage(userPreferredLanguage); }
+if (userPreferredLanguage || userDefaultLanguage) {
+    switchLanguage(userPreferredLanguage || userDefaultLanguage, false); }
 else {
     console.log("User Preferred Language not detected");
 }
-
-
-//function updateActiveNav() {
-//  // Update global nav reference to current language nav
-//  nav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
-//}
 
 // Navigation background on scroll avec performance optimisée
 function handleScroll() {
@@ -129,7 +105,7 @@ document.addEventListener('click', function(e) {
     const targetSection = e.target.getAttribute('href').substring(1);
 
     // Trouver la section correspondante dans la langue active
-    const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${currentLang}"]:not(.hidden)`);
+    const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="en"]:not(.hidden)`);
 
     if (target) {
       // Fermer le menu mobile si ouvert
@@ -141,7 +117,7 @@ document.addEventListener('click', function(e) {
       });
 
       // Scroll fluide avec offset pour la nav fixe
-      const currentNav = document.querySelector(`nav[data-lang-content="${currentLang}"]:not(.hidden)`);
+      const currentNav = document.querySelector(`nav[data-lang-content="en"]:not(.hidden)`);
       const navHeight = currentNav ? currentNav.offsetHeight : 80;
       const targetPosition = target.offsetTop - navHeight;
 
@@ -302,7 +278,7 @@ handleColorScheme();
 // Language toggle event listeners
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    switchLanguage(btn.dataset.lang);
+    switchLanguage(btn.dataset.lang, true);
   });
 });
 
