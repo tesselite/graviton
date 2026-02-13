@@ -18,7 +18,7 @@ const loading = document.getElementById('loading');
 //  window.location.replace(`/${target}/`);
 //})();
 
-const supportedLanguagesRegex = ["en", "fr", "ja"].join("|");
+const supportedLanguagesRegex = ["en", "fr", "ja", "zh"].join("|");
 
 // Language switching functionality
 function switchLanguage(lang) {
@@ -32,10 +32,10 @@ function switchLanguage(lang) {
   }
   const path = location.pathname.replace(regex, lang);
   location.href = `${path}`;
-  console.log("supported lang", supportedLanguagesRegex);
-  console.log("input lang", lang);
-  console.log("old path", location.pathname);
-  console.log("new path", path);
+//  console.log("supported lang", supportedLanguagesRegex);
+//  console.log("input lang", lang);
+//  console.log("old path", location.pathname);
+//  console.log("new path", path);
   document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
   //currentLang = lang;
   //updateActiveNav();

@@ -11,6 +11,8 @@
     <loc>en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="fr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="en/"/>
   </url>
 
@@ -19,7 +21,27 @@
     <loc>fr/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="fr/"/>
+  </url>
+
+  <url>
+    <loc>ja/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="ja/"/>
+  </url>
+
+  <url>
+    <loc>zh/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="zh/"/>
   </url>
 
 </urlset>

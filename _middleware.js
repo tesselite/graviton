@@ -8,7 +8,7 @@ export function onRequest({ request, next }) {
 
   // 1. User preference cookie
   const cookie = request.headers.get("Cookie") || "";
-  const match = cookie.match(/lang=(en|fr|ja)/);
+  const match = cookie.match(/lang=(en|fr|ja|zh)/);
   if (match) {
     return Response.redirect(`${url.origin}/${match[1]}/`, 302);
   }
@@ -20,6 +20,7 @@ export function onRequest({ request, next }) {
   let lang = "en";
   if (langs.some(l => l.startsWith("fr"))) lang = "fr";
   if (langs.some(l => l.startsWith("ja"))) lang = "ja";
+  if (langs.some(l => l.startsWith("zh"))) lang = "zh";
 
   return Response.redirect(`${url.origin}/${lang}/`, 302);
 }
