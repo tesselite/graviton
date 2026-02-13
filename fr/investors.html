@@ -1,0 +1,565 @@
+<html lang="fr" class="translated-ltr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investisseurs - Levée de fonds d'amorçage de Tesselite</title>
+  <style>
+    :root{
+      --bg:#0a0a0a;--muted:#a0a0a0;--card:rgba(255,255,255,.05);
+      --stroke:rgba(255,255,255,.12);
+      --brand1:#667eea;--brand2:#764ba2;--brand3:#f093fb;
+      --accent:#00FF88;--primary:#0066FF;
+      --grad:linear-gradient(135deg,var(--brand1) 0%,var(--brand2) 50%,var(--brand3) 100%);
+      --grad-primary:linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      --radius:22px;--shadow:0 20px 40px rgba(102,126,234,.22);
+      --maxw:1200px;--transition:.25s ease;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,system-ui,sans-serif;background:var(--bg);color:#fff;padding:2rem 1rem}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+
+	/* Header / Topbar */
+	.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--stroke);box-shadow: 0 4px 20px rgba(0,0,0,0.1);}
+	.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+	.brand{display:flex;align-items:center;gap:.8rem;font-weight:800;letter-spacing:.3px;font-size:1.1rem}
+	.brand-badge{width:32px;height:32px;border-radius:10px;background:var(--grad);box-shadow: 0 4px 12px rgba(102,126,234,.3);animation: pulse 2s ease-in-out infinite;}
+	@keyframes pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+	}
+	.back-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.2rem;border-radius:16px;border:1px solid var(--stroke);background:var(--card);transition:all var(--transition);font-weight:600;text-decoration:none;color:#fff;backdrop-filter: blur(8px);font-size:0.95rem;}
+	.back-btn:hover{transform:translateY(-2px);border-color:var(--brand1);box-shadow:0 8px 25px rgba(102,126,234,.25);background:rgba(255,255,255,.08);}
+	.back-btn:active{transform:translateY(0);}
+
+	 /* HERO */
+    .hero-investor{text-align:center;margin-bottom:4rem;padding:3rem 0;background:radial-gradient(60% 40% at 50% 50%,rgba(102,126,234,.12),transparent 60%);border-radius:var(--radius)}
+    .investor-title{font-size:3rem;margin-bottom:1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .investor-subtitle{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 2rem}
+    .funding-amount{font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:0.5rem}
+    .funding-use{color:var(--muted);font-size:1rem}
+
+    /* Investment Highlights */
+    .highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:4rem}
+    .highlight-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;text-align:center;transition:all var(--transition)}
+    .highlight-card:hover{transform:translateY(-5px);border-color:rgba(102,126,234,.4);background:rgba(255,255,255,.08)}
+    .highlight-icon{font-size:2.5rem;margin-bottom:1rem}
+    .highlight-metric{font-size:2rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.5rem}
+    .highlight-label{color:var(--muted);font-size:0.9rem}
+
+    /* Business Model */
+    .business-section{margin-bottom:4rem}
+    .section-title{font-size:2.2rem;margin-bottom:1rem;text-align:center;background:linear-gradient(135deg,#fff 0%,#bdbdbd 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .section-description{color:var(--muted);max-width:800px;margin:0 auto 2rem;text-align:center;line-height:1.6}
+
+    .business-model-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+    .model-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem}
+    .model-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+    .model-icon{width:50px;height:50px;background:var(--grad-primary);border-radius:12px;display:grid;place-items:center;font-size:1.2rem}
+    .model-title{font-size:1.3rem;font-weight:700}
+    .model-revenue{color:var(--accent);font-size:1.1rem;font-weight:600;margin-bottom:1rem}
+    .model-description{color:var(--muted);line-height:1.6}
+
+    /* Market Analysis */
+    .market-analysis{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2.5rem;margin-bottom:4rem}
+    .market-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
+    .market-stat{text-align:center}
+    .market-number{font-size:2.5rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .market-label{color:var(--muted);font-size:0.9rem;margin-top:0.5rem}
+
+    /* Competitive Advantage */
+    .competitive-advantages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:4rem}
+    .advantage-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem}
+    .advantage-title{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent)}
+    .advantage-description{color:var(--muted);font-size:0.9rem;line-height:1.5}
+
+    /* Financial Projections */
+    .financial-projections{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2.5rem;margin-bottom:4rem;overflow: auto;}
+    .projection-table{width:100%;margin-top:1.5rem;border-collapse:collapse;overflow: scroll;}
+    .projection-table th,
+    .projection-table td{padding:1rem;text-align:center;border-bottom:1px solid var(--stroke)}
+    .projection-table th{background:rgba(102,126,234,.1);font-weight:600}
+    .projection-table .revenue{color:var(--accent);font-weight:600}
+
+    /* Use of Funds */
+    .use-of-funds{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:4rem;align-items:center}
+    .funds-breakdown{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem}
+    .fund-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--stroke)}
+    .fund-item:last-child{border-bottom:none}
+    .fund-category{font-weight:600}
+    .fund-amount{color:var(--accent);font-weight:600}
+    .fund-percentage{color:var(--muted);font-size:0.9rem;margin-left:1rem}
+
+    /* Investment CTA */
+    .investment-cta{background:linear-gradient(135deg,rgba(102,126,234,.1),rgba(118,75,162,.1));border:1px solid rgba(102,126,234,.3);border-radius:var(--radius);padding:3rem;text-align:center;margin-bottom:4rem}
+    .cta-title{font-size:2rem;margin-bottom:1rem}
+    .cta-description{color:var(--muted);max-width:600px;margin:0 auto 2rem;line-height:1.6}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn{appearance:none;border:0;border-radius:999px;padding:1rem 2rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;position:relative;overflow:hidden}
+    .btn-primary{background:var(--grad-primary);box-shadow:var(--shadow);color:#fff}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(0,102,255,.4)}
+    .btn-secondary{background:transparent;border:1px solid var(--stroke);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,.05);border-color:var(--brand1);transform:translateY(-2px)}
+
+    /* Documents Section */
+    .documents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+    .document-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:1.5rem;transition:all var(--transition);cursor:pointer}
+    .document-card:hover{transform:translateY(-3px);border-color:rgba(102,126,234,.4)}
+    .document-icon{font-size:2rem;margin-bottom:1rem}
+    .document-title{font-size:1.1rem;margin-bottom:0.5rem}
+    .document-description{color:var(--muted);font-size:0.9rem;line-height:1.5}
+
+	/* Modal */
+
+	.modal {display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter: blur(8px); /* Flou de l'arrière-plan */-webkit-backdrop-filter: blur(8px); /* Support Safari */justify-content:center;align-items:center}
+	.modal.show {display: flex;}
+	.modal-content {background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem;max-width:400px;width:90%;color:#fff;position:relative;animation: modalSlideIn 0.3s ease;}
+    .modal-content h3{line-height:3rem}
+    .modal-content button{font-size:0.95rem}
+
+	@keyframes modalSlideIn {
+		from { opacity: 0; transform: scale(0.8); }
+		to { opacity: 1; transform: scale(1); }
+	}
+
+	.modal-content input, .modal-content textarea {width:100%;margin-bottom:1rem;padding:0.8rem;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,0.05);color:#fff;font-family: inherit;}
+
+	.modal-content input::placeholder,
+	.modal-content textarea::placeholder {
+		color: var(--muted);
+	}
+
+	.close {position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer;color: var(--muted);transition: color var(--transition);}
+
+	  .close:hover {color: #fff;}
+
+	/* Footer */
+	footer{padding:2.5rem 0;border-top:1px solid var(--stroke);color:var(--muted);text-align:center}
+
+	/* Responsive */
+	@media (max-width:1024px){
+		.highlights{grid-template-columns:1fr 1fr}
+		.docs{grid-template-columns:1fr 1fr}
+		.access-grid{grid-template-columns:1fr}
+
+	@media (max-width: 768px){
+      .investor-title{font-size:2.2rem}
+      .use-of-funds{grid-template-columns:1fr}
+      .cta-buttons{flex-direction:column;align-items:center}
+      .highlights-grid{grid-template-columns:1fr}
+    }
+
+	@media (max-width:680px){
+		.topbar-inner{flex-wrap:wrap;gap:.6rem}
+		.form-row{grid-template-columns:1fr}
+		.highlights{grid-template-columns:1fr}
+		.docs{grid-template-columns:1fr}
+		.hero{padding:3.2rem 0 1.2rem}
+		.card{padding:1.25rem}
+		.btn{padding:.7rem .9rem}
+
+ </style>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AAgG/d=0/rs=AN8SPfrhKfLNQThwPXviXzekz-H_oLcqkw/m=el_main_css"></head>
+<body>
+  <!-- Topbar with Back to Main Site -->
+	<header class="topbar" role="banner">
+		<div class="wrap topbar-inner">
+			<div class="brand" aria-label="Investisseurs en tesselite">
+				<span class="brand-badge" aria-hidden="true"></span>
+				<span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">TESSELITE · Investisseurs</font></font></span>
+			</div>
+			<nav aria-label="Navigation utilitaire">
+				<a class="back-btn" href="index.html" rel="noopener" aria-label="Retour au site principal">
+					<span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">⬅</font></font></span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Retour à Tesselite.com
+				</font></font></a>
+			</nav>
+		</div>
+	</header>
+
+  <div class="wrap">
+    <!-- Hero Section -->
+    <div class="hero-investor">
+      <h1 class="investor-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Opportunité d'investissement en phase de pré-amorçage</font></font></h1>
+      <p class="investor-subtitle"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Rejoignez-nous pour révolutionner la propulsion spatiale grâce à la technologie révolutionnaire du moteur à gravitons
+      </font></font></p>
+      <div class="funding-amount"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1 million de dollars en pré-amorçage</font></font></div>
+      <div class="funding-use"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Développer la technologie et pénétrer les marchés commerciaux</font></font></div>
+    </div>
+
+    <!-- Investment Highlights -->
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🚀</font></font></div>
+        <div class="highlight-metric"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">66%</font></font></div>
+        <div class="highlight-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Réduction des coûts par rapport à la propulsion traditionnelle</font></font></div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">⚡</font></font></div>
+        <div class="highlight-metric"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">3x</font></font></div>
+        <div class="highlight-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Amélioration de l'efficacité énergétique</font></font></div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🌍</font></font></div>
+        <div class="highlight-metric"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Plus de 400 milliards de dollars</font></font></div>
+        <div class="highlight-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Taille du marché adressable (TAM)</font></font></div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🎯</font></font></div>
+        <div class="highlight-metric"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1</font></font></div>
+        <div class="highlight-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Brevet en instance</font></font></div>
+      </div>
+    </div>
+
+    <!-- Market Analysis -->
+    <div class="business-section">
+      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Opportunité de marché</font></font></h2>
+      <p class="section-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        L'économie spatiale mondiale devrait dépasser 1&nbsp;000 milliards de dollars d'ici 2040, portée par le déploiement de satellites, le tourisme spatial et les missions interplanétaires. Les limitations actuelles en matière de propulsion engendrent d'importants goulets d'étranglement.
+      </font></font></p>
+      <div class="market-analysis">
+        <div class="market-stats">
+          <div class="market-stat">
+            <div class="market-number"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">400 milliards de dollars</font></font></div>
+            <div class="market-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Marché total adressable</font></font></div>
+          </div>
+          <div class="market-stat">
+            <div class="market-number"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">120 milliards de dollars</font></font></div>
+            <div class="market-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Marché adressable et exploitable</font></font></div>
+          </div>
+          <div class="market-stat">
+            <div class="market-number"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">25%</font></font></div>
+            <div class="market-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Croissance annuelle du marché (TCAC)</font></font></div>
+          </div>
+          <div class="market-stat">
+            <div class="market-number"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">15 milliards de dollars</font></font></div>
+            <div class="market-label"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Objectif de conquête du marché cible d'ici 2035</font></font></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Models -->
+    <div class="business-section">
+      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Flux de revenus</font></font></h2>
+      <div class="business-model-grid">
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🛰️</font></font></div>
+            <div class="model-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Technologie de licence</font></font></div>
+          </div>
+          <div class="model-revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">40 % des revenus prévus</font></font></div>
+          <p class="model-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Licence de la technologie Graviton Engine aux fabricants de satellites et aux agences spatiales. Redevances récurrentes sur chaque unité produite.
+          </font></font></p>
+        </div>
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🔧</font></font></div>
+            <div class="model-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Fabrication et ventes</font></font></div>
+          </div>
+          <div class="model-revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">35 % des revenus prévus</font></font></div>
+          <p class="model-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Fabrication et vente directes de systèmes de propulsion Graviton à des clients commerciaux et gouvernementaux.
+          </font></font></p>
+        </div>
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🛠️</font></font></div>
+            <div class="model-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Services et assistance</font></font></div>
+          </div>
+          <div class="model-revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">25 % des revenus prévus</font></font></div>
+          <p class="model-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Services de maintenance, de mise à niveau et d'assistance technique pour les systèmes Graviton déployés dans le monde entier.
+          </font></font></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Competitive Advantages -->
+    <div class="business-section">
+      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Avantages concurrentiels</font></font></h2>
+      <div class="competitive-advantages">
+        <div class="advantage-card">
+          <div class="advantage-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Protection des brevets</font></font></div>
+          <p class="advantage-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Un solide portefeuille de propriété intellectuelle comprenant un brevet couvrant la technologie de base de Graviton, créant ainsi d'importantes barrières à l'entrée.
+          </font></font></p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Avantage du premier entrant</font></font></div>
+          <p class="advantage-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Première solution de mouvement perpétuel géométrique commercialement viable pour la propulsion spatiale, plusieurs années en avance sur ses concurrents potentiels.
+          </font></font></p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Technologie éprouvée</font></font></div>
+          <p class="advantage-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Prototypes fonctionnels démontrant un comportement perpétuel dans des environnements contrôlés.
+          </font></font></p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Partenariats stratégiques</font></font></div>
+          <p class="advantage-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+            Établir des partenariats avec les principaux fabricants aérospatiaux en vue du développement et de la commercialisation.
+          </font></font></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial Projections -->
+    <div class="business-section">
+      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Projections financières</font></font></h2>
+      <div class="financial-projections">
+        <table class="projection-table">
+          <thead>
+            <tr>
+              <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Métrique</font></font></th>
+              <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2026</font></font></th>
+              <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2027</font></font></th>
+              <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2028</font></font></th>
+              <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2029</font></font></th>
+              <th><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2030</font></font></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Revenus (en millions de dollars)</font></font></strong></td>
+              <td class="revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0,5</font></font></td>
+              <td class="revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">1.6</font></font></td>
+              <td class="revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">5.1</font></font></td>
+              <td class="revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">13.1</font></font></td>
+              <td class="revenue"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">29.2</font></font></td>
+            </tr>
+            <tr>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Unités vendues</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">4</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">12</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">25</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">49</font></font></td>
+            </tr>
+            <tr>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Marge brute</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">45%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">58%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">65%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">72%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">75%</font></font></td>
+            </tr>
+            <tr>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Marge d'EBITDA</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">-25%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">12%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">28%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">42%</font></font></td>
+              <td><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">48%</font></font></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Use of Funds -->
+    <div class="business-section">
+      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Utilisation des fonds</font></font></h2>
+      <div class="use-of-funds">
+        <div class="funds-breakdown">
+          <h3 style="margin-bottom:1.5rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Allocation de 1 million de dollars en pré-amorçage</font></font></h3>
+          <div class="fund-item">
+            <span class="fund-category"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Recherche et développement de produits</font></font></span>
+            <span>
+              <span class="fund-amount"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0,4 million de dollars </font></font></span>
+              <span class="fund-percentage"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">(40 %)</font></font></span>
+            </span>
+          </div>
+          <div class="fund-item">
+            <span class="fund-category"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Production et mise à l'échelle</font></font></span>
+            <span>
+              <span class="fund-amount"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0,3 million de dollars </font></font></span>
+              <span class="fund-percentage"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">(30 %)</font></font></span>
+            </span>
+          </div>
+          <div class="fund-item">
+            <span class="fund-category"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Expansion de l'équipe</font></font></span>
+            <span>
+              <span class="fund-amount"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0,2 million de dollars </font></font></span>
+              <span class="fund-percentage"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">(20 %)</font></font></span>
+            </span>
+          </div>
+          <div class="fund-item">
+            <span class="fund-category"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Marketing et ventes</font></font></span>
+            <span>
+              <span class="fund-amount"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0,06 M$ </font></font></span>
+              <span class="fund-percentage"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">(6 %)</font></font></span>
+            </span>
+          </div>
+          <div class="fund-item">
+            <span class="fund-category"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Fonds de roulement</font></font></span>
+            <span>
+              <span class="fund-amount"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">0,04 M$ </font></font></span>
+              <span class="fund-percentage"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">(4 %)</font></font></span>
+            </span>
+          </div>
+        </div>
+        <div>
+            <div style="background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:2rem">
+			<h3 style="margin-bottom:1.5rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Étapes clés</font></font></h3>
+            <div style="margin-bottom:1.5rem">
+              <h4 style="color:var(--accent);margin-bottom:0.5rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2e trimestre 2026</font></font></h4>
+              <p style="color:var(--muted);font-size:0.9rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Première livraison commerciale du moteur Graviton</font></font></p>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <h4 style="color:var(--accent);margin-bottom:0.5rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">4e trimestre 2026</font></font></h4>
+              <p style="color:var(--muted);font-size:0.9rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">partenariat stratégique avec un grand fabricant de moteurs</font></font></p>
+            </div>
+            <div style="margin-bottom:1.5rem">
+              <h4 style="color:var(--accent);margin-bottom:0.5rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2e trimestre 2027</font></font></h4>
+              <p style="color:var(--muted);font-size:0.9rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Tour de table de série A (objectif de 5 millions de dollars)</font></font></p>
+            </div>
+            <div>
+              <h4 style="color:var(--accent);margin-bottom:0.5rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2028</font></font></h4>
+              <p style="color:var(--muted);font-size:0.9rem"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Expansion internationale et production de masse</font></font></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documents -->
+    <div class="business-section">
+      <h2 class="section-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Documents d'investissement</font></font></h2>
+      <div class="documents-grid">
+        <div class="document-card" onclick="requestDocument('pitch-deck')">
+          <div class="document-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">📊</font></font></div>
+          <h4 class="document-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Présentation</font></font></h4>
+          <p class="document-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Présentation complète comprenant un aperçu technologique, une analyse de marché et des projections financières.</font></font></p>
+        </div>
+        <div class="document-card" onclick="requestDocument('executive-summary')">
+          <div class="document-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">📄</font></font></div>
+          <h4 class="document-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Résumé exécutif</font></font></h4>
+          <p class="document-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Résumé détaillé du plan d'affaires avec indicateurs clés et vision stratégique</font></font></p>
+        </div>
+        <div class="document-card" onclick="requestDocument('financial-model')">
+          <div class="document-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">📈</font></font></div>
+          <h4 class="document-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Modèle financier</font></font></h4>
+          <p class="document-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Projections financières sur 5 ans avec analyse de sensibilité et planification de scénarios</font></font></p>
+        </div>
+        <div class="document-card" onclick="requestDocument('due-diligence')">
+          <div class="document-icon"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">🔍</font></font></div>
+          <h4 class="document-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Dossier de diligence raisonnable</font></font></h4>
+          <p class="document-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Spécifications techniques, portefeuille de propriété intellectuelle et documentation de conformité réglementaire</font></font></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Investment CTA -->
+
+    <div class="investment-cta">
+      <h2 class="cta-title"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Prêt à rejoindre la révolution spatiale ?</font></font></h2>
+      <p class="cta-description"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+        Contactez notre équipe pour discuter des opportunités d'investissement et accéder à nos documents d'analyse approfondie. Places limitées disponibles pour le tour de pré-amorçage.
+      </font></font></p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" onclick="scheduleCall()"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+          📅 Planifiez une conférence téléphonique avec les investisseurs
+        </font></font></button>
+        <button class="btn btn-secondary" onclick="requestAccess()"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">
+          📧 Demander l'accès à la salle de données
+        </font></font></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Request Access -->
+  <div id="requestModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeModal()"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">×</font></font></span>
+		<h3><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Demande d'accès à la salle de données</font></font></h3>
+		<form id="accessForm">
+			<input type="text" name="name" placeholder="Nom et prénom" required="">
+			<input type="email" name="email" placeholder="Adresse email" required="">
+			<input type="text" name="company" placeholder="Entreprise" required="">
+			<textarea name="reason" placeholder="Motif de l'accès" rows="3" required=""></textarea>
+			<button type="submit" class="btn btn-primary" style="width: 100%;"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Soumettre une demande</font></font></button>
+		</form>
+	</div>
+  </div>
+
+  <footer>
+	<div class="wrap"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">© </font></font><span id="currentYear"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">2026</font></font></span><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> TESSELITE. Tous droits réservés.</font></font></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+	// Initialize EmailJS
+	emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
+
+	// Set current year
+	document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    function requestDocument(docType) {
+       // Scroll to CTA section when documents are clicked
+      const cta = document.querySelector('.investment-cta');
+      if(cta) {
+        cta.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
+	}
+    function scheduleCall() {
+      const calendarUrl = "https://calendar.app.google/k6vZ6v7iyJnEFZG57";
+	  window.open(calendarUrl, "_blank").focus();
+	}
+
+    function requestAccess() {
+      const modal = document.getElementById("requestModal");
+      modal.classList.add("show"); // Ajouter la classe pour afficher
+	}
+
+	function closeModal() {
+      const modal = document.getElementById("requestModal");
+      modal.classList.remove("show"); // Retirer la classe pour masquer
+	}
+
+	// Close modal when clicking outside
+	document.getElementById("requestModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+	// Close modal with Escape key
+	document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+	// Handle form submission
+    document.getElementById("accessForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      // Send email via EmailJS
+      emailjs.sendForm("service_tesselite", "template_tesselite", this)
+        .then(function() {
+          alert("✅ Request submitted successfully! You will receive an email with access link shortly.");
+          closeModal();
+          // Reset form
+          document.getElementById("accessForm").reset();
+        }, function(error) {
+          alert("❌ Error sending request: " + JSON.stringify(error));
+        })
+        .finally(function() {
+          // Reset button state
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+    });
+  </script><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Texte d'origine</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Évaluez cette traduction</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Votre avis nous aidera à améliorer Google&nbsp;Traduction</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Bonne traduction" aria-label="Bonne traduction" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Mauvaise traduction" aria-label="Mauvaise traduction" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te_lib" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
+
+
+</body></html>
