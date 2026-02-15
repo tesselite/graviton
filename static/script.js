@@ -100,12 +100,13 @@ document.addEventListener('click', (e) => {
 
 // Smooth scroll amélioré pour les liens d'ancre
 document.addEventListener('click', function(e) {
+  const docLang = document.documentElement.lang.split("-")[0] || "en";
   if (e.target.matches('a[href^="#"]')) {
     e.preventDefault();
     const targetSection = e.target.getAttribute('href').substring(1);
 
     // Trouver la section correspondante dans la langue active
-    const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="en"]:not(.hidden)`);
+    const target = document.querySelector(`[data-section="${targetSection}"][data-lang-content="${docLang}"]:not(.hidden)`);
 
     if (target) {
       // Fermer le menu mobile si ouvert
@@ -117,7 +118,7 @@ document.addEventListener('click', function(e) {
       });
 
       // Scroll fluide avec offset pour la nav fixe
-      const currentNav = document.querySelector(`nav[data-lang-content="en"]:not(.hidden)`);
+      const currentNav = document.querySelector(`nav[data-lang-content="${docLang}"]:not(.hidden)`);
       const navHeight = currentNav ? currentNav.offsetHeight : 80;
       const targetPosition = target.offsetTop - navHeight;
 
@@ -191,7 +192,7 @@ emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
 })();
 
  function setupContactForms(){
-["en","fr"].forEach(lang=>{
+["en"].forEach(lang=>{
   const form=document.getElementById(`contact-form-${lang}`);
   const alertBox=document.getElementById(`form-alert-${lang}`);
   if(!form) return;
@@ -200,24 +201,24 @@ emailjs.init({publicKey: "PxE3bwQmi779WfPnh"});
     const formData=new FormData(form);
     const btn=form.querySelector("button[type='submit']");
     const original=btn.innerHTML;
-    btn.innerHTML= lang==="en"?"<span>⏳</span> Sending...":"<span>⏳</span> Envoi...";
+    btn.innerHTML="<span>⏳</span> Sending...";
     btn.disabled=true;
     alertBox.style.display="none";
     try{
       await emailjs.send("service_tesselite","template_tesselite",{
         from_name:formData.get("name"),
         from_email:formData.get("email"),
-        subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),
+        subject:formData.get("subject")|| ("Contact from website"),
         message:formData.get("message"),
         to_email:"graviton@tesselite.com"
       });
-      alertBox.textContent= lang==="en"?"✅ Message sent!":"✅ Message envoyé !";
+      alertBox.textContent= "✅ Message sent!";
       alertBox.className="form-alert success";
       alertBox.style.display="block";
       form.reset();
     }catch(err){
       console.error(err);
-      alertBox.textContent= lang==="en"?"❌ Error sending. Try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";
+      alertBox.textContent= "❌ Error sending. Try again or email us directly.";
       alertBox.className="form-alert error";
       alertBox.style.display="block";
     }finally{
@@ -302,7 +303,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Paypal support
- ["en","fr"].forEach(async lang=>{
+supportedLanguages.forEach(async lang=>{
  PayPal.Donation.Button({
      env: 'production',
      hosted_button_id: '35E5RCYKW9CVL',
@@ -316,17 +317,17 @@ document.addEventListener('keydown', (e) => {
         await emailjs.send("service_tesselite","template_tesselite",{
           from_name:formData.get("name"),
           from_email:formData.get("email"),
-          subject:formData.get("subject")|| (lang==="en"?"Contact from website":"Contact depuis le site"),
+          subject:formData.get("subject")|| ("Contact from website"),
           message:formData.get("message"),
           to_email:"graviton@tesselite.com"
         });
-        alertBox.textContent= lang==="en"?"✅ Message sent!":"✅ Message envoyé !";
+        alertBox.textContent= "✅ Message sent!";
         alertBox.className="form-alert success";
         alertBox.style.display="block";
         form.reset();
       }catch(err){
         console.error(err);
-        alertBox.textContent= lang==="en"?"❌ Error sending. Try again or email us directly.":"❌ Erreur d'envoi. Réessayez ou utilisez l'email direct.";
+        alertBox.textContent= "❌ Error sending. Try again or email us directly.";
         alertBox.className="form-alert error";
         alertBox.style.display="block";
       }
