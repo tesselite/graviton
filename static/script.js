@@ -303,7 +303,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Paypal support
-supportedLanguages.forEach(async lang=>{
  PayPal.Donation.Button({
      env: 'production',
      hosted_button_id: '35E5RCYKW9CVL',
@@ -332,5 +331,4 @@ supportedLanguages.forEach(async lang=>{
         alertBox.style.display="block";
       }
      },
- }).render('#paypal-donate-button-container-'+lang);
- });
+ }).render('#paypal-donate-button-container-en');
